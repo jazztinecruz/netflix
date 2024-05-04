@@ -7,12 +7,22 @@ const Home: Page = async () => {
   const movies = await get.movies.popular();
   const upcoming = await get.movies.upcoming();
   const similar = await get.movies.similar({ id: "823464" });
+  const credits = await get.movies.credits({ id: "823464" });
 
   const movie = await get.movie.details({ id: "823464" });
   const video = await get.movie.video({ id: "823464" });
   const images = await get.movie.images({ id: "823464" });
 
-  if (!movie || !movies || !upcoming || !similar || !movie || !video || !images)
+  if (
+    !movie ||
+    !movies ||
+    !upcoming ||
+    !similar ||
+    !credits ||
+    !movie ||
+    !video ||
+    !images
+  )
     return null;
 
   return (

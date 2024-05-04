@@ -14,6 +14,11 @@ export const getSimilar = cache(async (id: string) => {
   return await api({ url: `${id}/similar` });
 });
 
+export const getCredits = cache(async (id: string) => {
+  if (!id) return;
+  return await api({ url: `${id}/credits` });
+});
+
 export const getMovie = cache(async (id: string) => {
   if (!id) return;
   return await api({ url: id });

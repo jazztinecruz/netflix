@@ -5,6 +5,7 @@ import {
   getPopular,
   getSimilar,
   getUpcoming,
+  getCredits,
 } from "./movies";
 
 const get = {
@@ -17,6 +18,7 @@ const get = {
     popular: () => getPopular(),
     upcoming: () => getUpcoming(),
     similar: ({ id }: { id: string }) => getSimilar(id),
+    credits: ({ id }: { id: string }) => getCredits(id),
   },
 };
 
