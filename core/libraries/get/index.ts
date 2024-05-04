@@ -1,5 +1,6 @@
 import {
   getMovie,
+  getMovieImages,
   getMovieVideo,
   getMovies,
   getSimilarMovies,
@@ -10,6 +11,7 @@ const get = {
   movie: {
     details: ({ id }: { id: string }) => getMovie(id),
     video: ({ id }: { id: string }) => getMovieVideo(id),
+    images: ({ id }: { id: string }) => getMovieImages(id),
   },
   movies: {
     popular: () => getMovies(),

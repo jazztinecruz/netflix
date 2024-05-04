@@ -23,3 +23,8 @@ export const getMovieVideo = cache(async (id: string) => {
   if (!id) return;
   return await api({ url: `/3/movie/${id}/videos` });
 });
+
+export const getMovieImages = cache(async (id: string) => {
+  if (!id) return;
+  return await api({ url: `/3/movie/${id}/images` });
+});
