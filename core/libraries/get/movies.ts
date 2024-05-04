@@ -1,30 +1,30 @@
 import { cache } from "react";
 import api from "./api";
 
-export const getMovies = cache(async () => {
-  return await api({ url: "/3/movie/popular" });
+export const getPopular = cache(async () => {
+  return await api({ url: "popular" });
 });
 
-export const getUpcomingMovies = cache(async () => {
-  return await api({ url: "/3/movie/upcoming" });
+export const getUpcoming = cache(async () => {
+  return await api({ url: "upcoming" });
 });
 
-export const getSimilarMovies = cache(async (id: string) => {
+export const getSimilar = cache(async (id: string) => {
   if (!id) return;
-  return await api({ url: `/3/movie/${id}/similar` });
+  return await api({ url: `${id}/similar` });
 });
 
 export const getMovie = cache(async (id: string) => {
   if (!id) return;
-  return await api({ url: `/3/movie/${id}` });
+  return await api({ url: id });
 });
 
-export const getMovieVideo = cache(async (id: string) => {
+export const getVideo = cache(async (id: string) => {
   if (!id) return;
-  return await api({ url: `/3/movie/${id}/videos` });
+  return await api({ url: `${id}/videos` });
 });
 
-export const getMovieImages = cache(async (id: string) => {
+export const getImages = cache(async (id: string) => {
   if (!id) return;
-  return await api({ url: `/3/movie/${id}/images` });
+  return await api({ url: `${id}/images` });
 });

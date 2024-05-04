@@ -1,22 +1,22 @@
 import {
   getMovie,
-  getMovieImages,
-  getMovieVideo,
-  getMovies,
-  getSimilarMovies,
-  getUpcomingMovies,
+  getImages,
+  getVideo,
+  getPopular,
+  getSimilar,
+  getUpcoming,
 } from "./movies";
 
 const get = {
   movie: {
     details: ({ id }: { id: string }) => getMovie(id),
-    video: ({ id }: { id: string }) => getMovieVideo(id),
-    images: ({ id }: { id: string }) => getMovieImages(id),
+    video: ({ id }: { id: string }) => getVideo(id),
+    images: ({ id }: { id: string }) => getImages(id),
   },
   movies: {
-    popular: () => getMovies(),
-    upcoming: () => getUpcomingMovies(),
-    similar: ({ id }: { id: string }) => getSimilarMovies(id),
+    popular: () => getPopular(),
+    upcoming: () => getUpcoming(),
+    similar: ({ id }: { id: string }) => getSimilar(id),
   },
 };
 

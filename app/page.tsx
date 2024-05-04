@@ -1,7 +1,7 @@
 import get from "@/core/libraries/get";
 import { Page } from "@/core/types/react";
 import Image from "next/image";
-import VideoPlayer from "./video";
+import VideoPlayer from "./_components/video";
 
 const Home: Page = async () => {
   const movies = await get.movies.popular();
@@ -12,11 +12,8 @@ const Home: Page = async () => {
   const video = await get.movie.video({ id: "823464" });
   const images = await get.movie.images({ id: "823464" });
 
-  if (!movie || !movies || !upcoming || !similar) return null;
-
-  console.log(
-    `${process.env.IMAGE_BASE_URL}/t/p/w300${images.logos[0].file_path}`
-  );
+  if (!movie || !movies || !upcoming || !similar || !movie || !video || !images)
+    return null;
 
   return (
     <div>
