@@ -15,7 +15,6 @@ const Home: Page = async () => {
   const images = await get.movie.images({ id: "823464" });
   const certificate = await get.movie.certificate({ id: "823464" });
 
-  console.log(discover);
   if (
     !movie ||
     !movies ||
@@ -25,9 +24,10 @@ const Home: Page = async () => {
     !movie ||
     !video ||
     !images ||
-    !certificate
+    !certificate ||
+    !discover
   )
-    return null;
+    return <div>Engg!!!</div>;
 
   return (
     <div>
