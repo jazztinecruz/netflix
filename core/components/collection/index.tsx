@@ -17,7 +17,7 @@ const Collection = async ({ title, getMovies }: Props) => {
     <div className="grid grid-rows-[auto,1fr] gap-3">
       <h2 className="text-lg font-medium ml-12">{title}</h2>
       <div className="grid grid-flow-col gap-4 relative group">
-        {movies.slice(1, 6).map((movie, index: number) => (
+        {movies.slice(0,6).map((movie, index: number) => (
           <div
             key={movie.id}
             className={`aspect-video relative rounded-md bg-gray-500 grid place-items-center text-lg ${

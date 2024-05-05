@@ -1,6 +1,6 @@
 import { cache } from "react";
 import api from "./api";
-import { Certificate, Credit, Movie } from "@/core/types/data";
+import { Certificate, Credit, Movie, Video } from "@/core/types/data";
 
 //multiple
 export const getPopular = cache(async (): Promise<Movie[]> => {
@@ -40,12 +40,9 @@ export const getMovie = cache(
   }
 );
 
-export const getVideo = cache(
-  async (id: string): Promise<Movie | undefined> => {
-    if (!id) return;
-    return await api({ url: `movie/${id}/videos` });
-  }
-);
+export const getVideo = cache(async (id: string): Promise<Video[]> => {
+  return await api({ url: `movie/${id}/videos` });
+});
 
 export const getImages = cache(
   async (id: string): Promise<Movie | undefined> => {

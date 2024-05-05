@@ -13,7 +13,7 @@ import {
 const get = {
   movie: {
     details: ({ id }: { id: string }) => getMovie(id),
-    video: ({ id }: { id: string }) => getVideo(id),
+    video: ({ id }: { id: number }) => getVideo(String(id)),
     images: ({ id }: { id: string }) => getImages(id),
     certificate: ({ id }: { id: string }) => getCertificate(id),
   },
