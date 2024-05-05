@@ -1,6 +1,7 @@
 import { cache } from "react";
 import api from "./api";
 
+//multiple
 export const getPopular = cache(async () => {
   return await api({ url: "/3/movie/popular" });
 });
@@ -18,6 +19,8 @@ export const getSimilar = cache(async (id: string) => {
   return await api({ url: `/3/movie/${id}/similar` });
 });
 
+
+// single
 export const getCredits = cache(async (id: string) => {
   if (!id) return;
   return await api({ url: `/3/movie/${id}/credits` });
