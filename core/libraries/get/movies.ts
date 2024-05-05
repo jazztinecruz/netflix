@@ -10,8 +10,8 @@ export const getUpcoming = cache(async () => {
   return await api({ url: "movie/upcoming" });
 });
 
-export const getDiscover = cache(async () => {
-  return await api({ url: "discover/movie" });
+export const getDiscover = cache(async (genreId: string) => {
+  return await api({ url: `discover/movie?with_genres=${genreId}` });
 });
 
 export const getSimilar = cache(async (id: string) => {

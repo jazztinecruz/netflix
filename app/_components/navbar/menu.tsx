@@ -1,6 +1,5 @@
 "use client";
 
-import { NAVMENUS } from "@/core/constants";
 import { useState } from "react";
 
 const NavMenu = () => {
@@ -79,3 +78,12 @@ const Triangle = ({ direction = "up" }: TriangleProps) => {
     />
   );
 };
+
+const NAVMENUS = [
+  "Home",
+  "TV Shows",
+  "Movies",
+  "New & Popular",
+  "My List",
+  "Browse by Languages",
+];
