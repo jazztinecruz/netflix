@@ -21,3 +21,12 @@ export const GENRES: Genre[] = [
   { id: 10752, name: "War" },
   { id: 37, name: "Western" },
 ];
+
+export const NAVMENUS = [
+  "Home",
+  "TV Shows",
+  "Movies",
+  "New & Popular",
+  "My List",
+  "Browse by Languages",
+];

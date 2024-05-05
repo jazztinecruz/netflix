@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/core/styles/globals.css";
 import { Children } from "@/core/types/react";
+import Navbar from "./_components/navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +18,11 @@ type Props = {
 const RootLayout = ({ children }: Props) => {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body
+        className={`${inter.className} grid grid-rows-[auto,1fr] bg-zinc-900 text-white`}>
+        <Navbar />
+        <main>{children}</main>
+      </body>
     </html>
   );
 };
