@@ -19,7 +19,7 @@ const RootLayout = ({ children }: Props) => {
   return (
     <html lang="en">
       <body
-        className={`${inter.className} grid grid-rows-[auto,1fr] bg-zinc-900 text-white`}>
+        className={`${inter.className} grid grid-rows-[auto,1fr] bg-[#141414] text-white`}>
         <Navbar />
         <main>{children}</main>
       </body>
