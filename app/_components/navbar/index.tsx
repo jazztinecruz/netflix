@@ -19,7 +19,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`px-6 lg:px-10 grid grid-cols-[auto,1fr,auto] gap-6 items-center sticky top-0 ${
+      className={`px-6 lg:px-10 grid grid-cols-[auto,1fr,auto] gap-6 items-center sticky top-0 z-50 ${
         isScrolled ? "bg-black" : "bg-gradient-to-b from-black to-transparent"
       }`}>
       <div className="w-28 h-20 relative">
