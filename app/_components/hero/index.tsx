@@ -1,5 +1,5 @@
 import { use } from "react";
-import get from "@/core/libraries/get";
+import get from "@/core/libraries";
 import VideoPlayer from "./video";
 import Details from "./details";
 

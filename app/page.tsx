@@ -2,7 +2,7 @@ import { GENRE_ID, GENRE_NAME } from "@/core/enums";
 import { Page } from "@/core/types/react";
 import { Suspense } from "react";
 
-import get from "@/core/libraries/get";
+import get from "@/core/libraries";
 import Collection from "@/core/components/collection";
 import Hero from "./_components/hero";
 import ListSkeleton from "@/core/components/collection/skeleton";
@@ -11,7 +11,7 @@ const Home: Page = () => {
   return (
     <div className="grid">
       <Hero />
-      <div className="space-y-6 mt-[700px]">
+      <div className="space-y-6 mt-[730px]">
         <Suspense fallback={<ListSkeleton />}>
           <Collection
             title={GENRE_NAME.Action}
