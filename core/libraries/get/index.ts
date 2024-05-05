@@ -6,6 +6,7 @@ import {
   getSimilar,
   getUpcoming,
   getCredits,
+  getCertificate,
 } from "./movies";
 
 const get = {
@@ -13,6 +14,7 @@ const get = {
     details: ({ id }: { id: string }) => getMovie(id),
     video: ({ id }: { id: string }) => getVideo(id),
     images: ({ id }: { id: string }) => getImages(id),
+    certificate: ({ id }: { id: string }) => getCertificate(id),
   },
   movies: {
     popular: () => getPopular(),

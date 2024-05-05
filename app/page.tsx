@@ -12,6 +12,7 @@ const Home: Page = async () => {
   const movie = await get.movie.details({ id: "823464" });
   const video = await get.movie.video({ id: "823464" });
   const images = await get.movie.images({ id: "823464" });
+  const certificate = await get.movie.certificate({ id: "823464" });
 
   if (
     !movie ||
@@ -21,7 +22,8 @@ const Home: Page = async () => {
     !credits ||
     !movie ||
     !video ||
-    !images
+    !images ||
+    !certificate
   )
     return null;
 

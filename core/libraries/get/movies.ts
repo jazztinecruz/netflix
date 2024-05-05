@@ -19,6 +19,11 @@ export const getCredits = cache(async (id: string) => {
   return await api({ url: `${id}/credits` });
 });
 
+export const getCertificate = cache(async (id: string) => {
+  if (!id) return;
+  return await api({ url: `${id}/release_dates` });
+});
+
 export const getMovie = cache(async (id: string) => {
   if (!id) return;
   return await api({ url: id });
