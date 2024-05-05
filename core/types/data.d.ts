@@ -96,3 +96,8 @@ export type Certificate = {
     type: number;
   }[];
 };
+
+export type Genre = {
+  id: number;
+  name: string;
+};
