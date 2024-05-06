@@ -13,14 +13,14 @@ import {
 const get = {
   movie: {
     details: ({ id }: { id: string }) => getMovie(id),
-    video: ({ id }: { id: number }) => getVideo(String(id)),
-    images: ({ id }: { id: number }) => getImages(String(id)),
-    certificate: ({ id }: { id: number }) => getCertificate(String(id)),
+    video: ({ id }: { id: string }) => getVideo(id),
+    images: ({ id }: { id: string }) => getImages(id),
+    certificate: ({ id }: { id: string }) => getCertificate(id),
   },
   movies: {
     popular: () => getPopular(),
     upcoming: () => getUpcoming(),
-    discover: ({ genreId }: { genreId: number }) =>
+    discover: ({ genreId }: { genreId: string }) =>
       getDiscover(String(genreId)),
     similar: ({ id }: { id: string }) => getSimilar(id),
     credits: ({ id }: { id: string }) => getCredits(id),

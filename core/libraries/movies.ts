@@ -33,12 +33,9 @@ export const getCertificate = cache(
   }
 );
 
-export const getMovie = cache(
-  async (id: string): Promise<Movie | undefined> => {
-    if (!id) return;
-    return await api({ url: `movie/${id}` });
-  }
-);
+export const getMovie = cache(async (id: string): Promise<Movie> => {
+  return await api({ url: `movie/${id}` });
+});
 
 export const getVideo = cache(async (id: string): Promise<Video[]> => {
   return await api({ url: `movie/${id}/videos` });

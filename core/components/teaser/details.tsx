@@ -1,17 +1,20 @@
-import { Image as Logo, Movie } from "@/core/types/data";
+import get from "@/core/libraries";
 import { PlayIcon } from "@heroicons/react/16/solid";
 import {
   InformationCircleIcon,
   SpeakerWaveIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
+import { use } from "react";
 
 type Props = {
-  movie: Movie;
-  logo: Logo;
+  id: string;
 };
 
-const Details = ({ movie, logo }: Props) => {
+const Details = ({ id }: Props) => {
+  const movie = use(get.movie.details({ id }));
+  const logo = use(get.movie.images({ id })).logos[0];
+
   return (
     <div className="ml-10 w-full flex justify-between items-end h-fit absolute inset-y-2/4 -translate-y-2/4 z-50">
       <div className="max-w-lg flex flex-col gap-4">

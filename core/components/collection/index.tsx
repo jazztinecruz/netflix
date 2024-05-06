@@ -1,6 +1,7 @@
 import { ChevronRightIcon } from "@heroicons/react/16/solid";
 import get from "@/core/libraries";
 import Image from "next/image";
+import { use } from "react";
 
 type Props = {
   title: string;
@@ -10,8 +11,8 @@ type Props = {
     | ReturnType<typeof get.movies.popular>;
 };
 
-const Collection = async ({ title, getMovies }: Props) => {
-  const movies = await getMovies();
+const Collection = ({ title, getMovies }: Props) => {
+  const movies = use(getMovies());
 
   return (
     <div className="grid grid-rows-[auto,1fr] gap-3">

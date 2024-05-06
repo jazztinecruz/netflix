@@ -2,18 +2,18 @@ export type Movie = {
   adult: boolean;
   backdrop_path: string | null;
   belongs_to_collection: {
-    id: number;
+  id:string
     name: string;
     poster_path: string | null;
     backdrop_path: string | null;
   } | null;
   budget: number;
   genres: {
-    id: number;
+  id:string
     name: string;
   }[];
   homepage: string | null;
-  id: number;
+id:string
   imdb_id: string | null;
   origin_country: string[];
   original_language: string;
@@ -22,7 +22,7 @@ export type Movie = {
   popularity: number;
   poster_path: string | null;
   production_companies: {
-    id: number;
+  id:string
     logo_path: string | null;
     name: string;
     origin_country: string;
@@ -73,7 +73,7 @@ export type Image = {
 export type Credit = {
   adult: boolean;
   gender: number;
-  id: number;
+id:string
   known_for_department: string;
   name: string;
   original_name: string;
@@ -98,6 +98,6 @@ export type Certificate = {
 };
 
 export type Genre = {
-  id: number;
+id:string
   name: string;
 };
