@@ -58,24 +58,19 @@ type TriangleProps = {
 };
 
 const Triangle = ({ direction = "up" }: TriangleProps) => {
+  const borders =
+    "border-l-transparent border-b-white border-r-transparent w-0 h-0";
+
   if (direction === "down") {
     return (
       <div
-        className="-top-4 w-0 h-0 
-    border-l-[6px] border-l-transparent 
-    border-b-[6px] border-b-white 
-    border-r-[6px] border-r-transparent rotate-180"
+        className={`${borders} -top-4 border-l-[6px] border-b-[6px] border-r-[6px] rotate-180`}
       />
     );
   }
 
   return (
-    <div
-      className="absolute inset-x-2/4 -translate-x-2/4 -top-[11px] w-0 h-0 
-    border-l-[8px] border-l-transparent 
-    border-b-[8px] border-b-white   
-    border-r-[8px] border-r-transparent"
-    />
+    <div className="absolute inset-x-2/4 -translate-x-2/4 -top-[11px] border-l-[8px] border-b-[8px] border-r-[8px]" />
   );
 };
 
