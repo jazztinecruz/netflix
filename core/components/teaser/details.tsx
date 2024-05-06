@@ -1,43 +1,58 @@
-import get from "@/core/libraries";
+"use client";
+import { IMAGE_BASE_URL } from "@/core/constants";
+import { Image as Logo, Movie } from "@/core/types/data";
 import { PlayIcon } from "@heroicons/react/16/solid";
 import {
   InformationCircleIcon,
-  SpeakerWaveIcon,
+  SpeakerXMarkIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
-import { use } from "react";
+import { useEffect, useState } from "react";
 
 type Props = {
-  id: string;
+  movie: Movie;
+  logo: Logo;
 };
 
-const Details = ({ id }: Props) => {
-  const movie = use(get.movie.details({ id }));
-  const logo = use(get.movie.images({ id })).logos[0];
+const Details = ({ movie, logo }: Props) => {
+  const [showOverview, setShowOverview] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowOverview(false), 5000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const overviewOpacity = showOverview ? "opacity-100" : "opacity-0";
+  const translatePosition = showOverview ? "" : "translate-y-2/4";
 
   return (
     <div className="ml-10 w-full flex justify-between items-end h-fit absolute inset-y-2/4 -translate-y-2/4 z-50">
-      <div className="max-w-lg flex flex-col gap-4">
-        <div className="flex items-center -ml-3">
+      <div className={`relative max-w-lg transition-all flex flex-col gap-4`}>
+        <div
+          className={`${translatePosition} transition-transform duration-500 ease-in`}>
+          <div className="flex items-center -ml-3">
+            <Image
+              src="/logo/n-symbol.png"
+              alt={movie.title}
+              width={50}
+              height={60}
+            />
+            <span className="tracking-wider font-semibold text-slate-300 text-xl">
+              F I L M
+            </span>
+          </div>
           <Image
-            src="/logo/n-symbol.png"
+            src={`${IMAGE_BASE_URL}${logo.file_path}`}
             alt={movie.title}
-            width={50}
-            height={60}
-          />
-          <span className="tracking-wider font-semibold text-slate-300 text-xl">
-            F I L M
-          </span>
-        </div>
-        <div className="w-full h-40 relative">
-          <Image
-            src={`${process.env.IMAGE_BASE_URL}${logo.file_path}`}
-            alt={movie.title}
-            fill
-            className="object-fill"
+            width={logo.width}
+            height={logo.height}
+            priority
           />
         </div>
-        <p>{movie.overview}</p>
+        <p
+          className={`transition-opacity duration-200 text-lg ${overviewOpacity}`}>
+          {movie.overview}
+        </p>
         <div className="flex items-center gap-3">
           <button className="bg-white px-5 py-2 rounded-md flex items-center gap-2 cursor-pointer">
             <PlayIcon className="text-primary w-8 h-8" />
@@ -51,7 +66,7 @@ const Details = ({ id }: Props) => {
       </div>
       <div className="flex items-center gap-6">
         <div className="border rounded-full w-fit p-2">
-          <SpeakerWaveIcon className="w-6 h-6" />
+          <SpeakerXMarkIcon className="w-6 h-6" />
         </div>
         <div className="bg-black/30 border-l-2 w-40 h-12 pl-4 flex items-center text-lg">
           13+
