@@ -16,29 +16,37 @@ export const getDiscover = cache(async (genreId: string): Promise<Movie[]> => {
 });
 
 export const getSimilar = cache(async (id: string): Promise<Movie[]> => {
-  if (!id) return [];
   return await api({ url: `movie/${id}/similar` });
 });
 
 // single
 export const getCredits = cache(async (id: string): Promise<Credit[]> => {
-  if (!id) return [];
   return await api({ url: `movie/${id}/credits` });
 });
 
-export const getCertificate = cache(
-  async (id: string): Promise<Certificate[]> => {
-    if (!id) return [];
-    return await api({ url: `movie/${id}/release_dates` });
-  }
-);
+export const getCertificate = cache(async (id: string): Promise<string> => {
+  const data: Certificate[] = await api({
+    url: `movie/${id}/release_dates`,
+  });
+
+  const certificate: string = data.find((cert) =>
+    cert.release_dates.some((rd) => rd.certification.trim() !== "")
+  )?.release_dates[0].certification!;
+
+  return certificate;
+});
 
 export const getMovie = cache(async (id: string): Promise<Movie> => {
   return await api({ url: `movie/${id}` });
 });
 
-export const getVideo = cache(async (id: string): Promise<Video[]> => {
-  return await api({ url: `movie/${id}/videos` });
+export const getTrailer = cache(async (id: string): Promise<Video> => {
+  const videos = await api({ url: `movie/${id}/videos` });
+  const trailer = videos.filter(
+    (video: Video) => video.name === "Official Trailer"
+  )[0];
+
+  return trailer;
 });
 
 export const getImages = cache(

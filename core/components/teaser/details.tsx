@@ -12,9 +12,10 @@ import { useEffect, useState } from "react";
 type Props = {
   movie: Movie;
   logo: Logo;
+  certificate: string;
 };
 
-const Details = ({ movie, logo }: Props) => {
+const Details = ({ movie, logo, certificate }: Props) => {
   const [showOverview, setShowOverview] = useState(true);
 
   useEffect(() => {
@@ -69,7 +70,7 @@ const Details = ({ movie, logo }: Props) => {
           <SpeakerXMarkIcon className="w-6 h-6" />
         </div>
         <div className="bg-black/30 border-l-2 w-40 h-12 pl-4 flex items-center text-lg">
-          13+
+          {certificate}
         </div>
       </div>
     </div>

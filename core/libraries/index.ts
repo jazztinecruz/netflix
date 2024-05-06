@@ -1,19 +1,19 @@
 import {
   getMovie,
   getImages,
-  getVideo,
   getPopular,
   getSimilar,
   getUpcoming,
   getCredits,
   getCertificate,
   getDiscover,
+  getTrailer,
 } from "./movies";
 
 const get = {
   movie: {
     details: ({ id }: { id: string }) => getMovie(id),
-    video: ({ id }: { id: string }) => getVideo(id),
+    trailer: ({ id }: { id: string }) => getTrailer(id),
     images: ({ id }: { id: string }) => getImages(id),
     certificate: ({ id }: { id: string }) => getCertificate(id),
   },
