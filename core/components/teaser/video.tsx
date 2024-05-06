@@ -12,7 +12,7 @@ const VideoPlayer = ({ trailer }: Props) => {
   const { showVideo, handleShowVideo } = useVideo();
 
   useEffect(() => {
-    const timer = setTimeout(() => handleShowVideo(), 1500);
+    const timer = setTimeout(() => handleShowVideo(), 2000);
     return () => clearTimeout(timer);
   }, []);
 
