@@ -1,21 +1,24 @@
-import get from "@/core/libraries";
+"use client";
+
+import { useVideo } from "@/core/contexts/video";
+import { Image as BackdropImage } from "@/core/types/data";
 import Image from "next/image";
-import { use } from "react";
 
 type Props = {
-  id: string;
+  backdrop: BackdropImage;
 };
 
-const Backdrop = ({ id }: Props) => {
-  const backdrop = use(get.movie.images({ id })).backdrops[0];
+const Backdrop = ({ backdrop }: Props) => {
+  const { showVideo } = useVideo();
+
+  if (showVideo) return null;
 
   return (
     <div className="relative h-full w-full">
       <Image
         alt="Backdrop"
-        src={`${process.env.IMAGE_BASE_URL}${backdrop.file_path}`}
+        src={`https://image.tmdb.org/t/p/original${backdrop.file_path}`}
         fill
-        fetchPriority="auto"
       />
     </div>
   );

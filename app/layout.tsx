@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "@/core/styles/globals.css";
 import { Children } from "@/core/types/react";
 import Navbar from "./_components/navbar";
+import { VideoProvider } from "@/core/contexts/video";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +22,9 @@ const RootLayout = ({ children }: Props) => {
       <body
         className={`${inter.className} grid grid-rows-[auto,1fr] bg-primary text-white`}>
         <Navbar />
-        <main>{children}</main>
+        <main>
+          <VideoProvider>{children}</VideoProvider>
+        </main>
       </body>
     </html>
   );

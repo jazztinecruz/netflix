@@ -1,15 +1,22 @@
-import get from "@/core/libraries";
-import { use } from "react";
+"use client";
+
+import { useEffect } from "react";
+import { Video } from "@/core/types/data";
+import { useVideo } from "@/core/contexts/video";
 
 type Props = {
-  id: string;
+  trailer: Video;
 };
 
-const VideoPlayer = ({ id }: Props) => {
-  const videos = use(get.movie.video({ id }));
-  const trailer = videos.filter(
-    (video) => video.name === "Official Trailer"
-  )[0];
+const VideoPlayer = ({ trailer }: Props) => {
+  const { showVideo, handleShowVideo } = useVideo();
+
+  useEffect(() => {
+    const timer = setTimeout(() => handleShowVideo(), 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!showVideo) return null;
 
   return (
     <iframe
