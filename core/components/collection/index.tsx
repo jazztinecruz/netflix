@@ -25,7 +25,7 @@ const Collection = ({ title, getMovies }: Props) => {
               index === 0 && "ml-12"
             }`}>
             <Image
-              src={`${process.env.IMAGE_BASE_URL}${movie.poster_path}`}
+              src={`${process.env.IMAGE_BASE_URL}${movie.backdrop_path}`}
               alt={movie.title}
               fill
               className="object-cover rounded-md"
