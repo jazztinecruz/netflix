@@ -22,7 +22,7 @@ const VideoPlayer = ({ trailer }: Props) => {
     <iframe
       src={`https://www.youtube.com/embed/${trailer.key}/?autoplay=1&mute=1&loop=1&controls=0`}
       title={trailer.name}
-      className="h-full w-full scale-150 brightness-110"></iframe>
+      className="h-full w-full scale-[2.3] lg:scale-150 brightness-110"></iframe>
   );
 };
 

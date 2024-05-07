@@ -14,11 +14,12 @@ const Backdrop = ({ backdrop }: Props) => {
   if (showVideo) return null;
 
   return (
-    <div className="relative h-full w-full">
+    <div className={`relative aspect-${backdrop.aspect_ratio}`}>
       <Image
         alt="Backdrop"
         src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${backdrop.file_path}`}
-        fill
+        width={backdrop.width}
+        height={backdrop.height}
       />
     </div>
   );
