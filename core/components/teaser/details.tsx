@@ -1,5 +1,5 @@
 "use client";
-import { IMAGE_BASE_URL } from "@/core/constants";
+
 import { Image as Logo, Movie } from "@/core/types/data";
 import { PlayIcon } from "@heroicons/react/16/solid";
 import {
@@ -32,18 +32,20 @@ const Details = ({ movie, logo, certificate }: Props) => {
         <div
           className={`${translatePosition} transition-transform duration-500 ease-in`}>
           <div className="flex items-center -ml-3">
-            <Image
-              src="/logo/n-symbol.png"
-              alt={movie.title}
-              width={50}
-              height={60}
-            />
+            <div className="w-10 h-10 relative">
+              <Image
+                src="/logo/n-symbol.png"
+                alt={movie.title}
+                fill
+                sizes="w-auto h-auto"
+              />
+            </div>
             <span className="tracking-wider font-semibold text-slate-300 text-xl">
               F I L M
             </span>
           </div>
           <Image
-            src={`${IMAGE_BASE_URL}${logo.file_path}`}
+            src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${logo.file_path}`}
             alt={movie.title}
             width={logo.width}
             height={logo.height}

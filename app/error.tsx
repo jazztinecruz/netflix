@@ -22,7 +22,7 @@ const GlobalError = ({
       <body
         className={`${inter.className} grid grid-rows-[auto,1fr] bg-primary text-white`}>
         <Navbar />
-        <div className="flex flex-col justify-center items-center h-screen">
+        <div className="mx-auto flex flex-col justify-center items-center max-w-2xl text-center h-screen">
           <h2 className="text-4xl font-bold mb-8 text-white">
             Oops! Something went wrong!
           </h2>

@@ -12,7 +12,7 @@ const Home: Page = () => {
   return (
     <div className="grid">
       <Hero />
-      <Sample />
+      {/* <Sample /> */}
       <div className="space-y-6 mt-[730px]">
         <Suspense fallback={<ListSkeleton />}>
           <Collection

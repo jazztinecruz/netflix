@@ -13,7 +13,7 @@ const Providers = ({ children }: Props) => {
 
   return (
     <div>
-      <QueryClientProvider client={queryClient}>
+      <QueryClientProvider client={queryClient} contextSharing>
         <VideoProvider>{children}</VideoProvider>
       </QueryClientProvider>
     </div>
