@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  .margin {
+    @apply ml-6 lg:ml-10;
+  }
+}

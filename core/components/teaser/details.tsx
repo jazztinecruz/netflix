@@ -28,7 +28,7 @@ const Details = ({ movie, logo, certificate }: Props) => {
   const translatePosition = showOverview ? "" : "translate-y-2/4";
 
   return (
-    <div className="ml-6 lg:ml-10 w-full flex justify-between items-end h-fit absolute inset-y-2/4 -translate-y-2/4 z-50">
+    <div className="margin w-full flex justify-between items-end h-fit absolute inset-y-2/4 -translate-y-2/4 z-50">
       <div className={`relative max-w-lg transition-all flex flex-col gap-4`}>
         <div
           className={`${translatePosition} transition-transform duration-500 ease-in flex flex-col gap-2`}>
