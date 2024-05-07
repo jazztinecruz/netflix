@@ -13,7 +13,7 @@ const Home: Page = () => {
     <div className="grid">
       <Hero />
       {/* <Sample /> */}
-      <div className="space-y-6 mt-[730px]">
+      <div className="space-y-6 mt-[680px]">
         <Suspense fallback={<ListSkeleton />}>
           <Collection
             title={GENRE_NAME.Action}

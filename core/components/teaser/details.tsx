@@ -30,7 +30,7 @@ const Details = ({ movie, logo, certificate }: Props) => {
     <div className="ml-10 w-full flex justify-between items-end h-fit absolute inset-y-2/4 -translate-y-2/4 z-50">
       <div className={`relative max-w-lg transition-all flex flex-col gap-4`}>
         <div
-          className={`${translatePosition} transition-transform duration-500 ease-in`}>
+          className={`${translatePosition} transition-transform duration-500 ease-in flex flex-col gap-2`}>
           <div className="flex items-center -ml-3">
             <div className="w-10 h-10 relative">
               <Image

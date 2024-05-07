@@ -12,7 +12,7 @@ const NavMenu = () => {
     return NAVMENUS.map((menu) => {
       const isBold = pathname === menu.url ? "font-bold" : "font-medium";
       const disabled = menu.isDisabled
-        ? "text-secondary cursor-not-allowed"
+        ? "text-secondary cursor-not-allowed font-medium"
         : "";
 
       return (
