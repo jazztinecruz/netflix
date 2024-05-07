@@ -12,15 +12,19 @@ type Props = {
 const Carousel = ({ movies }: Props) => {
   const displayCount = 6;
   const [startIndex, setStartIndex] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const slides = Math.ceil(movies.length / displayCount);
 
   const handleNext = () => {
     const nextIndex = startIndex + displayCount;
     setStartIndex(nextIndex >= movies.length ? 0 : nextIndex);
+    setCurrentSlide((prev) => (nextIndex >= movies.length ? 0 : prev + 1));
   };
 
   const handlePrev = () => {
     const nextIndex = startIndex - displayCount;
     setStartIndex(nextIndex < 0 ? movies.length - displayCount : nextIndex);
+    setCurrentSlide((prev) => prev - 1);
   };
 
   const visibleMovies = Array.from({ length: displayCount }, (_, index) => {
@@ -29,7 +33,17 @@ const Carousel = ({ movies }: Props) => {
   });
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden flex flex-col gap-3">
+      <div className="flex items-center gap-1 ml-auto mr-12">
+        {Array.from({ length: slides }).map((_, index) => (
+          <div
+            key={index}
+            className={`w-[10px] h-2 border-b-2 ${
+              currentSlide === index ? "border-white" : "border-secondary"
+            }`}
+          />
+        ))}
+      </div>
       <div className="relative group grid grid-flow-col transition-transform duration-300 ease-in-out ">
         <div
           className={`grid grid-flow-col gap-4 transform transition-transform ${
