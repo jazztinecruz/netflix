@@ -19,10 +19,10 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`px-6 lg:px-10 grid grid-cols-[auto,1fr,auto] gap-6 items-center sticky top-0 z-50 ${
+      className={`px-6 lg:px-10 grid grid-cols-[auto,1fr,auto] gap-4 lg:gap-6 items-center sticky top-0 z-50 ${
         isScrolled ? "bg-black" : "bg-gradient-to-b from-black to-transparent"
       }`}>
-      <div className="w-28 h-20 relative">
+      <div className="w-24 h-16 lg:w-28 lg:h-20 relative">
         <Image
           src="/logo/netflix.png"
           alt="Netflix"

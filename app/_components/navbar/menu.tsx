@@ -11,13 +11,11 @@ const NavMenu = () => {
   const renderMenuItems = () => {
     return NAVMENUS.map((menu) => {
       const isBold = pathname === menu.url ? "font-bold" : "font-medium";
-      const disabled = menu.isDisabled
-        ? "text-secondary cursor-not-allowed font-medium"
-        : "";
-
       return (
         <Link key={menu.label} href={menu.url}>
-          <li className={`text-sm ${isBold} ${disabled}`}>{menu.label}</li>
+          <li className={`text-sm ${isBold} text-white py-3 hover:bg-white/10`}>
+            {menu.label}
+          </li>
         </Link>
       );
     });
@@ -28,7 +26,7 @@ const NavMenu = () => {
       <section className="relative lg:hidden w-fit">
         <button
           onClick={() => setOpen(!open)}
-          className="flex items-center gap-2 ">
+          className="flex items-center gap-2">
           <span className="text-sm">Browse</span>
           <Triangle direction="down" />
         </button>
@@ -36,9 +34,9 @@ const NavMenu = () => {
         {open && (
           <button
             onMouseLeave={() => setOpen(false)}
-            className="absolute -bottom-[370px] inset-x-2/4 -translate-x-2/4 w-72 bg-black/90 border border-gray-300/30 border-t-[3px] border-t-white rounded-t-sm">
+            className="absolute -bottom-[310px] inset-x-2/4 -translate-x-2/4 w-72 bg-black/80 border border-gray-300/30 border-t-[3px] border-t-white rounded-t-sm">
             <Triangle />
-            <ul className="flex flex-col items-center justify-center text-center gap-4 text-white">
+            <ul className="flex flex-col justify-center text-center gap-4 text-white">
               {renderMenuItems()}
             </ul>
           </button>
@@ -70,14 +68,21 @@ const Triangle = ({ direction = "up" }: TriangleProps) => {
   }
 
   return (
-    <div className="absolute inset-x-2/4 -translate-x-2/4 -top-[11px] border-l-[8px] border-b-[8px] border-r-[8px]" />
+    <div
+      className={`${borders} absolute inset-x-2/4 -translate-x-2/4 -top-[11px] border-l-[8px] border-b-[8px] border-r-[8px]`}
+    />
   );
 };
 
-const NAVMENUS = [
-  { label: "Home", url: "/", isDisabled: false },
-  { label: "New & Popular", url: "/popular", isDisabled: false },
-  { label: "TV Shows", url: "/", isDisabled: true },
-  { label: "My List", url: "/", isDisabled: true },
-  { label: "Browse by Languages", url: "/", isDisabled: true },
+type MenuItem = {
+  label: string;
+  url: string;
+};
+
+const NAVMENUS: MenuItem[] = [
+  { label: "Home", url: "/" },
+  { label: "New & Popular", url: "/popular" },
+  { label: "TV Shows", url: "#" },
+  { label: "My List", url: "#" },
+  { label: "Browse by Languages", url: "#" },
 ];
