@@ -14,8 +14,8 @@ const Collection = ({ title, getMovies }: Props) => {
   const movies = use(getMovies());
 
   return (
-    <div className="grid grid-rows-[auto,1fr] gap-3">
-      <h2 className="text-xl font-medium ml-12">{title}</h2>
+    <div className="grid grid-rows-[auto,1fr] gap-2 lg:gap-3">
+      <h2 className="text-lg lg:text-xl font-medium margin">{title}</h2>
       <Carousel movies={movies} />
     </div>
   );
