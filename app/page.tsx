@@ -6,13 +6,11 @@ import get from "@/core/libraries";
 import Collection from "@/core/components/collection";
 import Hero from "./_components/hero";
 import ListSkeleton from "@/core/components/collection/skeleton";
-import Sample from "./_components/sample";
 
 const Home: Page = () => {
   return (
     <div className="grid">
       <Hero />
-      {/* <Sample /> */}
       <div className="space-y-6 lg:mt-[680px]">
         <Suspense fallback={<ListSkeleton />}>
           <Collection
