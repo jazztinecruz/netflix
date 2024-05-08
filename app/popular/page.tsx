@@ -11,7 +11,7 @@ const Popular: Page = () => {
   return (
     <div className="grid">
       <Hero />
-      <div className="space-y-6 mt-[730px]">
+      <div className="space-y-6 lg:mt-[680px]">
         <Suspense fallback={<ListSkeleton />}>
           <Collection
             title="Popular Movies"
