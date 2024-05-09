@@ -38,7 +38,7 @@ const Details = ({ id }: IdProp) => {
   }, []);
 
   const overviewOpacity = showOverview ? "opacity-100" : "opacity-0";
-  const translatePosition = showOverview ? "" : "translate-y-2/4";
+  const translatePosition = showOverview ? "" : "translate-y-3/4 md:translate-y-2/4";
 
   if (!movie) return null;
 
