@@ -3,20 +3,27 @@
 import { useEffect } from "react";
 import { Video } from "@/core/types/data";
 import { useVideo } from "@/core/contexts/video";
+import { useQuery } from "react-query";
+import get from "@/core/libraries";
+import { IdProp } from "@/core/types/react";
+import { KEY } from "@/core/enums";
 
-type Props = {
-  trailer: Video;
-};
-
-const VideoPlayer = ({ trailer }: Props) => {
+const VideoPlayer = ({ id }: IdProp) => {
   const { showVideo, handleShowVideo } = useVideo();
+  const { data: trailer, isLoading } = useQuery<Video>({
+    queryKey: [KEY.TRAILER, { id }],
+    queryFn: async () => await get.movie.trailer({ id }),
+  });
 
   useEffect(() => {
     const timer = setTimeout(() => handleShowVideo(), 2000);
     return () => clearTimeout(timer);
   }, []);
 
-  if (!showVideo) return null;
+  if (!showVideo || !trailer) return null;
+
+  if (isLoading)
+    return <div className="h-full w-full bg-gray-500">Loading Trailer</div>;
 
   return (
     <iframe

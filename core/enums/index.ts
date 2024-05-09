@@ -41,3 +41,11 @@ export enum GENRE_ID {
   War = "10752",
   Western = "37",
 }
+
+export enum KEY {
+  MOVIE = "movie",
+  TRAILER = "trailer",
+  BACKDROP = "backdrop",
+  LOGO = "logo",
+  CERTIFICATE = "certificate",
+}

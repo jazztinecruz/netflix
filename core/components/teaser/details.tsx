@@ -9,16 +9,29 @@ import {
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Symbol from "../symbol";
+import { IdProp } from "@/core/types/react";
+import { useQuery } from "react-query";
+import get from "@/core/libraries";
+import { KEY } from "@/core/enums";
 
-type Props = {
-  movie: Movie;
-  logo: Logo;
-  certificate: string;
-};
+const Details = ({ id }: IdProp) => {
+  const { data: movie, isLoading: fetchingMovie } = useQuery<Movie>({
+    queryKey: [KEY.MOVIE, { id }],
+    queryFn: async () => await get.movie.details({ id }),
+  });
 
-const Details = ({ movie, logo, certificate }: Props) => {
+  const { data: logo, isLoading: fetchingLogo } = useQuery<Logo>({
+    queryKey: [KEY.LOGO, { id }],
+    queryFn: async () => (await get.movie.images({ id })).logos[0],
+  });
+
+  const { data: certificate, isLoading: fetchingCertificate } =
+    useQuery<String>({
+      queryKey: [KEY.CERTIFICATE, { id }],
+      queryFn: async () => await get.movie.certificate({ id }),
+    });
+
   const [showOverview, setShowOverview] = useState(true);
-
   useEffect(() => {
     const timer = setTimeout(() => setShowOverview(false), 5000);
     return () => clearTimeout(timer);
@@ -26,6 +39,8 @@ const Details = ({ movie, logo, certificate }: Props) => {
 
   const overviewOpacity = showOverview ? "opacity-100" : "opacity-0";
   const translatePosition = showOverview ? "" : "translate-y-2/4";
+
+  if (!movie) return null;
 
   return (
     <div className="margin w-full flex justify-between items-end h-fit absolute inset-y-2/4 -translate-y-2/4 z-50">
@@ -47,10 +62,10 @@ const Details = ({ movie, logo, certificate }: Props) => {
           </div>
           <div className="w-52 lg:w-auto lg:h-auto relative">
             <Image
-              src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${logo.file_path}`}
+              src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${logo?.file_path}`}
               alt={movie.title}
-              width={logo.width}
-              height={logo.height}
+              width={logo?.width}
+              height={logo?.height}
               priority
             />
           </div>
