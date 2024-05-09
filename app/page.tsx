@@ -6,6 +6,7 @@ import get from "@/core/libraries";
 import Collection from "@/core/components/collection";
 import Hero from "./_components/hero";
 import ListSkeleton from "@/core/components/collection/skeleton";
+import MovieModal from "@/core/components/collection/card/modal";
 
 const Home: Page = () => {
   return (
@@ -59,6 +60,7 @@ const Home: Page = () => {
           />
         </Suspense>
       </div>
+      <MovieModal />
     </div>
   );
 };
