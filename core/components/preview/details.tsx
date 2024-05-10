@@ -21,12 +21,12 @@ const Details = ({ id }: IdProp) => {
   });
 
   const { data: logo } = useQuery<Logo>({
-    queryKey: [KEY.LOGO, { id }],
+    queryKey: [KEY.LOGO, id],
     queryFn: async () => (await get.movie.images({ id })).logo,
   });
 
   const { data: certificate } = useQuery<String>({
-    queryKey: [KEY.CERTIFICATE, { id }],
+    queryKey: [KEY.CERTIFICATE, id],
     queryFn: async () => await get.movie.certificate({ id }),
   });
 
