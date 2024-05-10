@@ -5,24 +5,20 @@ import { IdProp } from "@/core/types/react";
 import Image from "next/image";
 import { useQuery } from "react-query";
 import Symbol from "../symbol";
-import {
-  HandThumbUpIcon,
-  PlusIcon,
-  SpeakerXMarkIcon,
-} from "@heroicons/react/24/outline";
+import { HandThumbUpIcon, PlusIcon } from "@heroicons/react/24/outline";
 import { PlayIcon } from "@heroicons/react/16/solid";
 
 const ModalDetails = ({ id }: IdProp) => {
   if (!id) return null;
 
   const { data: movie } = useQuery<Movie>({
-    queryKey: [KEY.MOVIE, { id }],
+    queryKey: [KEY.MOVIE, id],
     queryFn: async () => await get.movie.details({ id }),
     enabled: !!id,
   });
 
   const { data: logo } = useQuery<Logo>({
-    queryKey: [KEY.LOGO, { id }],
+    queryKey: [KEY.LOGO, id],
     queryFn: async () => (await get.movie.images({ id })).logos[0],
     enabled: !!id,
   });

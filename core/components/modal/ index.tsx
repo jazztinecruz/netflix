@@ -8,6 +8,7 @@ import ModalDetails from "./details";
 import { KEY } from "@/core/enums";
 import { Movie } from "@/core/types/data";
 import Card from "./card";
+import VideoPlayer from "../preview/video";
 
 const MovieModal = () => {
   const mid = useSearchParams().get("mid") || "";
@@ -54,11 +55,7 @@ const MovieModal = () => {
         <div className="fixed inset-0 flex w-screen bg-black/60 items-center justify-center p-4">
           <DialogPanel className="max-w-5xl w-full relative rounded-md bg-primary space-y-4 h-screen overflow-y-auto">
             <div className="relative h-[500px] overflow-hidden">
-              <iframe
-                src={`https://www.youtube.com/embed/${trailer?.key}/?autoplay=1&mute=1&loop=1&controls=0`}
-                title={trailer?.name}
-                className="h-full w-full scale-[2.3] lg:scale-150 brightness-110 z-50"
-                allowFullScreen></iframe>
+              <VideoPlayer id={mid} />
               <ModalDetails id={mid} />
               <div className="bg-gradient-to-b from-transparent to-primary absolute inset-0" />
             </div>

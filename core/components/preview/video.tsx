@@ -1,27 +1,18 @@
 "use client";
 
-import { useEffect } from "react";
 import { Video } from "@/core/types/data";
-import { useVideo } from "@/core/contexts/video";
 import { useQuery } from "react-query";
-import get from "@/core/libraries";
 import { IdProp } from "@/core/types/react";
 import { KEY } from "@/core/enums";
+import get from "@/core/libraries";
 
 const VideoPlayer = ({ id }: IdProp) => {
   const { data: trailer, isLoading } = useQuery<Video>({
-    queryKey: [KEY.TRAILER, { id }],
+    queryKey: [KEY.TRAILER, id],
     queryFn: async () => await get.movie.trailer({ id }),
   });
-  
-  const { showVideo, handleShowVideo } = useVideo();
 
-  useEffect(() => {
-    const timer = setTimeout(() => handleShowVideo(), 2000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (!showVideo || !trailer)
+  if (!trailer)
     return <div className="h-full w-full bg-gray-500">no trailer</div>;
 
   if (isLoading)
