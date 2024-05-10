@@ -7,7 +7,7 @@ import { KEY } from "@/core/enums";
 import get from "@/core/libraries";
 
 const VideoPlayer = ({ id }: IdProp) => {
-  const { data: trailer, isLoading } = useQuery<Video>({
+  const { data: trailer, isFetching } = useQuery<Video>({
     queryKey: [KEY.TRAILER, id],
     queryFn: async () => await get.movie.trailer({ id }),
   });
@@ -15,7 +15,7 @@ const VideoPlayer = ({ id }: IdProp) => {
   if (!trailer)
     return <div className="h-full w-full bg-gray-500">no trailer</div>;
 
-  if (isLoading)
+  if (isFetching)
     return <div className="h-full w-full bg-gray-500">Loading Trailer</div>;
 
   return (
