@@ -48,4 +48,6 @@ export enum KEY {
   BACKDROP = "backdrop",
   LOGO = "logo",
   CERTIFICATE = "certificate",
+  CREDITS = "credits",
+  SIMILAR = "similar",
 }

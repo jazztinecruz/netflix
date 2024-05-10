@@ -20,7 +20,9 @@ export const getSimilar = async (id: string): Promise<Movie[]> => {
 
 // single
 export const getCredits = async (id: string): Promise<Credit[]> => {
-  return await api({ url: `movie/${id}/credits` });
+  const data = await api({ url: `movie/${id}/credits` });
+  const credits = data.cast;
+  return credits;
 };
 
 export const getCertificate = async (id: string): Promise<string> => {

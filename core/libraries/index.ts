@@ -16,6 +16,7 @@ const get = {
     trailer: ({ id }: { id: string }) => getTrailer(id),
     images: ({ id }: { id: string }) => getImages(id),
     certificate: ({ id }: { id: string }) => getCertificate(id),
+    credits: ({ id }: { id: string }) => getCredits(id),
   },
   movies: {
     popular: () => getPopular(),
@@ -23,7 +24,6 @@ const get = {
     discover: ({ genreId }: { genreId: string }) =>
       getDiscover(String(genreId)),
     similar: ({ id }: { id: string }) => getSimilar(id),
-    credits: ({ id }: { id: string }) => getCredits(id),
   },
 };
 

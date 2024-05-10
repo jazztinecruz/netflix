@@ -20,7 +20,8 @@ const VideoPlayer = ({ id }: IdProp) => {
     return () => clearTimeout(timer);
   }, []);
 
-  if (!showVideo || !trailer) return null;
+  if (!showVideo || !trailer)
+    return <div className="h-full w-full bg-gray-500">no trailer</div>;
 
   if (isLoading)
     return <div className="h-full w-full bg-gray-500">Loading Trailer</div>;
@@ -29,7 +30,7 @@ const VideoPlayer = ({ id }: IdProp) => {
     <iframe
       src={`https://www.youtube.com/embed/${trailer.key}/?autoplay=1&mute=1&loop=1&controls=0`}
       title={trailer.name}
-      className="h-full w-full scale-[2.3] lg:scale-150 brightness-110"></iframe>
+      className="h-full w-full scale-[2.3] lg:scale-150 brightness-110 z-50"></iframe>
   );
 };
 

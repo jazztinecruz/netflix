@@ -8,7 +8,7 @@ import {
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import Symbol from "../symbol";
+import Symbol from "../../symbol";
 import { IdProp } from "@/core/types/react";
 import { useQuery } from "react-query";
 import get from "@/core/libraries";
@@ -38,7 +38,9 @@ const Details = ({ id }: IdProp) => {
   }, []);
 
   const overviewOpacity = showOverview ? "opacity-100" : "opacity-0";
-  const translatePosition = showOverview ? "" : "translate-y-3/4 md:translate-y-2/4";
+  const translatePosition = showOverview
+    ? ""
+    : "translate-y-3/4 md:translate-y-2/4";
 
   if (!movie) return null;
 
