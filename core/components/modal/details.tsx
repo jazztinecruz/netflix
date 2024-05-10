@@ -4,7 +4,7 @@ import { Image as Logo, Movie } from "@/core/types/data";
 import { IdProp } from "@/core/types/react";
 import Image from "next/image";
 import { useQuery } from "react-query";
-import Symbol from "../../symbol";
+import Symbol from "../symbol";
 import {
   HandThumbUpIcon,
   PlusIcon,

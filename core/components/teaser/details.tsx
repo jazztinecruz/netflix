@@ -8,7 +8,7 @@ import {
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import Symbol from "../../symbol";
+import Symbol from "../symbol";
 import { IdProp } from "@/core/types/react";
 import { useQuery } from "react-query";
 import get from "@/core/libraries";
