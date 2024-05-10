@@ -4,7 +4,6 @@ import get from "@/core/libraries";
 import { Dialog, DialogPanel, Transition } from "@headlessui/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useQuery } from "react-query";
-import VideoPlayer from "../teaser/video";
 import ModalDetails from "./details";
 import { KEY } from "@/core/enums";
 import { Movie } from "@/core/types/data";
@@ -32,6 +31,12 @@ const MovieModal = () => {
   const { data: certificate } = useQuery({
     queryKey: [KEY.CERTIFICATE, mid],
     queryFn: async () => await get.movie.certificate({ id: mid }),
+    enabled: !!mid,
+  });
+  const { data: trailer } = useQuery({
+    queryKey: [KEY.TRAILER, mid],
+    queryFn: async () => await get.movie.trailer({ id: mid }),
+    enabled: !!mid,
   });
 
   if (!mid) return null;
@@ -48,9 +53,14 @@ const MovieModal = () => {
       <Dialog onClose={() => router.back()} className="relative z-[999]">
         <div className="fixed inset-0 flex w-screen bg-black/60 items-center justify-center p-4">
           <DialogPanel className="max-w-5xl w-full relative rounded-md bg-primary space-y-4 h-screen overflow-y-auto">
-            <div className="relative h-[500px]">
-              <VideoPlayer id={mid} />
+            <div className="relative h-[500px] overflow-hidden">
+              <iframe
+                src={`https://www.youtube.com/embed/${trailer?.key}/?autoplay=1&mute=1&loop=1&controls=0`}
+                title={trailer?.name}
+                className="h-full w-full scale-[2.3] lg:scale-150 brightness-110 z-50"
+                allowFullScreen></iframe>
               <ModalDetails id={mid} />
+              <div className="bg-gradient-to-b from-transparent to-primary absolute inset-0" />
             </div>
             <div className="p-10 space-y-12 grid">
               <div className="space-y-1">

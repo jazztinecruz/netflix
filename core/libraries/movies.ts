@@ -45,7 +45,7 @@ export const getMovie = cache(async (id: string): Promise<Movie> => {
 export const getTrailer = cache(async (id: string): Promise<Video> => {
   const videos = await api({ url: `movie/${id}/videos` });
   const trailer = videos.filter(
-    (video: Video) => video.name === "Official Trailer"
+    (video: Video) => video.type === "Trailer"
   )[0] as Video;
 
   return trailer;
