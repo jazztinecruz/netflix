@@ -15,21 +15,20 @@ import get from "@/core/libraries";
 import { KEY } from "@/core/enums";
 
 const Details = ({ id }: IdProp) => {
-  const { data: movie, isLoading: fetchingMovie } = useQuery<Movie>({
+  const { data: movie } = useQuery<Movie>({
     queryKey: [KEY.MOVIE, { id }],
     queryFn: async () => await get.movie.details({ id }),
   });
 
-  const { data: logo, isLoading: fetchingLogo } = useQuery<Logo>({
+  const { data: logo } = useQuery<Logo>({
     queryKey: [KEY.LOGO, { id }],
     queryFn: async () => (await get.movie.images({ id })).logos[0],
   });
 
-  const { data: certificate, isLoading: fetchingCertificate } =
-    useQuery<String>({
-      queryKey: [KEY.CERTIFICATE, { id }],
-      queryFn: async () => await get.movie.certificate({ id }),
-    });
+  const { data: certificate } = useQuery<String>({
+    queryKey: [KEY.CERTIFICATE, { id }],
+    queryFn: async () => await get.movie.certificate({ id }),
+  });
 
   const [showOverview, setShowOverview] = useState(true);
   useEffect(() => {

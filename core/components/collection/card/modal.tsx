@@ -10,20 +10,23 @@ import { KEY } from "@/core/enums";
 import { Movie } from "@/core/types/data";
 
 const MovieModal = () => {
-  const mid = useSearchParams().get("mid");
+  const mid = useSearchParams().get("mid") || "";
   const router = useRouter();
 
   const { data: movie } = useQuery({
     queryKey: [KEY.MOVIE, mid],
-    queryFn: async () => await get.movie.details({ id: mid || "" }),
+    queryFn: async () => await get.movie.details({ id: mid }),
+    enabled: !!mid,
   });
   const { data: credits } = useQuery({
     queryKey: [KEY.CREDITS, mid],
-    queryFn: async () => await get.movie.credits({ id: mid || "" }),
+    queryFn: async () => await get.movie.credits({ id: mid }),
+    enabled: !!mid,
   });
   const { data: similar } = useQuery<Movie[]>({
     queryKey: [KEY.SIMILAR, mid],
-    queryFn: async () => await get.movies.similar({ id: mid || "" }),
+    queryFn: async () => await get.movies.similar({ id: mid }),
+    enabled: !!mid,
   });
 
   if (!mid) return null;

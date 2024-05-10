@@ -9,11 +9,12 @@ import { IdProp } from "@/core/types/react";
 import { KEY } from "@/core/enums";
 
 const VideoPlayer = ({ id }: IdProp) => {
-  const { showVideo, handleShowVideo } = useVideo();
   const { data: trailer, isLoading } = useQuery<Video>({
     queryKey: [KEY.TRAILER, { id }],
     queryFn: async () => await get.movie.trailer({ id }),
   });
+  
+  const { showVideo, handleShowVideo } = useVideo();
 
   useEffect(() => {
     const timer = setTimeout(() => handleShowVideo(), 2000);
@@ -30,7 +31,8 @@ const VideoPlayer = ({ id }: IdProp) => {
     <iframe
       src={`https://www.youtube.com/embed/${trailer.key}/?autoplay=1&mute=1&loop=1&controls=0`}
       title={trailer.name}
-      className="h-full w-full scale-[2.3] lg:scale-150 brightness-110 z-50"></iframe>
+      className="h-full w-full scale-[2.3] lg:scale-150 brightness-110 z-50"
+      allowFullScreen></iframe>
   );
 };
 

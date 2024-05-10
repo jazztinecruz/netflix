@@ -13,18 +13,21 @@ import {
 import { PlayIcon } from "@heroicons/react/16/solid";
 
 const ModalDetails = ({ id }: IdProp) => {
-  const { data: movie, isLoading: fetchingMovie } = useQuery<Movie>({
+  if (!id) return null;
+
+  const { data: movie } = useQuery<Movie>({
     queryKey: [KEY.MOVIE, { id }],
     queryFn: async () => await get.movie.details({ id }),
+    enabled: !!id,
   });
 
-  const { data: logo, isLoading: fetchingLogo } = useQuery<Logo>({
+  const { data: logo } = useQuery<Logo>({
     queryKey: [KEY.LOGO, { id }],
     queryFn: async () => (await get.movie.images({ id })).logos[0],
+    enabled: !!id,
   });
 
   if (!movie) return null;
-
   return (
     <div className="flex justify-between items-end mt-auto">
       <div className="flex flex-col gap-3">
@@ -42,15 +45,17 @@ const ModalDetails = ({ id }: IdProp) => {
               F I L M
             </span>
           </div>
-          <div className="w-40 h-auto relative">
-            <Image
-              src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${logo?.file_path}`}
-              alt={movie.title}
-              width={logo?.width}
-              height={logo?.height}
-              priority
-            />
-          </div>
+          {logo && (
+            <div className="w-40 h-auto relative">
+              <Image
+                src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${logo?.file_path}`}
+                alt={movie?.title}
+                width={logo?.width}
+                height={logo?.height}
+                priority
+              />
+            </div>
+          )}
         </div>
         <div className="flex items-center gap-3">
           <button className="bg-white px-3 lg:px-5 py-2 rounded-md flex items-center gap-2 cursor-pointer">

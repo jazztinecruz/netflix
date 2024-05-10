@@ -27,6 +27,7 @@ const Navbar = () => {
           src="/logo/netflix.png"
           alt="Netflix"
           fill
+          sizes="w-auto h-auto"
           className="object-center"
         />
       </div>
