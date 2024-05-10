@@ -60,7 +60,9 @@ const Home: Page = () => {
           />
         </Suspense>
       </div>
-      <MovieModal />
+      <Suspense>
+        <MovieModal />
+      </Suspense>
     </div>
   );
 };
