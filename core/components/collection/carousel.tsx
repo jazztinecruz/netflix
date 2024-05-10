@@ -47,7 +47,7 @@ const Carousel = ({ movies }: Props) => {
         ))}
       </div>
       <div className="relative group grid grid-flow-col transition-transform duration-300 ease-in-out ">
-        <div className={`grid grid-flow-col ${startIndex === 0 && "margin"}`}>
+        <div className={`grid grid-flow-col gap-2 ${startIndex === 0 && "margin"}`}>
           {visibleMovies.map((movie) => (
             <Link
               key={movie.id}
