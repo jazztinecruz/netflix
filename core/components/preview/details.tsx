@@ -31,6 +31,7 @@ const Details = ({ id }: IdProp) => {
   });
 
   const [showOverview, setShowOverview] = useState(true);
+
   useEffect(() => {
     const timer = setTimeout(() => setShowOverview(false), 5000);
     return () => clearTimeout(timer);

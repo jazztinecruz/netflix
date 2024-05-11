@@ -1,5 +1,7 @@
+import { SVG } from "@/core/types/react";
+
 type Props = {
-  Icon: any;
+  Icon: SVG;
   color?: "black" | "white";
 };
 

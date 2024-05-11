@@ -9,6 +9,7 @@ import Backdrop from "../preview/backdrop";
 import Logo from "../preview/logo";
 
 type Props = { movie: Movie };
+
 const Card = ({ movie }: Props) => {
   const { data: certificate } = useQuery({
     queryKey: [KEY.CERTIFICATE, movie.id],
