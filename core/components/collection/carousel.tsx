@@ -7,7 +7,6 @@ import { useState } from 'react'
 import { Movie } from '@/core/types/data'
 
 import Backdrop from '../preview/backdrop'
-import Logo from '../preview/logo'
 
 type Props = {
   movies: Movie[]
@@ -47,14 +46,13 @@ const Carousel = ({ movies }: Props) => {
         ))}
       </div>
       <div className="relative group grid grid-flow-col transition-transform duration-300 ease-in-out ">
-        <div className={`grid grid-flow-col gap-2 ${startIndex === 0 && 'margin'}`}>
+        <ul className={`grid grid-flow-col gap-2 ${startIndex === 0 && 'margin'}`}>
           {visibleMovies.map((movie) => (
             <Link key={movie.id} href={`?mid=${movie.id}`} className="w-48 lg:w-64 aspect-video rounded-md relative">
               <Backdrop id={movie.id} />
-              <Logo id={movie.id} />
             </Link>
           ))}
-        </div>
+        </ul>
         {startIndex >= displayCount && (
           <button
             onClick={handlePrev}
