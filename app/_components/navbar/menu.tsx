@@ -21,23 +21,24 @@ const NavMenu = () => {
 
   return (
     <>
-      <section className='relative lg:hidden w-fit'>
-        <button onClick={() => setOpen(!open)} className='flex items-center gap-2'>
-          <span className='text-sm'>Browse</span>
-          <Triangle direction='down' />
+      <section className="relative lg:hidden w-fit">
+        <button onClick={() => setOpen(!open)} className="flex items-center gap-2">
+          <span className="text-sm">Browse</span>
+          <Triangle direction="down" />
         </button>
 
         {open && (
           <button
             onMouseLeave={() => setOpen(false)}
-            className='absolute -bottom-[310px] inset-x-2/4 -translate-x-2/4 w-72 bg-black/80 border border-gray-300/30 border-t-[3px] border-t-white rounded-t-sm'>
+            className="absolute -bottom-[310px] inset-x-2/4 -translate-x-2/4 w-72 bg-black/80 border border-gray-300/30 border-t-[3px] border-t-white rounded-t-sm"
+          >
             <Triangle />
-            <ul className='flex flex-col justify-center text-center gap-4 text-white'>{renderMenuItems()}</ul>
+            <ul className="flex flex-col justify-center text-center gap-4 text-white">{renderMenuItems()}</ul>
           </button>
         )}
       </section>
-      <section className='hidden lg:block'>
-        <ul className='flex items-center gap-4'>{renderMenuItems()}</ul>
+      <section className="hidden lg:block">
+        <ul className="flex items-center gap-4">{renderMenuItems()}</ul>
       </section>
     </>
   )

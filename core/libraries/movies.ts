@@ -1,6 +1,8 @@
 import { cache } from 'react'
-import api from './api'
+
 import { Certificate, Credit, Image, Movie, Video } from '@/core/types/data'
+
+import api from './api'
 
 //multiple
 export const getPopular = cache(async (): Promise<Movie[]> => {

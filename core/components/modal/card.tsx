@@ -1,10 +1,12 @@
 'use client'
 
+import Link from 'next/link'
+import { useQuery } from 'react-query'
+
 import { KEY } from '@/core/enums'
 import get from '@/core/libraries'
 import { Movie } from '@/core/types/data'
-import Link from 'next/link'
-import { useQuery } from 'react-query'
+
 import Backdrop from '../preview/backdrop'
 import Logo from '../preview/logo'
 
@@ -20,14 +22,14 @@ const Card = ({ movie }: Props) => {
 
   return (
     <Link href={`?mid=${movie.id}`} key={movie.id}>
-      <li className='relative'>
-        <div className='relative'>
+      <li className="relative">
+        <div className="relative">
           <Backdrop id={movie.id} />
           <Logo id={movie.id} />
         </div>
-        <div className='bg-[#2F2F2F] rounded-b-md p-4 flex flex-col gap-3 h-40 text-white/80 text-sm'>
-          <div className='flex items-center gap-2'>
-            {certificate && <div className='border border-secondary px-2 py-1 w-fit'>{certificate}</div>}
+        <div className="bg-[#2F2F2F] rounded-b-md p-4 flex flex-col gap-3 h-40 text-white/80 text-sm">
+          <div className="flex items-center gap-2">
+            {certificate && <div className="border border-secondary px-2 py-1 w-fit">{certificate}</div>}
             {movie.release_date && <span>{movie.release_date.split('-')[0]}</span>}
           </div>
           <p>{overview.length > 140 ? overview.slice(0, 140) + '...' : overview}</p>

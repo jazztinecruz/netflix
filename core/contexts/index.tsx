@@ -1,7 +1,8 @@
 'use client'
 
-import { Children } from '../types/react'
 import { QueryClient, QueryClientProvider } from 'react-query'
+
+import { Children } from '../types/react'
 
 type Props = {
   children: Children

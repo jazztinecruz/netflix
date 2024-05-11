@@ -1,9 +1,9 @@
 module.exports = {
-  importOrder: ['^@core/(.*)$', '^[./]'],
+  importOrder: ['^@/core/(.*)$', '^[./]'],
   importOrderSeparation: true,
-  importOrderAlphabetical: true,
   singleQuote: true,
   printWidth: 120,
   semi: false,
   trailingComma: 'all',
+  plugins: ['@trivago/prettier-plugin-sort-imports'],
 }
