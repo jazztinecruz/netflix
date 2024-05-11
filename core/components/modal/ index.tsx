@@ -64,7 +64,7 @@ const MovieModal = () => {
               <ModalDetails id={mid} />
               <div className="bg-gradient-to-b from-transparent to-primary absolute inset-0" />
             </div>
-            <div className="p-10 space-y-12 grid">
+            <div className="p-10 pt-0 space-y-12 grid">
               <div className="space-y-1">
                 {certificate && <div className="border border-secondary px-2 py-1 w-fit text-sm">{certificate}</div>}
                 <div className="flex lg:items-center flex-col lg:flex-row lg:justify-between">
