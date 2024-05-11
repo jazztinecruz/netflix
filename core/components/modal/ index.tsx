@@ -50,7 +50,8 @@ const MovieModal = () => {
       enterTo="opacity-100"
       leave="duration-300 ease-out"
       leaveFrom="opacity-100"
-      leaveTo="opacity-0">
+      leaveTo="opacity-0"
+    >
       <Dialog onClose={() => router.back()} className="relative z-[999]">
         <div className="fixed inset-0 flex w-screen bg-black/60 items-center justify-center p-4">
           <DialogPanel className="max-w-5xl w-full relative rounded-md bg-primary space-y-4 h-screen overflow-y-auto">
@@ -97,9 +98,9 @@ const MovieModal = () => {
               <div className="space-y-4">
                 <h2 className="text-xl font-bold">More Like This</h2>
                 <ul className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-                  {similar?.slice(0, 9).map((movie) => (
-                    <Card key={movie.id} movie={movie} />
-                  ))}
+                  {similar
+                    ?.slice(0, 9)
+                    .map((movie) => <Card key={movie.id} movie={movie} />)}
                 </ul>
               </div>
             </div>

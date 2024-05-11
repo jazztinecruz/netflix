@@ -48,7 +48,8 @@ const Details = ({ id }: IdProp) => {
     <div className="margin w-full flex justify-between items-end h-fit absolute inset-y-2/4 -translate-y-2/4 z-50">
       <div className={`relative max-w-lg transition-all flex flex-col gap-4`}>
         <div
-          className={`${translatePosition} transition-transform duration-500 ease-in flex flex-col gap-2`}>
+          className={`${translatePosition} transition-transform duration-500 ease-in flex flex-col gap-2`}
+        >
           <div className="flex items-center -ml-2 lg:-ml-3">
             <div className="w-8 h-8 lg:w-10 lg:h-10 relative">
               <Image
@@ -73,7 +74,8 @@ const Details = ({ id }: IdProp) => {
           </div>
         </div>
         <p
-          className={`transition-opacity duration-200 text-xs lg:text-lg ${overviewOpacity} `}>
+          className={`transition-opacity duration-200 text-xs lg:text-lg ${overviewOpacity} `}
+        >
           {movie.overview}
         </p>
         <div className="flex items-center gap-3">

@@ -32,7 +32,7 @@ export const getCertificate = cache(async (id: string): Promise<string> => {
   });
 
   const certificate: string = data.find((cert) =>
-    cert.release_dates.some((rd) => rd.certification.trim() !== "")
+    cert.release_dates.some((rd) => rd.certification.trim() !== ""),
   )?.release_dates[0].certification!;
 
   return certificate;
@@ -45,7 +45,7 @@ export const getMovie = cache(async (id: string): Promise<Movie> => {
 export const getTrailer = cache(async (id: string): Promise<Video> => {
   const videos = await api({ url: `movie/${id}/videos` });
   const trailer = videos.filter(
-    (video: Video) => video.type === "Trailer"
+    (video: Video) => video.type === "Trailer",
   )[0] as Video;
 
   return trailer;
@@ -53,26 +53,26 @@ export const getTrailer = cache(async (id: string): Promise<Video> => {
 
 export const getImages = cache(
   async (
-    id: string
+    id: string,
   ): Promise<{ logo: Image; backdrop: Image; poster: Image }> => {
     const data = await api({ url: `movie/${id}/images` });
     const { logos, backdrops, posters } = data;
 
     const logo = logos.find(
-      (logo: Image) => logo.file_path !== "" && logo.width && logo.height
+      (logo: Image) => logo.file_path !== "" && logo.width && logo.height,
     );
     const backdrop = backdrops.find(
       (backdrop: Image) =>
         backdrop.file_path !== "" &&
         backdrop.width &&
         backdrop.height &&
-        backdrop.aspect_ratio
+        backdrop.aspect_ratio,
     );
     const poster = posters.find(
       (poster: Image) =>
-        poster.file_path !== "" && poster.width && poster.height
+        poster.file_path !== "" && poster.width && poster.height,
     );
 
     return { logo, backdrop, poster };
-  }
+  },
 );

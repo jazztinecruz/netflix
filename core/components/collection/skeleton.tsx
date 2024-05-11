@@ -8,7 +8,8 @@ const ListSkeleton = () => {
             key={index}
             className={`aspect-video relative rounded-md bg-gray-500 animate-pulse grid place-items-center text-lg ${
               index === 0 && "ml-12"
-            }`}></div>
+            }`}
+          ></div>
         ))}
       </div>
     </div>
