@@ -7,13 +7,13 @@ import Backdrop from '@/core/components/preview/backdrop'
 import get from '@/core/libraries'
 import { Movie } from '@/core/types/data'
 
-import Details from '../../../core/components/preview/details'
 import VideoPlayer from '../../../core/components/preview/video'
+import Details from './details'
 
 const Hero = () => {
   const { data: movies } = useQuery<Movie[]>({
     queryKey: ['popular'],
-    queryFn: async () => await get.movies.upcoming(),
+    queryFn: async () => await get.movies.popular(),
   })
   const [showVideo, setShowVideo] = useState(false)
   const [currentMovieIndex, setCurrentMovieIndex] = useState(0)
