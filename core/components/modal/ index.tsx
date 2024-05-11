@@ -1,6 +1,7 @@
 'use client'
 
 import { Dialog, DialogPanel, Transition } from '@headlessui/react'
+import { ViewColumnsIcon } from '@heroicons/react/24/outline'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useQuery } from 'react-query'
 
@@ -9,6 +10,7 @@ import get from '@/core/libraries'
 import { Movie } from '@/core/types/data'
 
 import VideoPlayer from '../preview/video'
+import Symbol from '../symbol'
 import Card from './card'
 import ModalDetails from './details'
 
@@ -36,10 +38,10 @@ const MovieModal = () => {
     queryFn: async () => await get.movie.certificate({ id: mid }),
     enabled: !!mid,
   })
-  const { data: trailer } = useQuery({
-    queryKey: [KEY.TRAILER, mid],
-    queryFn: async () => await get.movie.trailer({ id: mid }),
-    enabled: !!mid,
+  const { data: collection } = useQuery({
+    queryKey: [KEY.COLLECTION, mid],
+    queryFn: async () => await get.movies.collection({ id: movie?.belongs_to_collection?.id || '' }),
+    enabled: !!mid && !!movie?.belongs_to_collection?.id,
   })
 
   if (!mid) return null
@@ -92,6 +94,18 @@ const MovieModal = () => {
                   </div>
                 </div>
               </div>
+
+              {collection && (
+                <div className="space-y-4">
+                  <div className="flex items-center gap-4">
+                    <Symbol Icon={ViewColumnsIcon} color="white" />
+                    <h2 className="text-xl font-bold">{collection?.name}</h2>
+                  </div>
+                  <ul className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                    {collection?.parts?.map((movie) => <Card key={movie.id} movie={movie} />)}
+                  </ul>
+                </div>
+              )}
 
               <div className="space-y-4">
                 <h2 className="text-xl font-bold">More Like This</h2>

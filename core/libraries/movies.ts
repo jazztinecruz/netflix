@@ -1,6 +1,6 @@
 import { cache } from 'react'
 
-import { Certificate, Credit, Image, Movie, Video } from '@/core/types/data'
+import { Certificate, Collection, Credit, Image, Movie, Video } from '@/core/types/data'
 
 import api from './api'
 
@@ -19,6 +19,10 @@ export const getDiscover = cache(async (genreId: string): Promise<Movie[]> => {
 
 export const getSimilar = cache(async (id: string): Promise<Movie[]> => {
   return await api({ url: `movie/${id}/similar` })
+})
+
+export const getCollection = cache(async (id: string): Promise<Collection> => {
+  return await api({ url: `collection/${id}` })
 })
 
 // single
