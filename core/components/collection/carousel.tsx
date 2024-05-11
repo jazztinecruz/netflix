@@ -50,9 +50,8 @@ const Carousel = ({ movies }: Props) => {
         <div className={`grid grid-flow-col gap-2 ${startIndex === 0 && 'margin'}`}>
           {visibleMovies.map((movie) => (
             <Link key={movie.id} href={`?mid=${movie.id}`} className="w-48 lg:w-64 aspect-video rounded-md relative">
-              {/* <Backdrop id={movie.id} />
-              <Logo id={movie.id} /> */}
-              {movie.id}
+              <Backdrop id={movie.id} />
+              <Logo id={movie.id} />
             </Link>
           ))}
         </div>

@@ -3,6 +3,7 @@
 import { PlayIcon } from '@heroicons/react/16/solid'
 import { InformationCircleIcon, SpeakerXMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
 
@@ -21,7 +22,7 @@ const Details = ({ id }: IdProp) => {
 
   const { data: logo } = useQuery<Logo>({
     queryKey: [KEY.LOGO, id],
-    queryFn: async () => (await get.movie.images({ id })).logo,
+    queryFn: async () => await get.movie.logo({ id }),
   })
 
   const { data: certificate } = useQuery<String>({
@@ -64,10 +65,12 @@ const Details = ({ id }: IdProp) => {
             <Symbol Icon={PlayIcon} color="black" />
             <span className="text-black font-semibold text-sm lg:text-lg">Play</span>
           </button>
-          <button className="bg-secondary px-3 lg:px-5 py-2 rounded-md flex items-center gap-2">
-            <Symbol Icon={InformationCircleIcon} />
-            <span className="font-semibold text-sm lg:text-lg">More Info</span>
-          </button>
+          <Link href={`/?mid=${movie.id}`}>
+            <button className="bg-secondary px-3 lg:px-5 py-2 rounded-md flex items-center gap-2 cursor-pointer">
+              <Symbol Icon={InformationCircleIcon} />
+              <span className="font-semibold text-sm lg:text-lg">More Info</span>
+            </button>
+          </Link>
         </div>
       </div>
       <div className="flex items-center gap-6">

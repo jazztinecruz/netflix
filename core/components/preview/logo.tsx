@@ -10,7 +10,7 @@ import { IdProp } from '@/core/types/react'
 const Logo = ({ id }: IdProp) => {
   const { data: logo } = useQuery({
     queryKey: [KEY.LOGO, id],
-    queryFn: async () => (await get.movie.images({ id })).logo,
+    queryFn: async () => (await get.movie.logo({ id })),
   })
 
   if (!logo) return null

@@ -1,6 +1,5 @@
 import {
   getMovie,
-  getImages,
   getPopular,
   getSimilar,
   getUpcoming,
@@ -9,13 +8,18 @@ import {
   getDiscover,
   getTrailer,
   getCollection,
+  getLogo,
+  getBackdrop,
+  getPoster,
 } from './movies'
 
 const get = {
   movie: {
     details: ({ id }: { id: string }) => getMovie(id),
     trailer: ({ id }: { id: string }) => getTrailer(id),
-    images: ({ id }: { id: string }) => getImages(id),
+    logo: ({ id }: { id: string }) => getLogo(id),
+    backdrop: ({ id }: { id: string }) => getBackdrop(id),
+    poster: ({ id }: { id: string }) => getPoster(id),
     certificate: ({ id }: { id: string }) => getCertificate(id),
     credits: ({ id }: { id: string }) => getCredits(id),
   },

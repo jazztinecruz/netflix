@@ -44,9 +44,8 @@ const Hero = () => {
   if (!movie) return null
 
   return (
-    <div className="lg:h-screen relative h-96 lg:absolute lg:inset-0 lg:-z-10 overflow-hidden">
-      {/* {!showVideo ? <Backdrop id={movie.id} /> : <VideoPlayer id={movie.id} />} */}
-      <VideoPlayer id={movie.id} />
+    <div className="lg:h-fit relative h-96 lg:absolute lg:inset-0 lg:-z-10 overflow-hidden">
+      {!showVideo ? <Backdrop id={movie.id} /> : <VideoPlayer id={movie.id} />}
       <Details id={movie.id} />
       <div className="bg-gradient-to-b from-transparent to-primary absolute inset-0  z-10" />
       <div className="bg-gradient-to-b from-transparent to-primary absolute inset-0 z-10" />

@@ -54,15 +54,26 @@ export const getTrailer = cache(async (id: string): Promise<Video> => {
   return trailer
 })
 
-export const getImages = cache(async (id: string): Promise<{ logo: Image; backdrop: Image; poster: Image }> => {
+export const getLogo = cache(async (id: string): Promise<Image> => {
   const data = await api({ url: `movie/${id}/images` })
-  const { logos, backdrops, posters } = data
+  const { logos } = data
+  const logo = logos[0]
 
-  const logo = logos.find((logo: Image) => logo.file_path !== '' && logo.width && logo.height)
-  const backdrop = backdrops.find(
-    (backdrop: Image) => backdrop.file_path !== '' && backdrop.width && backdrop.height && backdrop.aspect_ratio,
-  )
-  const poster = posters.find((poster: Image) => poster.file_path !== '' && poster.width && poster.height)
+  return logo
+})
 
-  return { logo, backdrop, poster }
+export const getBackdrop = cache(async (id: string): Promise<Image> => {
+  const data = await api({ url: `movie/${id}/images` })
+  const { backdrops } = data
+  const backdrop = backdrops[0]
+
+  return backdrop
+})
+
+export const getPoster = cache(async (id: string): Promise<Image> => {
+  const data = await api({ url: `movie/${id}/images` })
+  const { posters } = data
+  const poster = posters[0]
+
+  return poster
 })

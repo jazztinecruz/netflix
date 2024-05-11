@@ -47,6 +47,7 @@ export enum KEY {
   TRAILER = 'trailer',
   BACKDROP = 'backdrop',
   LOGO = 'logo',
+  POSTER = 'poster',
   CERTIFICATE = 'certificate',
   CREDITS = 'credits',
   SIMILAR = 'similar',
