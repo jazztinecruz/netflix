@@ -13,7 +13,9 @@ const NavMenu = () => {
       const isBold = pathname === menu.url ? 'font-bold' : 'font-medium'
       return (
         <Link key={menu.label} href={menu.url}>
-          <li className={`text-sm ${isBold} text-white py-3 hover:bg-white/10`}>{menu.label}</li>
+          <li className={`text-sm ${isBold} text-white py-3 hover:bg-white/10 lg:hover:bg-transparent`}>
+            {menu.label}
+          </li>
         </Link>
       )
     })

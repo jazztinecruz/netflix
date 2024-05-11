@@ -36,15 +36,12 @@ const Details = ({ id }: IdProp) => {
     return () => clearTimeout(timer)
   }, [])
 
-  const overviewOpacity = showOverview ? 'opacity-100' : 'opacity-0'
-  const translatePosition = showOverview ? '' : 'translate-y-3/4 md:translate-y-2/4'
-
   if (!movie) return null
 
   return (
     <div className="margin w-full flex justify-between items-end h-fit absolute inset-y-2/4 -translate-y-2/4 z-50">
       <div className={`relative max-w-lg transition-all flex flex-col gap-4`}>
-        <div className={`${translatePosition} transition-transform duration-500 ease-in flex flex-col gap-2`}>
+        <div className={`transition-transform duration-500 ease-in flex flex-col gap-2`}>
           <div className="flex items-center -ml-2 lg:-ml-3">
             <div className="w-8 h-8 lg:w-10 lg:h-10 relative">
               <Image src="/logo/n-symbol.png" alt={movie.title} fill sizes="w-auto h-auto" />
@@ -61,7 +58,7 @@ const Details = ({ id }: IdProp) => {
             />
           </div>
         </div>
-        <p className={`transition-opacity duration-200 text-xs lg:text-lg ${overviewOpacity} `}>{movie.overview}</p>
+        <p className={`transition-opacity duration-200 text-xs lg:text-lg`}>{movie.overview.split('.')[0]}</p>
         <div className="flex items-center gap-3">
           <button className="bg-white px-3 lg:px-5 py-2 rounded-md flex items-center gap-2 cursor-pointer">
             <Symbol Icon={PlayIcon} color="black" />
