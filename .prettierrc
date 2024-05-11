@@ -1,5 +1,0 @@
-{
-  "importOrder": ["^@core/(.*)$", "^[./"],
-  "importOrderSeparation": true,
-  "importOrderAlphabetical": true
-}

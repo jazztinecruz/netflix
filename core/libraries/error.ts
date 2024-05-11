@@ -1,10 +1,9 @@
 const grabError = (error: unknown) => {
   return {
     error: {
-      message:
-        error instanceof Error ? error.message : "Unknown error occurred",
+      message: error instanceof Error ? error.message : 'Unknown error occurred',
     },
-  };
-};
+  }
+}
 
-export default grabError;
+export default grabError

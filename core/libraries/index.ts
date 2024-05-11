@@ -8,7 +8,7 @@ import {
   getCertificate,
   getDiscover,
   getTrailer,
-} from "./movies";
+} from './movies'
 
 const get = {
   movie: {
@@ -21,10 +21,9 @@ const get = {
   movies: {
     popular: () => getPopular(),
     upcoming: () => getUpcoming(),
-    discover: ({ genreId }: { genreId: string }) =>
-      getDiscover(String(genreId)),
+    discover: ({ genreId }: { genreId: string }) => getDiscover(String(genreId)),
     similar: ({ id }: { id: string }) => getSimilar(id),
   },
-};
+}
 
-export default get;
+export default get
