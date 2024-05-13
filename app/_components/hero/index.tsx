@@ -3,11 +3,11 @@
 import { useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
 
-import Backdrop from '@/core/components/preview/backdrop'
+import Backdrop from '@/core/components/media/backdrop'
 import get from '@/core/libraries'
 import { Movie } from '@/core/types/data'
 
-import VideoPlayer from '../../../core/components/preview/video'
+import VideoPlayer from '../../../core/components/media/video'
 import Details from './details'
 
 const Hero = () => {

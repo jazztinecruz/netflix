@@ -9,7 +9,7 @@ import { KEY } from '@/core/enums'
 import get from '@/core/libraries'
 import { Movie } from '@/core/types/data'
 
-import VideoPlayer from '../preview/video'
+import VideoPlayer from '../media/video'
 import Symbol from '../symbol'
 import Card from './card'
 import ModalDetails from './details'

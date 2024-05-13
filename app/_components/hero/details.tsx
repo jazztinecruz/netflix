@@ -43,7 +43,7 @@ const Details = ({ id }: IdProp) => {
     <div className="margin w-full flex justify-between items-end h-72 absolute inset-y-2/4 -translate-y-2/4 z-50 ">
       <div className="relative max-w-lg grid grid-rows-[1fr,auto] gap-4  h-full">
         <div className="flex flex-col gap-2">
-          <MovieLogo movie={movie} logo={logo!} showOverview={showOverview} />
+          {/* <MovieLogo movie={movie} logo={logo!} showOverview={showOverview} /> */}
           <p className={`text-xs lg:text-lg ${showOverview ? 'block' : 'hidden'}`}>{movie.overview.split('.')[0]}</p>
         </div>
         <Buttons movie={movie} />
@@ -71,15 +71,13 @@ const MovieLogo = ({ movie, logo, showOverview }: { movie: Movie; logo: Logo; sh
         </div>
         <span className="tracking-wider font-semibold text-slate-300 text-lglg:text-xl">F I L M</span>
       </div>
-      <div className="w-52 lg:w-auto lg:h-auto relatsive">
-        <Image
-          src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${logo?.file_path}`}
-          alt={movie.title}
-          width={logo?.width}
-          height={logo?.height}
-          priority
-        />
-      </div>
+      <Image
+        src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${logo?.file_path}`}
+        alt={movie.title}
+        width={600}
+        height={400}
+        priority
+      />
     </div>
   )
 }

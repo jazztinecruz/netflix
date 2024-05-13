@@ -14,18 +14,16 @@ const Backdrop = ({ id }: IdProp) => {
     queryFn: async () => await get.movie.backdrop({ id }),
   })
 
-  if (isFetching || !backdrop) return <div className="aspect-video bg-gray-500 animate-pulse" />
+  if (isFetching || !backdrop) return <div className="aspect-video bg-gray-500 animate-pulse rounded-md" />
 
   return (
-    <div className={`relative aspect-${backdrop?.aspect_ratio}`}>
-      <Image
-        alt="Backdrop"
-        src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${backdrop?.file_path}`}
-        width={backdrop?.width}
-        height={backdrop?.height}
-        className="rounded-md"
-      />
-    </div>
+    <Image
+      alt="Backdrop"
+      src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${backdrop?.file_path}`}
+      fill
+      sizes="w-auto h-auto"
+      className="rounded-md absolute inset-0"
+    />
   )
 }
 

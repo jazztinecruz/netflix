@@ -7,8 +7,8 @@ import { KEY } from '@/core/enums'
 import get from '@/core/libraries'
 import { Movie } from '@/core/types/data'
 
-import Backdrop from '../preview/backdrop'
-import Logo from '../preview/logo'
+import Backdrop from '../media/backdrop'
+import Logo from '../media/logo'
 
 type Props = { movie: Movie }
 
@@ -23,7 +23,7 @@ const Card = ({ movie }: Props) => {
   return (
     <Link href={`?mid=${movie.id}`} key={movie.id}>
       <li className="relative">
-        <div className="relative">
+        <div className="relative aspect-video">
           <Backdrop id={movie.id} />
           <Logo id={movie.id} />
         </div>

@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
+import MovieModal from '@/core/components/modal/ index'
 import Providers from '@/core/contexts'
 import '@/core/styles/globals.css'
 import { Children } from '@/core/types/react'
 
 import Navbar from './_components/navbar'
-import MovieModal from '@/core/components/modal/ index'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -27,7 +27,7 @@ const RootLayout = ({ children }: Props) => {
         <main>
           <Providers>
             {children}
-            <MovieModal />
+            {/* <MovieModal /> */}
           </Providers>
         </main>
       </body>
