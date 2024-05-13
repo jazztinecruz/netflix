@@ -27,8 +27,8 @@ const ModalDetails = ({ id }: IdProp) => {
 
   if (!movie) return null
   return (
-    <div className="flex flex-col gap-3 absolute bottom-0 m-10 z-10">
-      <div className="flex flex-col gap-1">
+    <div className="flex flex-col gap-4 absolute bottom-0 m-10 z-10">
+      <div className="flex flex-col gap-2">
         <div className="flex items-center">
           <div className="w-8 h-8 relative">
             <Image src="/logo/n-symbol.png" alt={movie.title} fill sizes="w-auto h-auto" />
@@ -36,7 +36,7 @@ const ModalDetails = ({ id }: IdProp) => {
           <span className="tracking-wider font-semibold text-slate-300 text-lglg:text-xl">F I L M</span>
         </div>
         {logo && (
-          <div className="w-40 h-auto relative">
+          <div className="w-64 h-auto relative">
             <Image
               src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${logo?.file_path}`}
               alt={movie?.title}
