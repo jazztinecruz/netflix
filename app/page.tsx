@@ -11,8 +11,8 @@ import Hero from './_components/hero'
 const Home: Page = () => {
   return (
     <div className="grid">
-      {/* <Hero /> */}
-      <div className="space-y-6 lg:mt-[680px]">
+      <Hero />
+      <div className="space-y-6 lg:mt-[820px]">
         <Suspense fallback={<ListSkeleton />}>
           <Collection title={GENRE_NAME.Action} getMovies={() => get.movies.discover({ genreId: GENRE_ID.Action })} />
         </Suspense>

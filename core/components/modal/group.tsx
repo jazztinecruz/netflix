@@ -16,7 +16,7 @@ type TitleProps = {
 }
 
 const Title = ({ children, Icon }: TitleProps) => {
-  const titleStyle = 'text-3xl font-semibold'
+  const titleStyle = 'text-2xl font-semibold'
   if (!Icon) return <h2 className={titleStyle}>{children}</h2>
   return (
     <div className="flex items-center gap-4">

@@ -44,23 +44,15 @@ const Hero = () => {
   if (!movie) return null
 
   return (
-    <div className="lg:h-fit relative h-96 lg:absolute lg:inset-0 lg:-z-10 overflow-hidden">
+    <div className="lg:h-screen relative h-96 lg:absolute lg:inset-0 lg:-z-10 overflow-hidden">
       {!showVideo ? <Backdrop id={movie.id} /> : <VideoPlayer id={movie.id} />}
-      <Details id={movie.id} />
-      <div className="bg-gradient-to-b from-transparent to-primary absolute inset-0  z-10" />
-      <div className="bg-gradient-to-b from-transparent to-primary absolute inset-0 z-10" />
-      <div className="hidden md:block">
-        <div className="flex items-center gap-2 z-50 absolute inset-y-2/4 translate-y-2/4 mt-12 right-0">
-          {movies.slice(0, 5).map((movie, index) => (
-            <div key={movie.id} className="relative transition-all duration-500 ease-in">
-              <div className={`h-full w-20 relative rounded-md ${currentMovieIndex === index && 'brightness-125'}`}>
-                <Backdrop id={movie.id} />
-              </div>
-              {currentMovieIndex !== index && <div className="bg-primary/50 absolute inset-0 z-10 rounded-md " />}
-            </div>
-          ))}
+      <div className="absolute inset-0 z-50">
+        <div className="relative h-full grid items-center">
+          <Details id={movie.id} />
         </div>
       </div>
+      <div className="bg-gradient-to-b from-transparent to-primary absolute inset-0  z-10" />
+      <div className="bg-gradient-to-b from-transparent to-primary absolute inset-0 z-10" />
     </div>
   )
 }

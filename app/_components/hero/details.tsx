@@ -40,11 +40,11 @@ const Details = ({ id }: IdProp) => {
   if (!movie) return null
 
   return (
-    <div className="margin w-full flex justify-between items-end h-72 absolute inset-y-2/4 -translate-y-2/4 z-50 ">
-      <div className="relative max-w-lg grid grid-rows-[1fr,auto] gap-4  h-full">
+    <div className="margin w-full flex justify-between items-end">
+      <div className="relative max-w-lg grid grid-rows-[1fr,auto] gap-4 h-full">
         <div className="flex flex-col gap-2">
-          {/* <MovieLogo movie={movie} logo={logo!} showOverview={showOverview} /> */}
-          <p className={`text-xs lg:text-lg ${showOverview ? 'block' : 'hidden'}`}>{movie.overview.split('.')[0]}</p>
+          <MovieLogo movie={movie} logo={logo!} showOverview={showOverview} />
+          <p className={`text-xs lg:text-lg`}>{movie.overview.split('.')[0]}</p>
         </div>
         <Buttons movie={movie} />
       </div>
@@ -64,7 +64,7 @@ export default Details
 
 const MovieLogo = ({ movie, logo, showOverview }: { movie: Movie; logo: Logo; showOverview: boolean }) => {
   return (
-    <div className={`flex flex-col gap-2 ${showOverview ? '' : 'translate-y-1/4 transition-all duration-500 ease-in'}`}>
+    <div className="flex flex-col gap-2">
       <div className="flex items-center -ml-2 lg:-ml-3">
         <div className="w-8 h-8 lg:w-10 lg:h-10 relative">
           <Image src="/logo/n-symbol.png" alt={movie.title} fill sizes="w-auto h-auto" />
