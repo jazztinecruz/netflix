@@ -27,7 +27,7 @@ const RootLayout = ({ children }: Props) => {
         <main>
           <Providers>
             {children}
-            {/* <MovieModal /> */}
+            <MovieModal />
           </Providers>
         </main>
       </body>

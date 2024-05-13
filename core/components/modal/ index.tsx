@@ -1,7 +1,7 @@
 'use client'
 
 import { Dialog, DialogPanel, Transition } from '@headlessui/react'
-import { ViewColumnsIcon } from '@heroicons/react/24/outline'
+import { ViewColumnsIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useQuery } from 'react-query'
 
@@ -13,6 +13,7 @@ import VideoPlayer from '../media/video'
 import Symbol from '../symbol'
 import Card from './card'
 import ModalDetails from './details'
+import Group from './group'
 
 const MovieModal = () => {
   const mid = useSearchParams().get('mid') || ''
@@ -45,6 +46,8 @@ const MovieModal = () => {
     enabled: !!mid && !!movie?.belongs_to_collection?.id,
   })
 
+  const handleClose = () => router.push(pathname)
+
   if (!mid) return null
 
   return (
@@ -57,10 +60,13 @@ const MovieModal = () => {
       leaveFrom="opacity-100"
       leaveTo="opacity-0"
     >
-      <Dialog onClose={() => router.push(pathname)} className="relative z-[999]">
+      <Dialog onClose={handleClose} className="relative z-[999]">
         <div className="fixed inset-0 flex w-screen bg-black/60 items-center justify-center p-4">
           <DialogPanel className="max-w-5xl w-full relative rounded-md bg-primary space-y-4 h-screen overflow-y-auto">
             <div className="relative h-[500px] overflow-hidden">
+              <button onClick={handleClose} className="bg-primary rounded-full absolute top-5 right-5 z-10 p-2">
+                <Symbol Icon={XMarkIcon} color="white" />
+              </button>
               <VideoPlayer id={mid} />
               <ModalDetails id={mid} />
               <div className="bg-gradient-to-b from-transparent to-primary absolute inset-0" />
@@ -84,36 +90,60 @@ const MovieModal = () => {
                       </div>
                     )}
 
-                    <div className="flex flex-wrap gap-1">
-                      <span className="text-sm text-secondary">Genres:</span>
-                      {movie?.genres?.map((genre) => (
-                        <span key={genre.id} className="text-sm">
-                          {genre.name},
-                        </span>
-                      ))}
-                    </div>
+                    {movie?.genres.length && (
+                      <div className="flex flex-wrap gap-1">
+                        <span className="text-sm text-secondary">Genres:</span>
+                        {movie?.genres?.map((genre) => (
+                          <span key={genre.id} className="text-sm">
+                            {genre.name},
+                          </span>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
 
               {collection && (
-                <div className="space-y-4">
-                  <div className="flex items-center gap-4">
-                    <Symbol Icon={ViewColumnsIcon} color="white" />
-                    <h2 className="text-xl font-bold">{collection?.name}</h2>
-                  </div>
+                <Group>
+                  <Group.Title Icon={ViewColumnsIcon}>{collection?.name}</Group.Title>
                   <ul className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                     {collection?.parts?.map((movie) => <Card key={movie.id} movie={movie} />)}
                   </ul>
-                </div>
+                </Group>
               )}
 
-              <div className="space-y-4">
-                <h2 className="text-xl font-bold">More Like This</h2>
+              <Group>
+                <Group.Title>More Like This</Group.Title>
                 <ul className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                   {similar?.slice(0, 9).map((movie) => <Card key={movie.id} movie={movie} />)}
                 </ul>
-              </div>
+              </Group>
+
+              <Group>
+                <Group.Title>About {movie?.title}</Group.Title>
+                {credits && (
+                  <div className="flex flex-wrap gap-1">
+                    <span className="text-sm text-secondary">Cast:</span>
+                    {credits.map((credit) => (
+                      <span key={credit.id} className="text-sm">
+                        {credit.name},
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                {movie?.genres.length && (
+                  <div className="flex flex-wrap gap-1">
+                    <span className="text-sm text-secondary">Genres:</span>
+                    {movie?.genres?.map((genre) => (
+                      <span key={genre.id} className="text-sm">
+                        {genre.name},
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </Group>
             </div>
           </DialogPanel>
         </div>
