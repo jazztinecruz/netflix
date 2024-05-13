@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { Suspense } from 'react'
 
 import MovieModal from '@/core/components/modal/ index'
 import Providers from '@/core/contexts'
@@ -27,7 +28,9 @@ const RootLayout = ({ children }: Props) => {
         <main>
           <Providers>
             {children}
-            <MovieModal />
+            <Suspense>
+              <MovieModal />
+            </Suspense>
           </Providers>
         </main>
       </body>
