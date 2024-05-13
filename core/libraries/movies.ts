@@ -4,28 +4,28 @@ import { Certificate, Collection, Credit, Image, Movie, Video } from '@/core/typ
 
 import api from './api'
 
-//multiple
+const language = 'en-US'
+
 export const getPopular = cache(async (): Promise<Movie[]> => {
-  return await api({ url: 'movie/popular' })
+  return await api({ url: `movie/popular?language=${language}` })
 })
 
 export const getUpcoming = cache(async (): Promise<Movie[]> => {
-  return await api({ url: 'movie/upcoming' })
+  return await api({ url: `movie/upcoming?language=${language}` })
 })
 
 export const getDiscover = cache(async (genreId: string): Promise<Movie[]> => {
-  return await api({ url: `discover/movie?with_genres=${genreId}` })
+  return await api({ url: `discover/movie?with_genres=${genreId}&language=${language}` })
 })
 
 export const getSimilar = cache(async (id: string): Promise<Movie[]> => {
-  return await api({ url: `movie/${id}/similar` })
+  return await api({ url: `movie/${id}/similar?language=${language}` })
 })
 
 export const getCollection = cache(async (id: string): Promise<Collection> => {
-  return await api({ url: `collection/${id}` })
+  return await api({ url: `collection/${id}?language=${language}` })
 })
 
-// single
 export const getCredits = cache(async (id: string): Promise<Credit[]> => {
   const data = await api({ url: `movie/${id}/credits` })
   const credits = data.cast
@@ -44,18 +44,18 @@ export const getCertificate = cache(async (id: string): Promise<string> => {
 })
 
 export const getMovie = cache(async (id: string): Promise<Movie> => {
-  return await api({ url: `movie/${id}` })
+  return await api({ url: `movie/${id}?language=${language}` })
 })
 
 export const getTrailer = cache(async (id: string): Promise<Video> => {
-  const videos = await api({ url: `movie/${id}/videos` })
+  const videos = await api({ url: `movie/${id}/videos?language=${language}` })
   const trailer = videos.filter((video: Video) => video.type === 'Trailer')[0] as Video
 
   return trailer
 })
 
 export const getLogo = cache(async (id: string): Promise<Image> => {
-  const data = await api({ url: `movie/${id}/images` })
+  const data = await api({ url: `movie/${id}/images?language=en` })
   const { logos } = data
   const logo = logos[0]
 
@@ -63,7 +63,7 @@ export const getLogo = cache(async (id: string): Promise<Image> => {
 })
 
 export const getBackdrop = cache(async (id: string): Promise<Image> => {
-  const data = await api({ url: `movie/${id}/images` })
+  const data = await api({ url: `movie/${id}/images?language=en` })
   const { backdrops } = data
   const backdrop = backdrops[0]
 
@@ -71,7 +71,7 @@ export const getBackdrop = cache(async (id: string): Promise<Image> => {
 })
 
 export const getPoster = cache(async (id: string): Promise<Image> => {
-  const data = await api({ url: `movie/${id}/images` })
+  const data = await api({ url: `movie/${id}/images?language=en` })
   const { posters } = data
   const poster = posters[0]
 

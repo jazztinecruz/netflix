@@ -7,7 +7,6 @@ import { useState } from 'react'
 import { Movie } from '@/core/types/data'
 
 import Backdrop from '../media/backdrop'
-import Logo from '../media/logo'
 
 type Props = {
   movies: Movie[]
@@ -51,7 +50,6 @@ const Carousel = ({ movies }: Props) => {
           {visibleMovies.map((movie) => (
             <Link key={movie.id} href={`?mid=${movie.id}`} className="w-48 lg:w-80 aspect-video rounded-md relative">
               <Backdrop id={movie.id} />
-              <Logo id={movie.id} />
             </Link>
           ))}
         </ul>
