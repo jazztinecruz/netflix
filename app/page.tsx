@@ -13,54 +13,35 @@ const Home: Page = () => {
   return (
     <div className="grid">
       <Hero />
-      {/* <div className="space-y-6 lg:mt-[680px]">
+      <div className="space-y-6 lg:mt-[680px]">
         <Suspense fallback={<ListSkeleton />}>
-          <Collection
-            title={GENRE_NAME.Action}
-            getMovies={() => get.movies.discover({ genreId: GENRE_ID.Action })}
-          />
+          <Collection title={GENRE_NAME.Action} getMovies={() => get.movies.discover({ genreId: GENRE_ID.Action })} />
         </Suspense>
         <Suspense fallback={<div>Loading</div>}>
           <Collection
             title={GENRE_NAME.Adventure}
-            getMovies={() =>
-              get.movies.discover({ genreId: GENRE_ID.Adventure })
-            }
+            getMovies={() => get.movies.discover({ genreId: GENRE_ID.Adventure })}
           />
         </Suspense>
         <Suspense fallback={<ListSkeleton />}>
-          <Collection
-            title={GENRE_NAME.Comedy}
-            getMovies={() => get.movies.discover({ genreId: GENRE_ID.Comedy })}
-          />
+          <Collection title={GENRE_NAME.Comedy} getMovies={() => get.movies.discover({ genreId: GENRE_ID.Comedy })} />
         </Suspense>
         <Suspense fallback={<ListSkeleton />}>
-          <Collection
-            title={GENRE_NAME.Romance}
-            getMovies={() => get.movies.discover({ genreId: GENRE_ID.Romance })}
-          />
+          <Collection title={GENRE_NAME.Romance} getMovies={() => get.movies.discover({ genreId: GENRE_ID.Romance })} />
         </Suspense>
         <Suspense fallback={<ListSkeleton />}>
-          <Collection
-            title={GENRE_NAME.Horror}
-            getMovies={() => get.movies.discover({ genreId: GENRE_ID.Horror })}
-          />
+          <Collection title={GENRE_NAME.Horror} getMovies={() => get.movies.discover({ genreId: GENRE_ID.Horror })} />
         </Suspense>
         <Suspense fallback={<ListSkeleton />}>
           <Collection
             title={GENRE_NAME.ScienceFiction}
-            getMovies={() =>
-              get.movies.discover({ genreId: GENRE_ID.ScienceFiction })
-            }
+            getMovies={() => get.movies.discover({ genreId: GENRE_ID.ScienceFiction })}
           />
         </Suspense>
         <Suspense fallback={<ListSkeleton />}>
-          <Collection
-            title={GENRE_NAME.Drama}
-            getMovies={() => get.movies.discover({ genreId: GENRE_ID.Drama })}
-          />
+          <Collection title={GENRE_NAME.Drama} getMovies={() => get.movies.discover({ genreId: GENRE_ID.Drama })} />
         </Suspense>
-      </div> */}
+      </div>
       <Suspense>
         <MovieModal />
       </Suspense>
