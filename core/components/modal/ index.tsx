@@ -62,7 +62,7 @@ const MovieModal = () => {
     >
       <Dialog onClose={handleClose} className="relative z-[999]">
         <div className="fixed inset-0 flex w-screen bg-black/60 items-center justify-center p-4">
-          <DialogPanel className="max-w-5xl w-full relative rounded-md bg-primary space-y-4 h-screen overflow-y-auto">
+          <DialogPanel className="max-w-6xl w-full relative rounded-md bg-primary space-y-4 h-screen overflow-y-auto">
             <div className="relative h-[500px] overflow-hidden">
               <button onClick={handleClose} className="bg-primary rounded-full absolute top-5 right-5 z-10 p-2">
                 <Symbol Icon={XMarkIcon} color="white" />
@@ -72,12 +72,10 @@ const MovieModal = () => {
               <div className="bg-gradient-to-b from-transparent to-primary absolute inset-0" />
             </div>
             <div className="p-10 pt-0 space-y-12 grid">
-              <div className="space-y-1">
+              <div className="space-y-3">
                 {certificate && <div className="border border-secondary px-2 py-1 w-fit text-sm">{certificate}</div>}
                 <div className="flex lg:items-center flex-col lg:flex-row lg:justify-between">
-                  <div className="w-full max-w-xl">
-                    <p className="text-sm">{movie?.overview}</p>
-                  </div>
+                  <p className="text-sm w-full max-w-xl">{movie?.overview}</p>
                   <div className="flex flex-col gap-2 w-full max-w-xs">
                     {credits && (
                       <div className="flex flex-wrap gap-1">
