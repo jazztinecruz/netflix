@@ -2,7 +2,7 @@
 
 import { Dialog, DialogPanel, Transition } from '@headlessui/react'
 import { ViewColumnsIcon } from '@heroicons/react/24/outline'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useQuery } from 'react-query'
 
 import { KEY } from '@/core/enums'
@@ -16,6 +16,7 @@ import ModalDetails from './details'
 
 const MovieModal = () => {
   const mid = useSearchParams().get('mid') || ''
+  const pathname = usePathname()
   const router = useRouter()
 
   const { data: movie } = useQuery({
@@ -56,7 +57,7 @@ const MovieModal = () => {
       leaveFrom="opacity-100"
       leaveTo="opacity-0"
     >
-      <Dialog onClose={() => router.back()} className="relative z-[999]">
+      <Dialog onClose={() => router.push(pathname)} className="relative z-[999]">
         <div className="fixed inset-0 flex w-screen bg-black/60 items-center justify-center p-4">
           <DialogPanel className="max-w-5xl w-full relative rounded-md bg-primary space-y-4 h-screen overflow-y-auto">
             <div className="relative h-[500px] overflow-hidden">

@@ -2,7 +2,6 @@ import { Suspense } from 'react'
 
 import Collection from '@/core/components/collection'
 import ListSkeleton from '@/core/components/collection/skeleton'
-import MovieModal from '@/core/components/modal/ index'
 import { GENRE_ID, GENRE_NAME } from '@/core/enums'
 import get from '@/core/libraries'
 import { Page } from '@/core/types/react'
@@ -12,7 +11,7 @@ import Hero from './_components/hero'
 const Home: Page = () => {
   return (
     <div className="grid">
-      <Hero />
+      {/* <Hero /> */}
       <div className="space-y-6 lg:mt-[680px]">
         <Suspense fallback={<ListSkeleton />}>
           <Collection title={GENRE_NAME.Action} getMovies={() => get.movies.discover({ genreId: GENRE_ID.Action })} />
@@ -42,9 +41,6 @@ const Home: Page = () => {
           <Collection title={GENRE_NAME.Drama} getMovies={() => get.movies.discover({ genreId: GENRE_ID.Drama })} />
         </Suspense>
       </div>
-      <Suspense>
-        <MovieModal />
-      </Suspense>
     </div>
   )
 }
