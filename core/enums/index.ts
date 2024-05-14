@@ -51,5 +51,6 @@ export enum KEY {
   CERTIFICATE = 'certificate',
   CREDITS = 'credits',
   SIMILAR = 'similar',
+  POPULAR = "popular",
   COLLECTION = 'collection',
 }

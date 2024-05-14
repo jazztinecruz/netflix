@@ -42,7 +42,7 @@ const Carousel = ({ movies }: Props) => {
       <div className="lg:hidden overflow-y-scroll mx-4">
         <div className="grid grid-flow-col gap-2 ">
           {movies.map((movie) => (
-            <Link key={movie.id} href={`?mid=${movie.id}`} className="w-36 aspect-square rounded-md">
+            <Link key={movie.id} href={`?mid=${movie.id}`} className="w-32 md:w-36 aspect-square rounded-md">
               <Poster id={movie.id} />
             </Link>
           ))}

@@ -12,7 +12,7 @@ import get from '@/core/libraries'
 import { Image as Logo, Movie } from '@/core/types/data'
 import { IdProp } from '@/core/types/react'
 
-import Symbol from '../../../core/components/symbol'
+import Symbol from '../../../../core/components/symbol'
 
 const Details = ({ id }: IdProp) => {
   const { data: movie } = useQuery<Movie>({
