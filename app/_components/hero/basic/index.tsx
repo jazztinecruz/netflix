@@ -18,15 +18,27 @@ const MovieBasic = () => {
     queryFn: async () => await get.movies.popular(),
   })
 
-  const movie = movies && movies[1]
+  const { data: movie } = useQuery<Movie>({
+    queryKey: [KEY.MOVIE, movies?.[1]?.id],
+    queryFn: async () => await get.movie.details({ id: movies?.[1]?.id || '' }),
+  })
+
   if (!movie) return null
 
   return (
-    <div className="relative border border-white/25 rounded-lg p-6 pt-0 flex flex-col items-center gap-4">
+    <div className="relative border border-gray-600 rounded-lg p-6 pt-0 flex flex-col items-center gap-4">
       <Poster id={movie.id} />
       {movie?.genres?.length && (
-        <div className="flex items-center gap-3 bg-lime-500">
-          {movie?.genres?.map((genre) => <span key={genre.id}>{genre.name}</span>)}
+        <div className="flex items-center gap-3">
+          {movie?.genres?.map((genre, index) => {
+            const showDot = index !== movie.genres.length - 1
+            return (
+              <div key={genre.id} className="flex items-center">
+                <span className="text-sm text-gray-300">{genre.name}</span>
+                {showDot && <div className="w-1 h-1 rounded-full bg-gray-600 ml-2" />}
+              </div>
+            )
+          })}
         </div>
       )}
       <Buttons movie={movie} />
