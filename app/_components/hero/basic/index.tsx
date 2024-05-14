@@ -26,7 +26,7 @@ const MovieBasic = () => {
   if (!movie) return null
 
   return (
-    <div className="relative border border-gray-600 rounded-lg p-6 pt-0 flex flex-col items-center gap-4">
+    <div className="relative border border-white/25 rounded-lg p-6 pt-0 flex flex-col items-center gap-4">
       <Poster id={movie.id} />
       {movie?.genres?.length && (
         <div className="flex items-center gap-3">
