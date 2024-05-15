@@ -105,7 +105,7 @@ const MovieModal = () => {
               {collection && (
                 <Group>
                   <Group.Title Icon={ViewColumnsIcon}>{collection?.name}</Group.Title>
-                  <ul className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                  <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
                     {collection?.parts?.map((movie) => <Card key={movie.id} movie={movie} />)}
                   </ul>
                 </Group>
@@ -113,7 +113,7 @@ const MovieModal = () => {
 
               <Group>
                 <Group.Title>More Like This</Group.Title>
-                <ul className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
                   {similar?.slice(0, 9).map((movie) => <Card key={movie.id} movie={movie} />)}
                 </ul>
               </Group>

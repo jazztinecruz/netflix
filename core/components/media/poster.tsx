@@ -14,7 +14,7 @@ const Poster = ({ id }: IdProp) => {
     queryFn: async () => await get.movie.poster({ id }),
   })
 
-  if (isFetching || !poster) return <div className="aspect-square bg-gray-500 animate-pulse rounded-md" />
+  if (isFetching || !poster) return <div className="aspect-square w-full h-full bg-gray-500 animate-pulse rounded-md" />
 
   return (
     <Image
