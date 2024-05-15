@@ -4,7 +4,6 @@ import { PlayIcon } from '@heroicons/react/16/solid'
 import { InformationCircleIcon, SpeakerXMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
 
 import { KEY } from '@/core/enums'
@@ -30,20 +29,13 @@ const Details = ({ id }: IdProp) => {
     queryFn: async () => await get.movie.certificate({ id }),
   })
 
-  const [showOverview, setShowOverview] = useState(true)
-
-  useEffect(() => {
-    const timer = setTimeout(() => setShowOverview(false), 4000)
-    return () => clearTimeout(timer)
-  }, [])
-
   if (!movie) return null
 
   return (
     <div className="margin w-full flex justify-between items-end">
       <div className="relative max-w-lg grid grid-rows-[1fr,auto] gap-4 h-full">
         <div className="flex flex-col gap-2">
-          <MovieLogo movie={movie} logo={logo!} showOverview={showOverview} />
+          <MovieLogo movie={movie} logo={logo!} />
           <p className={`text-xs lg:text-lg`}>{movie.overview.split('.')[0]}</p>
         </div>
         <Buttons movie={movie} />
@@ -62,7 +54,7 @@ const Details = ({ id }: IdProp) => {
 
 export default Details
 
-const MovieLogo = ({ movie, logo, showOverview }: { movie: Movie; logo: Logo; showOverview: boolean }) => {
+const MovieLogo = ({ movie, logo }: { movie: Movie; logo: Logo }) => {
   return (
     <div className="flex flex-col gap-2">
       <div className="flex items-center -ml-2 lg:-ml-3">

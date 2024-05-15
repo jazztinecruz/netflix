@@ -49,7 +49,7 @@ const MovieModal = () => {
   })
 
   const handleClose = () => router.push(pathname)
-  const { isTrending, index } = isMovieTrending(movie?.id || mid)
+  const { isTrending, place } = isMovieTrending(movie?.id || mid)
   if (!mid) return null
 
   return (
@@ -79,7 +79,7 @@ const MovieModal = () => {
                 {isTrending && (
                   <div className="flex items-center gap-2">
                     <TrendingBadge />
-                    <span className="text-2xl font-semibold tracking-wide">#{index} in Movies Today</span>
+                    <span className="text-2xl font-semibold tracking-wide">#{place} in Movies Today</span>
                   </div>
                 )}
                 <div className="flex lg:items-center flex-col lg:flex-row lg:justify-between gap-4">
