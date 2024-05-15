@@ -10,7 +10,7 @@ import { IdProp } from '@/core/types/react'
 
 import Symbol from '../symbol'
 
-const ModalDetails = ({ id }: IdProp) => {
+const VideoDetails = ({ id }: IdProp) => {
   if (!id) return null
 
   const { data: movie } = useQuery<Movie>({
@@ -26,6 +26,7 @@ const ModalDetails = ({ id }: IdProp) => {
   })
 
   if (!movie) return null
+
   return (
     <div className="flex flex-col gap-4 absolute bottom-0 m-10 z-10">
       <div className="flex flex-col gap-2">
@@ -63,4 +64,4 @@ const ModalDetails = ({ id }: IdProp) => {
   )
 }
 
-export default ModalDetails
+export default VideoDetails
