@@ -1,6 +1,5 @@
 'use client'
 
-import { ViewColumnsIcon } from '@heroicons/react/24/outline'
 import { useSearchParams } from 'next/navigation'
 import { useQuery } from 'react-query'
 
@@ -30,8 +29,8 @@ const Similar = () => {
 
   return (
     <Group>
-      <Group.Title Icon={ViewColumnsIcon}>More Like This</Group.Title>
-      <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+      <Group.Title>More Like This</Group.Title>
+      <ul className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-3 gap-4">
         {similar?.map((movie) => <Card key={movie.id} movie={movie} />)}
       </ul>
     </Group>
