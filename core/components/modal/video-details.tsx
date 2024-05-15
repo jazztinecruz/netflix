@@ -28,7 +28,7 @@ const VideoDetails = ({ id }: IdProp) => {
   if (!movie) return null
 
   return (
-    <div className="flex flex-col gap-4 absolute bottom-0 m-10 z-10">
+    <div className="flex flex-col gap-4 absolute bottom-0 m-10 lg:m-16 z-10">
       <div className="flex flex-col gap-2">
         <div className="flex items-center">
           <div className="w-8 h-8 relative">

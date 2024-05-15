@@ -32,7 +32,7 @@ const MovieModal = () => {
       leaveTo="opacity-0"
     >
       <Dialog onClose={handleClose} className="relative z-[999]">
-        <div className="fixed inset-0 flex w-screen bg-black/60 items-center justify-center p-4">
+        <div className="fixed inset-0 flex w-screen bg-black/60 items-center justify-center">
           <DialogPanel className="max-w-6xl w-full relative rounded-md bg-primary space-y-4 h-screen overflow-y-auto">
             <div className="relative h-[500px] overflow-hidden">
               <button onClick={handleClose} className="bg-primary rounded-full absolute top-5 right-5 z-10 p-2">
@@ -42,7 +42,7 @@ const MovieModal = () => {
               <VideoDetails id={mid} />
               <div className="bg-gradient-to-b from-transparent to-primary absolute inset-0" />
             </div>
-            <div className="p-10 pt-0 space-y-12 grid">
+            <div className="p-10 lg:p-16 pt-0 space-y-12 grid">
               <Information />
               <Collection />
               <Similar />
