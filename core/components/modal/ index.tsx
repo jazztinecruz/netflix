@@ -7,8 +7,10 @@ import { useQuery } from 'react-query'
 
 import { KEY } from '@/core/enums'
 import get from '@/core/libraries'
+import isMovieTrending from '@/core/libraries/isTrending'
 import { Movie } from '@/core/types/data'
 
+import TrendingBadge from '../badges/trending'
 import VideoPlayer from '../media/video'
 import Symbol from '../symbol'
 import Card from './card'
@@ -47,7 +49,7 @@ const MovieModal = () => {
   })
 
   const handleClose = () => router.push(pathname)
-
+  const { isTrending, index } = isMovieTrending(movie?.id || mid)
   if (!mid) return null
 
   return (
@@ -74,6 +76,12 @@ const MovieModal = () => {
             <div className="p-10 pt-0 space-y-12 grid">
               <div className="space-y-3">
                 {certificate && <div className="border border-secondary px-2 py-1 w-fit text-sm">{certificate}</div>}
+                {isTrending && (
+                  <div className="flex items-center gap-2">
+                    <TrendingBadge />
+                    <span className="text-2xl font-semibold tracking-wide">#{index} in Movies Today</span>
+                  </div>
+                )}
                 <div className="flex lg:items-center flex-col lg:flex-row lg:justify-between">
                   <p className="text-sm w-full max-w-xl">{movie?.overview}</p>
                   <div className="flex flex-col gap-2 w-full max-w-xs">

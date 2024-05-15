@@ -6,6 +6,7 @@ import api from './api'
 
 const language = 'en-US'
 
+// multiple
 export const getPopular = cache(async (): Promise<Movie[]> => {
   return await api({ url: `movie/popular?language=${language}` })
 })
@@ -26,12 +27,17 @@ export const getCollection = cache(async (id: string): Promise<Collection> => {
   return await api({ url: `collection/${id}?language=${language}` })
 })
 
+export const getTrending = cache(async (): Promise<Movie[]> => {
+  return await api({ url: 'trending/movie/day' })
+})
+
 export const getCredits = cache(async (id: string): Promise<Credit[]> => {
   const data = await api({ url: `movie/${id}/credits` })
   const credits = data.cast
   return credits
 })
 
+// single
 export const getCertificate = cache(async (id: string): Promise<string> => {
   const data: Certificate[] = await api({
     url: `movie/${id}/release_dates`,

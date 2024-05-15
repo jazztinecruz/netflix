@@ -11,6 +11,7 @@ import {
   getLogo,
   getBackdrop,
   getPoster,
+  getTrending,
 } from './movies'
 
 const get = {
@@ -26,6 +27,7 @@ const get = {
   movies: {
     popular: () => getPopular(),
     upcoming: () => getUpcoming(),
+    trending: () => getTrending(),
     discover: ({ genreId }: { genreId: string }) => getDiscover(String(genreId)),
     similar: ({ id }: { id: string }) => getSimilar(id),
     collection: ({ id }: { id: string }) => getCollection(id),
