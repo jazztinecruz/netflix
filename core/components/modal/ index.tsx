@@ -82,8 +82,8 @@ const MovieModal = () => {
                     <span className="text-2xl font-semibold tracking-wide">#{index} in Movies Today</span>
                   </div>
                 )}
-                <div className="flex lg:items-center flex-col lg:flex-row lg:justify-between">
-                  <p className="text-sm w-full max-w-xl">{movie?.overview}</p>
+                <div className="flex lg:items-center flex-col lg:flex-row lg:justify-between gap-4">
+                  <p className="w-full max-w-xl">{movie?.overview}</p>
                   <div className="flex flex-col gap-2 w-full max-w-xs">
                     {credits && (
                       <div className="flex flex-wrap gap-1">

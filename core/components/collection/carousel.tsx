@@ -4,8 +4,10 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/16/solid'
 import Link from 'next/link'
 import { useState } from 'react'
 
+import isMovieTrending from '@/core/libraries/isTrending'
 import { Movie } from '@/core/types/data'
 
+import TrendingBadge from '../badges/trending'
 import Backdrop from '../media/backdrop'
 import Poster from '../media/poster'
 
@@ -62,15 +64,23 @@ const Carousel = ({ movies }: Props) => {
           </div>
           <div className="relative group grid grid-flow-col transition-transform duration-300 ease-in-out ">
             <ul className={`grid grid-flow-col gap-2 ${startIndex === 0 && 'margin'}`}>
-              {visibleMovies.map((movie) => (
-                <Link
-                  key={movie.id}
-                  href={`?mid=${movie.id}`}
-                  className="w-48 lg:w-80 aspect-video rounded-md relative"
-                >
-                  <Backdrop id={movie.id} />
-                </Link>
-              ))}
+              {visibleMovies.map((movie) => {
+                const { isTrending } = isMovieTrending(movie.id)
+                return (
+                  <Link
+                    key={movie.id}
+                    href={`?mid=${movie.id}`}
+                    className="w-48 lg:w-80 aspect-video rounded-md relative"
+                  >
+                    <Backdrop id={movie.id} />
+                    {isTrending && (
+                      <div className="absolute top-0 right-0">
+                        <TrendingBadge isDifferentShape />
+                      </div>
+                    )}
+                  </Link>
+                )
+              })}
             </ul>
             {startIndex >= displayCount && (
               <button
