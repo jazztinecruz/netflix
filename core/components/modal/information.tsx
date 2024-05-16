@@ -31,11 +31,21 @@ const Information = () => {
   })
 
   const { isTrending, place } = isMovieTrending(movie?.id || mid)
+  const matchPercentage = Math.floor(Math.random() * (100 - 90 + 1) + 90)
 
   if (!movie) return null
 
   return (
     <div className="space-y-3">
+      <div className="flex items-center gap-2 text-lg text-white/80">
+        <div className="text-green-500 font-semibold">{matchPercentage}% Match</div>
+        {movie.release_date && <span>{movie.release_date.split('-')[0]}</span>}
+        {movie.runtime && (
+          <span>
+            {Math.floor(movie.runtime / 60)}h {movie.runtime % 60}m
+          </span>
+        )}
+      </div>
       {certificate && <div className="border border-secondary px-2 py-1 w-fit text-sm">{certificate}</div>}
       {isTrending && (
         <div className="flex items-center gap-2">
