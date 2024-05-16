@@ -33,7 +33,7 @@ const MovieModal = () => {
     >
       <Dialog onClose={handleClose} className="relative z-[999]">
         <div className="fixed inset-0 flex w-screen bg-black/60 items-center justify-center">
-          <DialogPanel className="max-w-6xl w-full relative rounded-md bg-primary space-y-4 h-screen overflow-y-auto">
+          <DialogPanel className="max-w-6xl w-full relative rounded-md bg-primary space-y-4 h-screen overflow-y-auto scrollbar-thin scrollbar-thumb-secondary scrollbar-track-transparent">
             <div className="relative h-[500px] overflow-hidden">
               <button onClick={handleClose} className="bg-primary rounded-full absolute top-5 right-5 z-10 p-2">
                 <Symbol Icon={XMarkIcon} color="white" />
