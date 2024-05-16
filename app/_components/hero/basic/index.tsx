@@ -5,6 +5,7 @@ import { InformationCircleIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { useQuery } from 'react-query'
 
+import Logo from '@/core/components/media/logo'
 import Poster from '@/core/components/media/poster'
 import { KEY } from '@/core/enums'
 import get from '@/core/libraries'
@@ -17,32 +18,40 @@ const MovieBasic = () => {
     queryKey: [KEY.POPULAR],
     queryFn: async () => await get.movies.popular(),
   })
+  const displayedMovie = movies?.[7]
 
   const { data: movie } = useQuery<Movie>({
-    queryKey: [KEY.MOVIE, movies?.[1]?.id],
-    queryFn: async () => await get.movie.details({ id: movies?.[1]?.id || '' }),
+    queryKey: [KEY.MOVIE, displayedMovie?.id],
+    queryFn: async () => await get.movie.details({ id: displayedMovie?.id || '' }),
   })
 
   if (!movie) return null
 
   return (
-    <div className="relative border border-white/25 rounded-lg p-6 pt-0 flex flex-col items-center gap-4">
-      <Poster id={movie.id} />
-      {movie?.genres?.length && (
-        <div className="flex items-center gap-3">
-          {movie?.genres?.map((genre, index) => {
-            const showDot = index !== movie.genres.length - 1
-            return (
-              <div key={genre.id} className="flex items-center">
-                <span className="text-sm text-gray-300">{genre.name}</span>
-                {showDot && <div className="w-1 h-1 rounded-full bg-gray-600 ml-2" />}
-              </div>
-            )
-          })}
+    <div className="relative border border-white/25 rounded-lg p-6 pt-0 flex flex-col items-center gap-4 h-[700px]">
+      <div className="h-full w-full absolute inset-0 -z-10 overflow-hidden rounded-lg">
+        <Poster id={movie.id} />
+      </div>
+      <div className="mt-auto space-y-4 w-full">
+        <div className="w-60 mx-auto">
+          <Logo id={movie.id} />
         </div>
-      )}
-      <Buttons movie={movie} />
-      <div className="bg-gradient-to-b from-primary to-white/10 absolute inset-0 -z-10" />
+        {movie?.genres?.length && (
+          <div className="flex items-center justify-center gap-3">
+            {movie?.genres?.map((genre, index) => {
+              const showDot = index !== movie.genres.length - 1
+              return (
+                <div key={genre.id} className="flex items-center">
+                  <span className="text-sm text-gray-300">{genre.name}</span>
+                  {showDot && <div className="w-1 h-1 rounded-full bg-gray-600 ml-2" />}
+                </div>
+              )
+            })}
+          </div>
+        )}
+        <Buttons movie={movie} />
+      </div>
+      <div className="bg-gradient-to-b from-white/10 to-primary absolute inset-0 -z-10" />
     </div>
   )
 }
