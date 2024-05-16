@@ -24,7 +24,7 @@ const Navbar = () => {
         isScrolled ? 'bg-black' : 'bg-gradient-to-b from-black to-transparent'
       }`}
     >
-      <div className="w-24 h-16 lg:w-28 lg:h-20 relative">
+      <div className="w-32 h-24 relative -ml-3 lg:-ml-0">
         <Image src="/logo/netflix.png" alt="Netflix" fill sizes="w-auto h-auto" className="object-center" />
       </div>
       <NavMenu />
