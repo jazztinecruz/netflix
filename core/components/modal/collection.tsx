@@ -27,7 +27,7 @@ const Collection = () => {
     queryFn: async () => await get.movies.collection({ id: collectionId }),
   })
 
-  if (!collection) return null
+  if (!collection || !collection.parts) return null
 
   return (
     <Group>
