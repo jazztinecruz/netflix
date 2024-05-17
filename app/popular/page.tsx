@@ -1,7 +1,6 @@
 import { Suspense } from 'react'
 
 import Collection from '@/core/components/collection'
-import ListSkeleton from '@/core/components/collection/skeleton'
 import { GENRE_ID, GENRE_NAME } from '@/core/enums'
 import get from '@/core/libraries'
 import { Page } from '@/core/types/react'
@@ -12,30 +11,48 @@ const Popular: Page = () => {
   return (
     <div className="grid">
       <Hero />
-      <div className="space-y-6  lg:mt-[820px]">
-        <Suspense fallback={<ListSkeleton />}>
-          <Collection title="Popular Movies" getMovies={() => get.movies.popular()} />
+      <div className="space-y-10 md:space-y-12 lg:mt-[820px]">
+        <Suspense fallback={<Collection.Skeleton />}>
+          <Collection>
+            <Collection.Title>Popular Movies</Collection.Title>
+            <Collection.Carousel getMovies={() => get.movies.popular()} />
+          </Collection>
         </Suspense>
-        <Suspense fallback={<div>Loading</div>}>
-          <Collection title="Upcoming Movies" getMovies={() => get.movies.upcoming()} />
+        <Suspense fallback={<Collection.Skeleton />}>
+          <Collection>
+            <Collection.Title>Upcoming Movies</Collection.Title>
+            <Collection.Carousel getMovies={() => get.movies.upcoming()} />
+          </Collection>
         </Suspense>
-        <Suspense fallback={<ListSkeleton />}>
-          <Collection title="New Releases" getMovies={() => get.movies.discover({ genreId: GENRE_ID.Animation })} />
+        <Suspense fallback={<Collection.Skeleton />}>
+          <Collection>
+            <Collection.Title>New Releases</Collection.Title>
+            <Collection.Carousel getMovies={() => get.movies.discover({ genreId: GENRE_ID.Animation })} />
+          </Collection>
         </Suspense>
-        <Suspense fallback={<ListSkeleton />}>
-          <Collection title={GENRE_NAME.Crime} getMovies={() => get.movies.discover({ genreId: GENRE_ID.Crime })} />
+        <Suspense fallback={<Collection.Skeleton />}>
+          <Collection>
+            <Collection.Title>{GENRE_NAME.Crime}</Collection.Title>
+            <Collection.Carousel getMovies={() => get.movies.discover({ genreId: GENRE_ID.Crime })} />
+          </Collection>
         </Suspense>
-        <Suspense fallback={<ListSkeleton />}>
-          <Collection title={GENRE_NAME.Fantasy} getMovies={() => get.movies.discover({ genreId: GENRE_ID.Fantasy })} />
+        <Suspense fallback={<Collection.Skeleton />}>
+          <Collection>
+            <Collection.Title>{GENRE_NAME.Fantasy}</Collection.Title>
+            <Collection.Carousel getMovies={() => get.movies.discover({ genreId: GENRE_ID.Fantasy })} />
+          </Collection>
         </Suspense>
-        <Suspense fallback={<ListSkeleton />}>
-          <Collection
-            title={GENRE_NAME.Thriller}
-            getMovies={() => get.movies.discover({ genreId: GENRE_ID.Thriller })}
-          />
+        <Suspense fallback={<Collection.Skeleton />}>
+          <Collection>
+            <Collection.Title>{GENRE_NAME.Thriller}</Collection.Title>
+            <Collection.Carousel getMovies={() => get.movies.discover({ genreId: GENRE_ID.Thriller })} />
+          </Collection>
         </Suspense>
-        <Suspense fallback={<ListSkeleton />}>
-          <Collection title={GENRE_NAME.Mystery} getMovies={() => get.movies.discover({ genreId: GENRE_ID.Mystery })} />
+        <Suspense fallback={<Collection.Skeleton />}>
+          <Collection>
+            <Collection.Title>{GENRE_NAME.Mystery}</Collection.Title>
+            <Collection.Carousel getMovies={() => get.movies.discover({ genreId: GENRE_ID.Mystery })} />
+          </Collection>
         </Suspense>
       </div>
     </div>

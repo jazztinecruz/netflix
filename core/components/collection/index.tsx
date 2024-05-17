@@ -1,26 +1,22 @@
-import { use } from 'react'
-
-import get from '@/core/libraries'
+import { Children } from '@/core/types/react'
 
 import Carousel from './carousel'
+import ListSkeleton from './skeleton'
 
 type Props = {
-  title: string
-  getMovies: () =>
-    | ReturnType<typeof get.movies.upcoming>
-    | ReturnType<typeof get.movies.discover>
-    | ReturnType<typeof get.movies.popular>
+  children: Children
 }
 
-const Collection = ({ title, getMovies }: Props) => {
-  const movies = use(getMovies())
-
-  return (
-    <div className="grid grid-rows-[auto,1fr] gap-2 lg:gap-3">
-      <h2 className="text-lg lg:text-xl font-medium margin">{title}</h2>
-      <Carousel movies={movies} />
-    </div>
-  )
+const Collection = ({ children }: Props) => {
+  return <div className="grid grid-rows-[auto,1fr] gap-6">{children}</div>
 }
+
+const Title = ({ children }: Props) => {
+  return <h2 className="text-xl lg:text-2xl font-semibold margin">{children}</h2>
+}
+
+Collection.Carousel = Carousel
+Collection.Title = Title
+Collection.Skeleton = ListSkeleton
 
 export default Collection

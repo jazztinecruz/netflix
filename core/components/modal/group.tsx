@@ -6,13 +6,13 @@ type Props = {
   children: Children
 }
 
-const Group = ({ children }: Props) => {
-  return <div className="space-y-6">{children}</div>
-}
-
 type TitleProps = {
   Icon?: SVG
   children: Children
+}
+
+const Group = ({ children }: Props) => {
+  return <div className="space-y-6">{children}</div>
 }
 
 const Title = ({ children, Icon }: TitleProps) => {
