@@ -1,6 +1,7 @@
 import { Suspense } from 'react'
 
 import Collection from '@/core/components/collection'
+import TopTrending from '@/core/components/top'
 import { GENRE_ID, GENRE_NAME } from '@/core/enums'
 import get from '@/core/libraries'
 import { Page } from '@/core/types/react'
@@ -17,6 +18,9 @@ const Popular: Page = () => {
             <Collection.Title>Popular Movies</Collection.Title>
             <Collection.Carousel getMovies={() => get.movies.popular()} />
           </Collection>
+        </Suspense>
+        <Suspense fallback={<Collection.Skeleton />}>
+          <TopTrending />
         </Suspense>
         <Suspense fallback={<Collection.Skeleton />}>
           <Collection>

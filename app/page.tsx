@@ -14,13 +14,13 @@ const Home: Page = () => {
       <Hero />
       <div className="space-y-10 md:space-y-12 lg:mt-[820px]">
         <Suspense fallback={<Collection.Skeleton />}>
-          <TopTrending />
-        </Suspense>
-        <Suspense fallback={<Collection.Skeleton />}>
           <Collection>
             <Collection.Title>{GENRE_NAME.Action}</Collection.Title>
             <Collection.Carousel getMovies={() => get.movies.discover({ genreId: GENRE_ID.Action })} />
           </Collection>
+        </Suspense>
+        <Suspense fallback={<Collection.Skeleton />}>
+          <TopTrending />
         </Suspense>
         <Suspense fallback={<Collection.Skeleton />}>
           <Collection>
