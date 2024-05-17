@@ -18,7 +18,7 @@ const MovieBasic = () => {
     queryKey: [KEY.POPULAR],
     queryFn: async () => await get.movies.popular(),
   })
-  const displayedMovie = movies?.[7]
+  const displayedMovie = movies?.[1]
 
   const { data: movie } = useQuery<Movie>({
     queryKey: [KEY.MOVIE, displayedMovie?.id],

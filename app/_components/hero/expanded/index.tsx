@@ -16,30 +16,13 @@ const MovieExpanded = () => {
     queryFn: async () => await get.movies.popular(),
   })
   const [showVideo, setShowVideo] = useState(false)
-  const [currentMovieIndex, setCurrentMovieIndex] = useState(0)
 
-  const movie = movies && movies[currentMovieIndex]
-
-  const nextMovie = () => {
-    if (currentMovieIndex < 4) {
-      setCurrentMovieIndex(currentMovieIndex + 1)
-    } else {
-      setCurrentMovieIndex(0)
-    }
-    setShowVideo(false)
-    const timer = setTimeout(() => setShowVideo(true), 2000)
-    return () => clearTimeout(timer)
-  }
+  const movie = movies && movies[0]
 
   useEffect(() => {
     const timer = setTimeout(() => setShowVideo(true), 2000)
     return () => clearTimeout(timer)
   }, [])
-
-  useEffect(() => {
-    const interval = setInterval(() => nextMovie(), 18000)
-    return () => clearInterval(interval)
-  }, [currentMovieIndex])
 
   if (!movie) return null
 
