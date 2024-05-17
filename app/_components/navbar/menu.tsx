@@ -32,7 +32,7 @@ const NavMenu = () => {
         {open && (
           <button
             onMouseLeave={() => setOpen(false)}
-            className="absolute -bottom-[310px] inset-x-2/4 -translate-x-2/4 w-72 bg-black/80 border border-gray-300/30 border-t-[3px] border-t-white rounded-t-sm"
+            className="absolute top-10 inset-x-2/4 -translate-x-2/4 w-72 bg-black/80 border border-gray-300/30 border-t-[3px] border-t-white rounded-t-sm"
           >
             <Triangle />
             <ul className="flex flex-col justify-center text-center gap-4 text-white">{renderMenuItems()}</ul>
