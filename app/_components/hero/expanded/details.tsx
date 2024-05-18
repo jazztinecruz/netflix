@@ -4,6 +4,7 @@ import { PlayIcon } from '@heroicons/react/16/solid'
 import { InformationCircleIcon, SpeakerXMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { useQuery } from 'react-query'
 
 import { KEY } from '@/core/enums'
@@ -82,9 +83,14 @@ const MovieLogo = ({ movie, logo }: { movie: Movie; logo: Logo }) => {
 }
 
 const Buttons = ({ movie }: { movie: Movie }) => {
+  const router = useRouter()
+
   return (
     <div className="flex items-center gap-3">
-      <button className="bg-white hover:bg-white/70 transition-all duration-300 px-3 lg:px-5 py-2 rounded-md flex items-center gap-2 cursor-pointer">
+      <button
+        onClick={() => router.push(`/watch/${movie.id}`)}
+        className="bg-white hover:bg-white/70 transition-all duration-300 px-3 lg:px-5 py-2 rounded-md flex items-center gap-2 cursor-pointer"
+      >
         <Symbol Icon={PlayIcon} color="black" />
         <span className="text-black font-semibold text-sm lg:text-lg">Play</span>
       </button>

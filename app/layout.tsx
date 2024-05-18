@@ -19,8 +19,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: ChildrenProp) => {
   return (
     <html lang="en">
-      <body className={`${inter.className} grid grid-rows-[auto,1fr] bg-primary text-white`}>
-        <Navbar />
+      <body className={`${inter.className} bg-primary text-white`}>
         <main>
           <Providers>
             {children}
