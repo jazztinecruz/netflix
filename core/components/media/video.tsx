@@ -1,6 +1,5 @@
 'use client'
 
-import { NoSymbolIcon } from '@heroicons/react/24/outline'
 import { useQuery } from 'react-query'
 
 import { KEY } from '@/core/enums'
@@ -8,7 +7,7 @@ import get from '@/core/libraries'
 import { Video } from '@/core/types/data'
 import { IdProp } from '@/core/types/react'
 
-import Symbol from '../symbol'
+import NotAvailable from './not-available'
 
 const VideoPlayer = ({ id }: IdProp) => {
   const { data: trailer, isFetching } = useQuery<Video>({
@@ -17,15 +16,8 @@ const VideoPlayer = ({ id }: IdProp) => {
     enabled: !!id,
   })
 
-  if (!trailer)
-    return (
-      <div className="h-full w-full bg-gray-500 flex items-center justify-center gap-3">
-        <Symbol Icon={NoSymbolIcon} />
-        <span className="text-lg">Trailer Not Available</span>
-      </div>
-    )
-
   if (isFetching) return <div className="h-full w-full bg-gray-500 animate-pulse">Loading Trailer</div>
+  if (!trailer) return <NotAvailable />
 
   return (
     <iframe

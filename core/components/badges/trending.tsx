@@ -4,16 +4,17 @@ import isMovieTrending from '@/core/libraries/isTrending'
 
 type Props = {
   isDifferentShape?: boolean
+  isNotAbsolute?: boolean
   id: string
 }
 
-const TrendingBadge = ({ isDifferentShape = false, id }: Props) => {
+const TrendingBadge = ({ isDifferentShape = false, isNotAbsolute = false, id }: Props) => {
   const { isTrending } = isMovieTrending({ id })
 
   if (!isTrending) return null
 
   return (
-    <div className="absolute top-0 right-0">
+    <div className={` ${isNotAbsolute ? 'relative' : 'absolute top-0 right-0'}`}>
       <div
         className={`bg-red-600 text-white font-bold  items-center text-center flex flex-col w-fit ${isDifferentShape ? 'py-1 px-1.5' : 'rounded-md px-2 py-1 '}`}
       >

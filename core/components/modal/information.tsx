@@ -31,7 +31,11 @@ const Information = () => {
   })
 
   const { isTrending, place } = isMovieTrending({ id: movie?.id || mid })
+
   const matchPercentage = Math.floor(Math.random() * (100 - 90 + 1) + 90)
+  const runtimeHours = (movie?.runtime && Math.floor(movie?.runtime / 60)) || 0
+  const runtimeMinutes = (movie?.runtime && movie?.runtime % 60) || 0
+  const displayRuntime = (movie?.runtime && runtimeHours > 0 && runtimeMinutes > 0) || false
 
   if (!movie) return null
 
@@ -40,16 +44,16 @@ const Information = () => {
       <div className="flex items-center gap-2 text-lg text-white/80">
         <div className="text-green-500 font-semibold">{matchPercentage}% Match</div>
         {movie.release_date && <span>{movie.release_date.split('-')[0]}</span>}
-        {movie.runtime && (
+        {displayRuntime && (
           <span>
-            {Math.floor(movie.runtime / 60)}h {movie.runtime % 60}m
+            {runtimeHours}h {runtimeMinutes}m
           </span>
         )}
       </div>
       {certificate && <div className="border border-secondary px-2 py-1 w-fit text-sm">{certificate}</div>}
       {isTrending && (
-        <div className="flex items-center gap-2">
-          <TrendingBadge id={movie.id} />
+        <div className="flex items-center gap-2 w-fit">
+          <TrendingBadge id={movie.id} isNotAbsolute />
           <span className="text-2xl font-semibold tracking-wide">#{place} in Movies Today</span>
         </div>
       )}

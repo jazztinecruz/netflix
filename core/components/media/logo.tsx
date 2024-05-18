@@ -8,6 +8,8 @@ import get from '@/core/libraries'
 import { Image as LogoImage } from '@/core/types/data'
 import { IdProp } from '@/core/types/react'
 
+import NotAvailable from './not-available'
+
 const Logo = ({ id }: IdProp) => {
   const { data: logo, isFetching } = useQuery<LogoImage>({
     queryKey: [KEY.LOGO, id],
@@ -15,7 +17,8 @@ const Logo = ({ id }: IdProp) => {
     enabled: !!id,
   })
 
-  if (isFetching || !logo) return <div className="aspect-square w-full h-full bg-gray-500 animate-pulse rounded-md" />
+  if (isFetching) return <div className="aspect-square w-full h-full bg-gray-500 animate-pulse rounded-md" />
+  if (!logo) return <NotAvailable type="logo" />
 
   return (
     <Image

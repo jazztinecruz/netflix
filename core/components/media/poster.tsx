@@ -8,6 +8,8 @@ import get from '@/core/libraries'
 import { Image as PosterImage } from '@/core/types/data'
 import { IdProp } from '@/core/types/react'
 
+import NotAvailable from './not-available'
+
 const Poster = ({ id }: IdProp) => {
   const { data: poster, isFetching } = useQuery<PosterImage>({
     queryKey: [KEY.POSTER, id],
@@ -15,7 +17,8 @@ const Poster = ({ id }: IdProp) => {
     enabled: !!id,
   })
 
-  if (isFetching || !poster) return <div className="aspect-square w-full h-full bg-gray-500 animate-pulse rounded-md" />
+  if (isFetching) return <div className="aspect-square w-full h-full bg-gray-500 animate-pulse rounded-md" />
+  if (!poster) return <NotAvailable aspectRatio="square" type="poster" />
 
   return (
     <Image

@@ -8,6 +8,8 @@ import get from '@/core/libraries'
 import { Image as BackdropImage } from '@/core/types/data'
 import { IdProp } from '@/core/types/react'
 
+import NotAvailable from './not-available'
+
 const Backdrop = ({ id }: IdProp) => {
   const { data: backdrop, isFetching } = useQuery<BackdropImage>({
     queryKey: [KEY.BACKDROP, id],
@@ -15,7 +17,8 @@ const Backdrop = ({ id }: IdProp) => {
     enabled: !!id,
   })
 
-  if (isFetching || !backdrop) return <div className="aspect-video bg-gray-500 animate-pulse rounded-md" />
+  if (isFetching) return <div className="aspect-video bg-gray-500 animate-pulse rounded-md" />
+  if (!backdrop) return <NotAvailable type="backdrop" />
 
   return (
     <Image
