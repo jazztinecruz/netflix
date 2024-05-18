@@ -23,13 +23,13 @@ const Card = ({ movie }: Props) => {
 
   return (
     <>
-      <Link href={`?mid=${movie.id}`} key={movie.id} className="lg:hidden">
+      <Link href={`?mid=${movie.id}`} className="lg:hidden">
         <div className="w-full h-full">
           <Poster id={movie.id} />
         </div>
       </Link>
 
-      <Link href={`?mid=${movie.id}`} key={movie.id} className="hidden lg:block">
+      <Link href={`?mid=${movie.id}`} className="hidden lg:block">
         <li className="relative">
           <div className="relative aspect-video">
             <Backdrop id={movie.id} />

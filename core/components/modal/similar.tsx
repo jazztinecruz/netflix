@@ -20,7 +20,7 @@ const Similar = () => {
   })
 
   const { data: similar } = useQuery<Movie[]>({
-    queryKey: [KEY.SIMILAR, movie?.id],
+    queryKey: [KEY.SIMILAR, mid],
     queryFn: async () => await get.movies.similar({ id: movie?.id || mid }),
     enabled: !!mid,
   })

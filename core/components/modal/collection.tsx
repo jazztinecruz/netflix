@@ -23,7 +23,7 @@ const Collection = () => {
   const collectionId = movie?.belongs_to_collection?.id || ''
 
   const { data: collection } = useQuery({
-    queryKey: [KEY.COLLECTION, movie?.id],
+    queryKey: [KEY.COLLECTION, mid],
     queryFn: async () => await get.movies.collection({ id: collectionId }),
     enabled: !!collectionId,
   })
