@@ -2,13 +2,9 @@
 
 import { QueryClient, QueryClientProvider } from 'react-query'
 
-import { Children } from '../types/react'
+import { ChildrenProp } from '../types/react'
 
-type Props = {
-  children: Children
-}
-
-const Providers = ({ children }: Props) => {
+const Providers = ({ children }: ChildrenProp) => {
   const queryClient = new QueryClient()
 
   return (

@@ -3,6 +3,8 @@
 import { Inter } from 'next/font/google'
 import { useEffect } from 'react'
 
+import grabError from '@/core/libraries/error'
+
 import Navbar from './_components/navbar'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -10,6 +12,7 @@ const inter = Inter({ subsets: ['latin'] })
 const GlobalError = ({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) => {
   useEffect(() => {
     console.error(error)
+    grabError(error)
   }, [error])
 
   return (

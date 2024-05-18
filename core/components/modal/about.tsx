@@ -20,6 +20,7 @@ const About = () => {
   const { data: credits } = useQuery({
     queryKey: [KEY.CREDITS, movie?.id],
     queryFn: async () => await get.movie.credits({ id: movie?.id || mid }),
+    enabled: !!movie,
   })
 
   if (!movie) return null

@@ -15,18 +15,21 @@ import Symbol from '../../../../core/components/symbol'
 
 const Details = ({ id }: IdProp) => {
   const { data: movie } = useQuery<Movie>({
-    queryKey: [KEY.MOVIE, { id }],
+    queryKey: [KEY.MOVIE, id],
     queryFn: async () => await get.movie.details({ id }),
+    enabled: !!id,
   })
 
   const { data: logo } = useQuery<Logo>({
     queryKey: [KEY.LOGO, id],
     queryFn: async () => await get.movie.logo({ id }),
+    enabled: !!id,
   })
 
   const { data: certificate } = useQuery<String>({
     queryKey: [KEY.CERTIFICATE, id],
     queryFn: async () => await get.movie.certificate({ id }),
+    enabled: !!id,
   })
 
   if (!movie) return null
@@ -44,9 +47,11 @@ const Details = ({ id }: IdProp) => {
         <div className="border rounded-full w-fit p-2">
           <Symbol Icon={SpeakerXMarkIcon} />
         </div>
-        <div className="bg-black/30 border-l-2 w-24 lg:w-40 h-10 lg:h-12 pl-4 flex items-center text-sm lg:text-lg">
-          {certificate}
-        </div>
+        {certificate && (
+          <div className="bg-black/30 border-l-2 w-24 lg:w-40 h-10 lg:h-12 pl-4 flex items-center text-sm lg:text-lg">
+            {certificate}
+          </div>
+        )}
       </div>
     </div>
   )
@@ -55,6 +60,8 @@ const Details = ({ id }: IdProp) => {
 export default Details
 
 const MovieLogo = ({ movie, logo }: { movie: Movie; logo: Logo }) => {
+  if (!logo) return null
+
   return (
     <div className="flex flex-col gap-2">
       <div className="flex items-center -ml-2 lg:-ml-3">

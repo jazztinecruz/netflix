@@ -25,7 +25,7 @@ const Similar = () => {
     enabled: !!mid,
   })
 
-  if (!similar) return null
+  if (!similar || !similar.length) return null
 
   return (
     <Group>

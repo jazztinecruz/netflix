@@ -1,3 +1,4 @@
+import { IdProp } from '../types/react'
 import {
   getMovie,
   getPopular,
@@ -16,21 +17,21 @@ import {
 
 const get = {
   movie: {
-    details: ({ id }: { id: string }) => getMovie(id),
-    trailer: ({ id }: { id: string }) => getTrailer(id),
-    logo: ({ id }: { id: string }) => getLogo(id),
-    backdrop: ({ id }: { id: string }) => getBackdrop(id),
-    poster: ({ id }: { id: string }) => getPoster(id),
-    certificate: ({ id }: { id: string }) => getCertificate(id),
-    credits: ({ id }: { id: string }) => getCredits(id),
+    details: ({ id }: IdProp) => getMovie(id),
+    trailer: ({ id }: IdProp) => getTrailer(id),
+    logo: ({ id }: IdProp) => getLogo(id),
+    backdrop: ({ id }: IdProp) => getBackdrop(id),
+    poster: ({ id }: IdProp) => getPoster(id),
+    certificate: ({ id }: IdProp) => getCertificate(id),
+    credits: ({ id }: IdProp) => getCredits(id),
   },
   movies: {
     popular: () => getPopular(),
     upcoming: () => getUpcoming(),
     trending: () => getTrending(),
     discover: ({ genreId }: { genreId: string }) => getDiscover(String(genreId)),
-    similar: ({ id }: { id: string }) => getSimilar(id),
-    collection: ({ id }: { id: string }) => getCollection(id),
+    similar: ({ id }: IdProp) => getSimilar(id),
+    collection: ({ id }: IdProp) => getCollection(id),
   },
 }
 

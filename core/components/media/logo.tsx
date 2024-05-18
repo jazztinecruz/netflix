@@ -12,6 +12,7 @@ const Logo = ({ id }: IdProp) => {
   const { data: logo, isFetching } = useQuery<LogoImage>({
     queryKey: [KEY.LOGO, id],
     queryFn: async () => await get.movie.logo({ id }),
+    enabled: !!id,
   })
 
   if (isFetching || !logo) return <div className="aspect-square w-full h-full bg-gray-500 animate-pulse rounded-md" />

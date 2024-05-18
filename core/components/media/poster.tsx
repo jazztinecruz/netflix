@@ -12,6 +12,7 @@ const Poster = ({ id }: IdProp) => {
   const { data: poster, isFetching } = useQuery<PosterImage>({
     queryKey: [KEY.POSTER, id],
     queryFn: async () => await get.movie.poster({ id }),
+    enabled: !!id,
   })
 
   if (isFetching || !poster) return <div className="aspect-square w-full h-full bg-gray-500 animate-pulse rounded-md" />

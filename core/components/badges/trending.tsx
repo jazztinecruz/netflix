@@ -8,7 +8,7 @@ type Props = {
 }
 
 const TrendingBadge = ({ isDifferentShape = false, id }: Props) => {
-  const { isTrending } = isMovieTrending(id)
+  const { isTrending } = isMovieTrending({ id })
 
   if (!isTrending) return null
 

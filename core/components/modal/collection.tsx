@@ -25,6 +25,7 @@ const Collection = () => {
   const { data: collection } = useQuery({
     queryKey: [KEY.COLLECTION, movie?.id],
     queryFn: async () => await get.movies.collection({ id: collectionId }),
+    enabled: !!collectionId,
   })
 
   if (!collection || !collection.parts) return null

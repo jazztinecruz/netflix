@@ -16,6 +16,7 @@ const Card = ({ movie }: Props) => {
   const { data: certificate } = useQuery({
     queryKey: [KEY.CERTIFICATE, movie.id],
     queryFn: async () => await get.movie.certificate({ id: movie.id }),
+    enabled: !!movie.id,
   })
 
   const overview = movie.overview.split('.')[0]
@@ -38,7 +39,7 @@ const Card = ({ movie }: Props) => {
               {certificate && <div className="border border-secondary px-2 py-1 w-fit">{certificate}</div>}
               {movie.release_date && <span>{movie.release_date.split('-')[0]}</span>}
             </div>
-            <p>{overview.length > 140 ? overview.slice(0, 140) + '...' : overview}</p>
+            <p>{overview && overview.length > 140 ? overview.slice(0, 140) + '...' : overview}</p>
           </div>
         </li>
       </Link>

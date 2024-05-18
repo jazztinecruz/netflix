@@ -2,12 +2,27 @@ import { useEffect, useState } from 'react'
 
 import get from '.'
 import { Movie } from '../types/data'
+import { IdProp } from '../types/react'
+import grabError from './error'
 
-const isMovieTrending = (id: string): { isTrending: boolean; place: number } => {
+type TrendingResult = {
+  isTrending: boolean
+  place: number
+}
+
+const isMovieTrending = ({ id }: IdProp): TrendingResult => {
   const [trendingMovies, setTrendingMovies] = useState<Movie[]>([])
 
   useEffect(() => {
-    get.movies.trending().then(setTrendingMovies)
+    const getTrendingMovies = async () => {
+      try {
+        const movies = await get.movies.trending()
+        setTrendingMovies(movies)
+      } catch (error) {
+        return grabError(error)
+      }
+    }
+    getTrendingMovies()
   }, [])
 
   const place: number = trendingMovies.findIndex((movie: Movie) => movie.id === id)

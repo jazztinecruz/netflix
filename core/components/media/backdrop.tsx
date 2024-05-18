@@ -12,6 +12,7 @@ const Backdrop = ({ id }: IdProp) => {
   const { data: backdrop, isFetching } = useQuery<BackdropImage>({
     queryKey: [KEY.BACKDROP, id],
     queryFn: async () => await get.movie.backdrop({ id }),
+    enabled: !!id,
   })
 
   if (isFetching || !backdrop) return <div className="aspect-video bg-gray-500 animate-pulse rounded-md" />

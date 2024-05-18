@@ -1,6 +1,6 @@
-import grabError from './error'
+import axios from 'axios'
 
-const axios = require('axios')
+import grabError from './error'
 
 type Props = {
   url: string
@@ -9,10 +9,15 @@ type Props = {
 
 const api = async ({ url: getUrl, params }: Props) => {
   try {
-    const url = new URL(
-      `${process.env.NEXT_PUBLIC_API_BASE_URL}${getUrl}${params ? `&${new URLSearchParams(params)}` : ''}`,
-    )
+    const url = new URL(`${process.env.NEXT_PUBLIC_API_BASE_URL}${getUrl}`)
     url.searchParams.set('api_key', process.env.NEXT_PUBLIC_API_KEY!)
+
+    if (params) {
+      Object.keys(params).forEach((key) => {
+        url.searchParams.append(key, params[key])
+      })
+    }
+
     const options = { method: 'GET', headers: { accept: 'application/json' } }
     const response = await axios.get(url.toString(), options)
     const data = await response.data
@@ -21,7 +26,8 @@ const api = async ({ url: getUrl, params }: Props) => {
     return data
   } catch (error) {
     console.error(`Error fetching in ${getUrl}:`, error)
-    return grabError(error)
+    grabError(error)
+    throw error
   }
 }
 

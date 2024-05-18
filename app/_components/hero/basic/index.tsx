@@ -23,6 +23,7 @@ const MovieBasic = () => {
   const { data: movie } = useQuery<Movie>({
     queryKey: [KEY.MOVIE, displayedMovie?.id],
     queryFn: async () => await get.movie.details({ id: displayedMovie?.id || '' }),
+    enabled: !!displayedMovie,
   })
 
   if (!movie) return null

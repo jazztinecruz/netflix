@@ -23,6 +23,7 @@ const NavMenu = () => {
 
   return (
     <>
+      {/* smaller screen */}
       <section className="relative lg:hidden w-fit">
         <button onClick={() => setOpen(!open)} className="flex items-center gap-2">
           <span className="text-sm">Browse</span>
@@ -39,6 +40,8 @@ const NavMenu = () => {
           </button>
         )}
       </section>
+
+      {/* larger screen */}
       <section className="hidden lg:block">
         <ul className="flex items-center gap-4">{renderMenuItems()}</ul>
       </section>

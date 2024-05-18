@@ -30,7 +30,7 @@ const Information = () => {
     enabled: !!mid,
   })
 
-  const { isTrending, place } = isMovieTrending(movie?.id || mid)
+  const { isTrending, place } = isMovieTrending({ id: movie?.id || mid })
   const matchPercentage = Math.floor(Math.random() * (100 - 90 + 1) + 90)
 
   if (!movie) return null
@@ -49,7 +49,7 @@ const Information = () => {
       {certificate && <div className="border border-secondary px-2 py-1 w-fit text-sm">{certificate}</div>}
       {isTrending && (
         <div className="flex items-center gap-2">
-          <TrendingBadge />
+          <TrendingBadge id={movie.id} />
           <span className="text-2xl font-semibold tracking-wide">#{place} in Movies Today</span>
         </div>
       )}

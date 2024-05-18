@@ -1,17 +1,13 @@
-import { Children, SVG } from '@/core/types/react'
+import { Children, ChildrenProp, SVG } from '@/core/types/react'
 
 import Symbol from '../symbol'
-
-type Props = {
-  children: Children
-}
 
 type TitleProps = {
   Icon?: SVG
   children: Children
 }
 
-const Group = ({ children }: Props) => {
+const Group = ({ children }: ChildrenProp) => {
   return <div className="space-y-6">{children}</div>
 }
 
@@ -27,5 +23,4 @@ const Title = ({ children, Icon }: TitleProps) => {
 }
 
 Group.Title = Title
-
 export default Group

@@ -14,13 +14,14 @@ const VideoPlayer = ({ id }: IdProp) => {
   const { data: trailer, isFetching } = useQuery<Video>({
     queryKey: [KEY.TRAILER, id],
     queryFn: async () => await get.movie.trailer({ id }),
+    enabled: !!id,
   })
 
   if (!trailer)
     return (
       <div className="h-full w-full bg-gray-500 flex items-center justify-center gap-3">
         <Symbol Icon={NoSymbolIcon} />
-        <span className='text-lg'>Trailer Not Available</span>
+        <span className="text-lg">Trailer Not Available</span>
       </div>
     )
 
