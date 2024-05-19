@@ -7,9 +7,10 @@ import Providers from '@/core/contexts'
 import '@/core/styles/globals.css'
 import { ChildrenProp } from '@/core/types/react'
 
-import Navbar from './_components/navbar'
-
 const inter = Inter({ subsets: ['latin'] })
+
+export const dynamic = 'force-static'
+export const revalidate = 2592000
 
 export const metadata: Metadata = {
   title: 'Netflix Clone | @jazztinecruz',
