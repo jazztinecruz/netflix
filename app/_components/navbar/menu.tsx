@@ -77,5 +77,4 @@ type MenuItem = {
 const NAVMENUS: MenuItem[] = [
   { label: 'Home', url: '/' },
   { label: 'New & Popular', url: '/popular' },
-  { label: 'Browse by Languages', url: '#' },
 ]
