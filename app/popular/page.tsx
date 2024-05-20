@@ -15,7 +15,7 @@ const Popular: Page = () => {
       <Navbar />
       <div className="grid">
         <Hero />
-        <div className="space-y-10 md:space-y-12 lg:mt-[820px]">
+        <div className="space-y-10 md:space-y-12 lg:mt-[820px] z-50">
           <Suspense fallback={<Collection.Skeleton />}>
             <Collection>
               <Collection.Title>Popular Movies</Collection.Title>

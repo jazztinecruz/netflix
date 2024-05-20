@@ -32,8 +32,8 @@ const MovieExpanded = () => {
       <div className="absolute top-1/4 z-50 w-full">
         <Details id={movie.id} />
       </div>
-      <div className="bg-gradient-to-b from-transparent to-primary absolute inset-0 z-10" />
-      <div className="bg-gradient-to-b from-transparent to-primary absolute inset-0 z-10" />
+      <div className="bg-gradient-to-b from-transparent to-primary absolute inset-0" />
+      <div className="bg-gradient-to-b from-transparent to-primary absolute inset-0" />
     </div>
   )
 }
