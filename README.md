@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+# Netflix Clone Website
+
+This project is a fully typed responsive clone of the popular streaming service, Netflix. Users can browse trending, popular, and upcoming movies, play movie trailers, view detailed information about each movie, see similar movies, and check if a movie is in the top 10 trending list.
+
+## Description
+
+My Netflix clone is not just a simple replication of the original service, but a showcase of modern web development technologies. The project aims to demonstrate how these technologies can be used to build complex, high-quality, and user-friendly web applications. It includes features such as browsing and discovering new movies based on their popularity and trending status, playing movie trailers, viewing detailed information about each movie, seeing a list of similar movies, and checking if a movie is in the top 10 trending list. This is a fully typed website, showcasing the power and benefits of TypeScript in web development.
+
+## Technologies Used
+
+This project is built with the following technologies:
+
+- React.js
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Node.js
+- TMDB API (for fetching movie data)
+- Headless UI
 
 ## Getting Started
 
-First, run the development server:
+To get a local copy up and running, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ensure you have the following installed on your local machine:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Node.js
+- npm
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Installation
 
-## Learn More
+1. Clone the repo
 
-To learn more about Next.js, take a look at the following resources:
+2. Install NPM packages
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Start the development server
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Usage
+To use the Netflix Clone Website, simply navigate to the local host server (default is localhost:3000) in your browser after starting the development server.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Output
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<img width="1710" alt="Screenshot 2024-05-20 at 6 20 41 PM" src="https://github.com/jazztinecruz/netflix/assets/77049704/534b27b7-f3f0-4650-8083-995147f8553a">
+
+<img width="1710" alt="Screenshot 2024-05-20 at 6 17 19 PM" src="https://github.com/jazztinecruz/netflix/assets/77049704/387cdb94-1c4f-4d63-97fc-d3cbe8bb6197">
+<img width="1710" alt="Screenshot 2024-05-20 at 6 18 30 PM" src="https://github.com/jazztinecruz/netflix/assets/77049704/aeeedef9-85d3-4867-82a9-23257f1a9b6c">
+<img width="1710" alt="Screenshot 2024-05-20 at 6 19 25 PM" src="https://github.com/jazztinecruz/netflix/assets/77049704/5777e693-039e-44ca-ac95-f048db3b401a">
+
+Mobile
+
+<img width="574" alt="Screenshot 2024-05-20 at 6 23 02 PM" src="https://github.com/jazztinecruz/netflix/assets/77049704/3b1b1a38-bb6b-424a-b3c7-62e7759e235d">
+
+<img width="574" alt="Screenshot 2024-05-20 at 6 23 26 PM" src="https://github.com/jazztinecruz/netflix/assets/77049704/c0ba6cf8-fad9-4d48-b09f-bb1fb5f3f14c">
+
+
+
+
+
