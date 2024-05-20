@@ -12,12 +12,15 @@ My Netflix clone is not just a simple replication of the original service, but a
 This project is built with the following technologies:
 
 - React.js
-- Next.js
-- TypeScript
-- Tailwind CSS
+- Next.js (App Directory)
 - Node.js
-- TMDB API (for fetching movie data)
+- TypeScript
+- Axios
+- React Query
+- TMDB API
+- Tailwind CSS
 - Headless UI
+- HeroIcons
 
 ## Getting Started
 
