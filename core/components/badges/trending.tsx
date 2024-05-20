@@ -22,7 +22,7 @@ const TrendingBadge = ({ isDifferentShape = false, isNotAbsolute = false, id }: 
         <span className="text-base -mt-1.5">10</span>
       </div>
       {isDifferentShape && (
-        <div className="h-0 w-0 rotate-180 border-b-[6px] lg:border-b-[8px] border-r-[34.1px] border-b-red-600 border-r-transparent" />
+        <div className="h-0 w-full border-b-8 border-r-[34px] border-b-transparent border-r-red-600" />
       )}
     </div>
   )

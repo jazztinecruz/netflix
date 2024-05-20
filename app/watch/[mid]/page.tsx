@@ -36,7 +36,7 @@ const Watch = ({ params }: Props) => {
         allowFullScreen
       ></iframe>
       <button onClick={() => router.back()} className="absolute top-16 left-10 z-50">
-        <ArrowLeftIcon className="w-12 h-12" />
+        <ArrowLeftIcon className="w-8 h-8 lg:w-12 lg:h-12" />
       </button>
       <div className="bg-black absolute top-0 w-full z-10 h-16" />
     </div>

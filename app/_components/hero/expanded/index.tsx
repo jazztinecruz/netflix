@@ -27,14 +27,12 @@ const MovieExpanded = () => {
   if (!movie) return null
 
   return (
-    <div className="lg:h-screen relative h-96 lg:absolute lg:inset-0 lg:-z-10 overflow-hidden">
+    <div className="h-96 lg:h-screen relative overflow-hidden lg:absolute lg:inset-0">
       {!showVideo ? <Backdrop id={movie.id} /> : <VideoPlayer id={movie.id} />}
-      <div className="absolute inset-0 z-50">
-        <div className="relative h-full grid items-center">
-          <Details id={movie.id} />
-        </div>
+      <div className="absolute top-1/4 z-50 w-full">
+        <Details id={movie.id} />
       </div>
-      <div className="bg-gradient-to-b from-transparent to-primary absolute inset-0  z-10" />
+      <div className="bg-gradient-to-b from-transparent to-primary absolute inset-0 z-10" />
       <div className="bg-gradient-to-b from-transparent to-primary absolute inset-0 z-10" />
     </div>
   )

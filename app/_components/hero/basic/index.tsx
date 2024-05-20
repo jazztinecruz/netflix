@@ -3,6 +3,7 @@
 import { PlayIcon } from '@heroicons/react/16/solid'
 import { InformationCircleIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { useQuery } from 'react-query'
 
 import Logo from '@/core/components/media/logo'
@@ -60,14 +61,19 @@ const MovieBasic = () => {
 export default MovieBasic
 
 const Buttons = ({ movie }: { movie: Movie }) => {
+  const router = useRouter()
+
   return (
     <div className="grid grid-cols-2 items-center gap-3 w-full">
-      <button className="bg-white hover:bg-white/70  transition-all duration-300 px-3 lg:px-5 py-2 rounded-md flex items-center justify-center text-center gap-2 cursor-pointer">
+      <button
+        onClick={() => router.push(`/watch/${movie.id}`)}
+        className="bg-white hover:bg-white/70 transition-all duration-300 px-3 lg:px-5 py-2 rounded-md flex items-center justify-center text-center gap-2 cursor-pointer"
+      >
         <Symbol Icon={PlayIcon} color="black" />
         <span className="text-black font-semibold text-sm lg:text-lg">Play</span>
       </button>
       <Link href={`/?mid=${movie.id}`}>
-        <div className="bg-secondary/50 hover:bg-secondary/30  transition-all duration-300 px-3 lg:px-5 py-2 rounded-md flex items-center  justify-center text-center gap-2 cursor-pointer">
+        <div className="bg-secondary/50 hover:bg-secondary/30 transition-all duration-300 px-3 lg:px-5 py-2 rounded-md flex items-center  justify-center text-center gap-2 cursor-pointer">
           <Symbol Icon={InformationCircleIcon} />
           <span className="font-semibold text-sm lg:text-lg">More Info</span>
         </div>

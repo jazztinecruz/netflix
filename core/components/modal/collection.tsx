@@ -33,7 +33,7 @@ const Collection = () => {
   return (
     <Group>
       <Group.Title Icon={ViewColumnsIcon}>{collection?.name}</Group.Title>
-      <ul className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-3 gap-4">
+      <ul className="grid grid-cols-3 gap-4">
         {collection?.parts?.map((movie) => <Card key={movie.id} movie={movie} />)}
       </ul>
     </Group>

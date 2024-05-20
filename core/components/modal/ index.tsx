@@ -42,7 +42,7 @@ const MovieModal = () => {
               <VideoDetails id={mid} />
               <div className="bg-gradient-to-b from-transparent to-primary absolute inset-0" />
             </div>
-            <div className="p-10 lg:p-16 pt-4 lg:pt-4 space-y-12 grid">
+            <div className="p-6 md:p-10 lg:p-16 pt-4 lg:pt-4 space-y-12 grid">
               <Information />
               <Collection />
               <Similar />

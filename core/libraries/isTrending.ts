@@ -17,7 +17,8 @@ const isMovieTrending = ({ id }: IdProp): TrendingResult => {
     const getTrendingMovies = async () => {
       try {
         const movies = await get.movies.trending()
-        setTrendingMovies(movies)
+        const getTop10Movies = movies.slice(0, 10)
+        setTrendingMovies(getTop10Movies)
       } catch (error) {
         return grabError(error)
       }
