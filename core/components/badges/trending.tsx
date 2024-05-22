@@ -21,9 +21,6 @@ const TrendingBadge = ({ isDifferentShape = false, isNotAbsolute = false, id }: 
         <span className={`${isDifferentShape ? 'text-[9px]' : 'text-xs'}`}>TOP</span>
         <span className="text-base -mt-1.5">10</span>
       </div>
-      {isDifferentShape && (
-        <div className="h-0 w-full border-b-8 border-r-[34px] border-b-transparent border-r-red-600" />
-      )}
     </div>
   )
 }
