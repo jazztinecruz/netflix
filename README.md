@@ -5,7 +5,7 @@ This project is a fully typed responsive clone of the popular streaming service,
 
 ## Description
 
-My Netflix clone is not just a simple replication of the original service, but a showcase of modern web development technologies. The project aims to demonstrate how these technologies can be used to build complex, high-quality, and user-friendly web applications. It includes features such as browsing and discovering new movies based on their popularity and trending status, playing movie trailers, viewing detailed information about each movie, seeing a list of similar movies, and checking if a movie is in the top 10 trending list. This is a fully typed website, showcasing the power and benefits of TypeScript in web development.
+My Netflix clone is not just a simple replication of the original service, but a showcase of modern web development technologies. It includes features such as browsing and discovering new movies based on their popularity and trending status, playing movie trailers, viewing detailed information about each movie, seeing a list of similar movies, and checking if a movie is in the top 10 trending list. This is a fully typed website, showcasing the power and benefits of TypeScript in web development.
 
 ## Technologies Used
 
