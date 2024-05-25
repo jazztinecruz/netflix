@@ -41,7 +41,7 @@ const Information = () => {
 
   return (
     <div className="space-y-3">
-      <div className="flex items-center gap-2 text-lg text-white/80">
+      <div className="flex items-center gap-2 text-sm lg:text-base text-white/80">
         <div className="text-green-500 font-semibold">{matchPercentage}% Match</div>
         {movie.release_date && <span>{movie.release_date.split('-')[0]}</span>}
         {displayRuntime && (
@@ -54,7 +54,7 @@ const Information = () => {
       {isTrending && (
         <div className="flex items-center gap-2 w-fit">
           <TrendingBadge id={movie.id} isNotAbsolute />
-          <span className="text-2xl font-semibold tracking-wide">#{place} in Movies Today</span>
+          <span className="text-lg lg:text-2xl font-semibold tracking-wide">#{place} in Movies Today</span>
         </div>
       )}
       <div className="flex lg:items-center flex-col lg:flex-row lg:justify-between gap-4">
@@ -62,9 +62,9 @@ const Information = () => {
         <div className="flex flex-col gap-2 w-full max-w-xs">
           {credits && (
             <div className="flex flex-wrap gap-1">
-              <span className="text-sm text-secondary">Cast:</span>
+              <span className="text-secondary lg:text-sm">Cast:</span>
               {credits.slice(0, 4).map((credit) => (
-                <span key={credit.id} className="text-sm">
+                <span key={credit.id} className="lg:text-sm">
                   {credit.name},
                 </span>
               ))}
@@ -73,9 +73,9 @@ const Information = () => {
 
           {movie?.genres.length && (
             <div className="flex flex-wrap gap-1">
-              <span className="text-sm text-secondary">Genres:</span>
+              <span className="text-secondary lg:text-sm">Genres:</span>
               {movie?.genres?.map((genre) => (
-                <span key={genre.id} className="text-sm">
+                <span key={genre.id} className="lg:text-sm">
                   {genre.name},
                 </span>
               ))}

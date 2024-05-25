@@ -30,7 +30,7 @@ const Similar = () => {
   return (
     <Group>
       <Group.Title>More Like This</Group.Title>
-      <ul className="grid grid-cols-3 gap-4">{similar?.map((movie) => <Card key={movie.id} movie={movie} />)}</ul>
+      <Group.List>{similar?.map((movie) => <Card key={movie.id} movie={movie} />)}</Group.List>
     </Group>
   )
 }

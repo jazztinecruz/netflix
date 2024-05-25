@@ -30,9 +30,9 @@ const About = () => {
       <Group.Title>About {movie.title}</Group.Title>
       {credits && (
         <div className="flex flex-wrap gap-1">
-          <span className="text-sm text-secondary">Cast:</span>
+          <span className="lg:text-sm text-secondary">Cast:</span>
           {credits.map((credit) => (
-            <span key={credit.id} className="text-sm">
+            <span key={credit.id} className="lg:text-sm">
               {credit.name},
             </span>
           ))}
@@ -41,9 +41,9 @@ const About = () => {
 
       {movie.genres.length && (
         <div className="flex flex-wrap gap-1">
-          <span className="text-sm text-secondary">Genres:</span>
+          <span className="lg:text-sm text-secondary">Genres:</span>
           {movie?.genres?.map((genre) => (
-            <span key={genre.id} className="text-sm">
+            <span key={genre.id} className="lg:text-sm">
               {genre.name},
             </span>
           ))}

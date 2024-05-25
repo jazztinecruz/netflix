@@ -31,13 +31,13 @@ const VideoDetails = ({ id }: IdProp) => {
   if (!movie) return null
 
   return (
-    <div className="flex flex-col gap-4 absolute bottom-0 m-10 lg:m-16 z-10">
+    <div className="flex flex-col gap-4 absolute bottom-0 margin z-10">
       <div className="flex flex-col gap-2">
         <div className="flex items-center">
-          <div className="w-8 h-8 relative">
+          <div className="w-8 h-8 relative -ml-3">
             <Image src="/logo/n-symbol.png" alt={movie.title} fill sizes="w-auto h-auto" />
           </div>
-          <span className="tracking-wider font-semibold text-slate-300 text-lglg:text-xl">F I L M</span>
+          <span className="tracking-wider font-bold lg:text-xl">F I L M</span>
         </div>
         {logo && (
           <div className="w-64 h-auto relative">
