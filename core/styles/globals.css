@@ -4,6 +4,6 @@
 
 @layer base {
   .margin {
-    @apply ml-6 lg:ml-14;
+    @apply ml-4 lg:ml-14;
   }
 }
