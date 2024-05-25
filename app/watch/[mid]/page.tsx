@@ -4,6 +4,7 @@ import { ArrowLeftIcon } from '@heroicons/react/24/solid'
 import { useRouter } from 'next/navigation'
 import { useQuery } from 'react-query'
 
+import Symbol from '@/core/components/symbol'
 import { KEY } from '@/core/enums'
 import get from '@/core/libraries'
 import { Video } from '@/core/types/data'
@@ -35,8 +36,8 @@ const Watch = ({ params }: Props) => {
         className="h-full w-full"
         allowFullScreen
       ></iframe>
-      <button onClick={() => router.back()} className="absolute top-16 left-10 z-50">
-        <ArrowLeftIcon className="w-8 h-8 lg:w-12 lg:h-12" />
+      <button onClick={() => router.back()} className="absolute top-10 lg:top-16 left-4 lg:left-10 z-50">
+        <Symbol Icon={ArrowLeftIcon} />
       </button>
       <div className="bg-black absolute top-0 w-full z-10 h-16" />
     </div>

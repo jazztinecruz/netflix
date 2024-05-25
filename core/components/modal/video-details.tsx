@@ -31,7 +31,7 @@ const VideoDetails = ({ id }: IdProp) => {
   if (!movie) return null
 
   return (
-    <div className="flex flex-col gap-4 absolute bottom-0 p-6 z-10">
+    <div className="flex flex-col gap-4 absolute bottom-0 p-6 md:p-10 lg:p-16 z-10">
       <div className="flex flex-col gap-2">
         <div className="flex items-center">
           <div className="w-8 h-8 relative -ml-3">
@@ -40,7 +40,7 @@ const VideoDetails = ({ id }: IdProp) => {
           <span className="tracking-wider font-bold lg:text-xl">F I L M</span>
         </div>
         {logo && (
-          <div className="w-64 h-auto relative">
+          <div className="w-44 lg:w-64 h-auto relative">
             <Image
               src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${logo?.file_path}`}
               alt={movie?.title}
