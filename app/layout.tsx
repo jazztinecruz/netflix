@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: ChildrenProp) => {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-primary text-white text-xs md:text-base`}>
+      <body className={`${inter.className} bg-primary text-white text-xs md:text-sm`}>
         <main>
           <Providers>
             {children}

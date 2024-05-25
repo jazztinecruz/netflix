@@ -13,7 +13,7 @@ const Popular: Page = () => {
   return (
     <div className="grid grid-rows-[auto,1fr]">
       <Navbar />
-      <div className="grid">
+      <div className="lg:grid">
         <Hero />
         <div className="space-y-10 md:space-y-12 lg:mt-[820px] z-50">
           <Suspense fallback={<Collection.Skeleton />}>

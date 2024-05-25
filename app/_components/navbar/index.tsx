@@ -20,11 +20,11 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`px-4 lg:px-10 py-2 lg:py-4 flex items-center gap-2 lg:gap-6 sticky top-0 z-[999] ${
+      className={`px-4 lg:px-10 py-2 flex items-center gap-2 lg:gap-6 sticky top-0 z-[999] ${
         isScrolled ? 'bg-black' : 'bg-gradient-to-b from-black to-transparent'
       }`}
     >
-      <div className="hidden lg:block w-32 h-24 relative">
+      <div className="hidden lg:block w-32 h-20 relative">
         <Image src="/logo/netflix.png" alt="Netflix" fill sizes="w-auto h-auto" className="object-center" />
       </div>
       <div className="lg:hidden w-14 h-14 relative -ml-3">

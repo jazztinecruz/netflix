@@ -13,9 +13,9 @@ const Home: Page = () => {
   return (
     <div className="grid grid-rows-[auto,1fr]">
       <Navbar />
-      <div>
+      <div className="lg:grid">
         <Hero />
-        <div className="space-y-10 md:space-y-12 lg:mt-[820px] z-50">
+        <div className="space-y-10 md:space-y-12 mt-4 lg:mt-[820px] z-50">
           <Suspense fallback={<Collection.Skeleton />}>
             <Collection>
               <Collection.Title>{GENRE_NAME.Action}</Collection.Title>
