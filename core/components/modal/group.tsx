@@ -12,10 +12,10 @@ const Group = ({ children }: ChildrenProp) => {
 }
 
 const Title = ({ children, Icon }: TitleProps) => {
-  const titleStyle = 'text-lg lg:text-2xl font-semibold'
+  const titleStyle = '-mt-1 text-lg lg:text-2xl font-semibold'
   if (!Icon) return <h2 className={titleStyle}>{children}</h2>
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex gap-4">
       <Symbol Icon={Icon} color="white" />
       <h2 className={titleStyle}>{children}</h2>
     </div>
