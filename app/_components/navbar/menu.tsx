@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
@@ -12,6 +14,7 @@ const NavMenu = () => {
         return (
           <Link
             href={menu.url}
+            key={menu.label}
             className={`${isActive} py-3 hover:bg-white/10 lg:hover:bg-transparent border border-secondary lg:border-none rounded-full lg:rounded-none px-4 lg:px-0`}
           >
             {menu.label}
