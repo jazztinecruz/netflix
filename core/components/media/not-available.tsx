@@ -12,10 +12,10 @@ const NotAvailable = ({ aspectRatio = 'video', type = 'trailer' }: Props) => {
 
   return (
     <div
-      className={`h-full w-full bg-gray-500 flex flex-col lg:flex-row items-center justify-center gap-2 rounded-md text-center text-[10px] md:text-base opacity-75 aspect-${aspectRatio}`}
+      className={`h-full w-full bg-gray-500 flex flex-col lg:flex-row items-center justify-center gap-2 rounded-md text-center opacity-75 aspect-${aspectRatio}`}
     >
       <Symbol Icon={NoSymbolIcon} />
-      <span className="text-lg">{formattedType} Not Available</span>
+      <span>{formattedType} Not Available</span>
     </div>
   )
 }

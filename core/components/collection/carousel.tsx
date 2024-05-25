@@ -16,7 +16,6 @@ type Props = {
 
 const Carousel = ({ getMovies }: Props) => {
   const movies = use(getMovies())
-
   return (
     <>
       {/* smaller screen */}
@@ -24,7 +23,7 @@ const Carousel = ({ getMovies }: Props) => {
         <ul className="grid grid-flow-col gap-2 ">
           {movies.map((movie) => {
             return (
-              <Link key={movie.id} href={`?mid=${movie.id}`} className="w-32 md:w-36 aspect-square rounded-md relative">
+              <Link key={movie.id} href={`?mid=${movie.id}`} className="w-24 md:w-36 aspect-square rounded-md relative">
                 <Poster id={movie.id} />
                 <TrendingBadge isDifferentShape id={movie.id} />
               </Link>
