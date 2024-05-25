@@ -8,7 +8,7 @@ const Collection = ({ children }: ChildrenProp) => {
 }
 
 const Title = ({ children }: ChildrenProp) => {
-  return <h2 className="text-lg lg:text-2xl font-semibold margin">{children}</h2>
+  return <h2 className="text-lg lg:text-xl font-semibold margin">{children}</h2>
 }
 
 Collection.Carousel = Carousel

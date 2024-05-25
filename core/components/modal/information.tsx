@@ -54,7 +54,7 @@ const Information = () => {
       {isTrending && (
         <div className="flex items-center gap-2 w-fit">
           <TrendingBadge id={movie.id} isNotAbsolute />
-          <span className="text-lg lg:text-2xl font-semibold tracking-wide">#{place} in Movies Today</span>
+          <span className="text-lg lg:text-xl font-semibold tracking-wide">#{place} in Movies Today</span>
         </div>
       )}
       <div className="flex lg:items-center flex-col lg:flex-row lg:justify-between gap-4">
