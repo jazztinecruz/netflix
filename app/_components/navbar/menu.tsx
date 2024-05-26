@@ -4,10 +4,11 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 const NavMenu = () => {
+  const pathname = usePathname()
+
   return (
     <ul className="flex gap-2 lg:gap-4">
       {NAVMENUS.map((menu) => {
-        const pathname = usePathname()
         const isActive =
           pathname === menu.url ? 'font-bold bg-white/10 lg:bg-transparent text-white' : 'font-medium text-secondary'
 
