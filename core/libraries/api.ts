@@ -6,19 +6,19 @@ type Props = {
   url: string
 }
 
-const api = async ({ url }: Props) => {
+const api = async ({ url: getUrl }: Props) => {
   try {
     const requestUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/api/get-movies`
-    const { data } = await axios.post(
+    const response = await axios.post(
       requestUrl,
-      { url },
+      { url: getUrl },
       {
         headers: {
           'Content-Type': 'application/json',
         },
       },
     )
-    return data
+    return response.data
   } catch (error) {
     grabError(error)
   }
