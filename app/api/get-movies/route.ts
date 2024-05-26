@@ -3,17 +3,21 @@ import { NextRequest, NextResponse } from 'next/server'
 
 import grabError from '@/core/libraries/error'
 
+let count = 0
 export const POST = async (request: NextRequest) => {
+  console.log('Request count:', ++count)
   const body = await request.json()
-  const { getUrl } = body
+  const { url } = body
 
   try {
-    const url = new URL(`${process.env.API_BASE_URL}${getUrl}`)
-    url.searchParams.set('api_key', process.env.API_KEY!)
+    const requestUrl = new URL(`${process.env.API_BASE_URL}${url}`)
+    requestUrl.searchParams.set('api_key', process.env.API_KEY!)
 
     const options = { method: 'GET', headers: { accept: 'application/json' } }
-    const { data } = await axios.get(url.toString(), options)
+
+    const { data } = await axios.get(requestUrl.toString(), options)
     const movies = data?.results ? data.results : data
+
     return NextResponse.json(movies, { status: 200, statusText: 'Success' })
   } catch (error) {
     if (error instanceof Error) {

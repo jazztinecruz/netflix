@@ -1,9 +1,9 @@
 'use client'
 
 import Image from 'next/image'
-import { useQuery } from 'react-query'
 
 import { KEY } from '@/core/enums'
+import useCustomQuery from '@/core/hook/custom-query'
 import get from '@/core/libraries'
 import { Image as LogoImage } from '@/core/types/data'
 import { IdProp } from '@/core/types/react'
@@ -11,7 +11,7 @@ import { IdProp } from '@/core/types/react'
 import NotAvailable from './not-available'
 
 const Logo = ({ id }: IdProp) => {
-  const { data: logo, isFetching } = useQuery<LogoImage>({
+  const { data: logo, isFetching } = useCustomQuery<LogoImage>({
     queryKey: [KEY.LOGO, id],
     queryFn: async () => await get.movie.logo({ id }),
     enabled: !!id,

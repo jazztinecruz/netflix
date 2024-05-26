@@ -13,7 +13,9 @@ const Group = ({ children }: ChildrenProp) => {
 
 const Title = ({ children, Icon }: TitleProps) => {
   const titleStyle = '-mt-1 text-lg lg:text-xl font-semibold'
+
   if (!Icon) return <h2 className={titleStyle}>{children}</h2>
+
   return (
     <div className="flex gap-4">
       <Symbol Icon={Icon} color="white" />

@@ -1,9 +1,9 @@
 'use client'
 
 import { useSearchParams } from 'next/navigation'
-import { useQuery } from 'react-query'
 
 import { KEY } from '@/core/enums'
+import useCustomQuery from '@/core/hook/custom-query'
 import get from '@/core/libraries'
 import { Movie } from '@/core/types/data'
 
@@ -13,13 +13,13 @@ import Group from './group'
 const Similar = () => {
   const mid = useSearchParams().get('mid') || ''
 
-  const { data: movie } = useQuery({
+  const { data: movie } = useCustomQuery({
     queryKey: [KEY.MOVIE, mid],
     queryFn: async () => await get.movie.details({ id: mid }),
     enabled: !!mid,
   })
 
-  const { data: similar } = useQuery<Movie[]>({
+  const { data: similar } = useCustomQuery<Movie[]>({
     queryKey: [KEY.SIMILAR, mid],
     queryFn: async () => await get.movies.similar({ id: movie?.id || mid }),
     enabled: !!mid,

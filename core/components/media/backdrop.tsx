@@ -1,9 +1,9 @@
 'use client'
 
 import Image from 'next/image'
-import { useQuery } from 'react-query'
 
 import { KEY } from '@/core/enums'
+import useCustomQuery from '@/core/hook/custom-query'
 import get from '@/core/libraries'
 import { Image as BackdropImage } from '@/core/types/data'
 import { IdProp } from '@/core/types/react'
@@ -11,7 +11,7 @@ import { IdProp } from '@/core/types/react'
 import NotAvailable from './not-available'
 
 const Backdrop = ({ id }: IdProp) => {
-  const { data: backdrop, isFetching } = useQuery<BackdropImage>({
+  const { data: backdrop, isFetching } = useCustomQuery<BackdropImage>({
     queryKey: [KEY.BACKDROP, id],
     queryFn: async () => await get.movie.backdrop({ id }),
     enabled: !!id,

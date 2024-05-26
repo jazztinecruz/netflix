@@ -4,31 +4,14 @@ import { PlayIcon } from '@heroicons/react/16/solid'
 import { InformationCircleIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { useQuery } from 'react-query'
 
 import Logo from '@/core/components/media/logo'
 import Poster from '@/core/components/media/poster'
-import { KEY } from '@/core/enums'
-import get from '@/core/libraries'
-import { Movie } from '@/core/types/data'
+import { MovieProp } from '@/core/types/react'
 
 import Symbol from '../../../../core/components/symbol'
 
-const MovieBasic = () => {
-  const { data: movies } = useQuery<Movie[]>({
-    queryKey: [KEY.POPULAR],
-    queryFn: async () => await get.movies.popular(),
-  })
-  const displayedMovie = movies?.[1]
-
-  const { data: movie } = useQuery<Movie>({
-    queryKey: [KEY.MOVIE, displayedMovie?.id],
-    queryFn: async () => await get.movie.details({ id: displayedMovie?.id || '' }),
-    enabled: !!displayedMovie,
-  })
-
-  if (!movie) return null
-
+const MovieBasic = ({ movie }: MovieProp) => {
   return (
     <div className="relative border border-white/25 rounded-lg p-6 pt-0 flex flex-col items-center gap-4 h-96">
       <div className="h-full w-full absolute inset-0 -z-10 overflow-hidden rounded-lg">
@@ -60,7 +43,7 @@ const MovieBasic = () => {
 
 export default MovieBasic
 
-const Buttons = ({ movie }: { movie: Movie }) => {
+const Buttons = ({ movie }: MovieProp) => {
   const router = useRouter()
 
   return (

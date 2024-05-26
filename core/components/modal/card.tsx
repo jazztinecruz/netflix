@@ -1,9 +1,9 @@
 'use client'
 
 import Link from 'next/link'
-import { useQuery } from 'react-query'
 
 import { KEY } from '@/core/enums'
+import useCustomQuery from '@/core/hook/custom-query'
 import get from '@/core/libraries'
 import { Movie } from '@/core/types/data'
 
@@ -13,7 +13,7 @@ import Poster from '../media/poster'
 type Props = { movie: Movie }
 
 const Card = ({ movie }: Props) => {
-  const { data: certificate } = useQuery({
+  const { data: certificate } = useCustomQuery({
     queryKey: [KEY.CERTIFICATE, movie.id],
     queryFn: async () => await get.movie.certificate({ id: movie.id }),
     enabled: !!movie.id,

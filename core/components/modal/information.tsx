@@ -1,9 +1,9 @@
 'use client'
 
 import { useSearchParams } from 'next/navigation'
-import { useQuery } from 'react-query'
 
 import { KEY } from '@/core/enums'
+import useCustomQuery from '@/core/hook/custom-query'
 import get from '@/core/libraries'
 import isMovieTrending from '@/core/libraries/isTrending'
 
@@ -12,19 +12,19 @@ import TrendingBadge from '../badges/trending'
 const Information = () => {
   const mid = useSearchParams().get('mid') || ''
 
-  const { data: movie } = useQuery({
+  const { data: movie } = useCustomQuery({
     queryKey: [KEY.MOVIE, mid],
     queryFn: async () => await get.movie.details({ id: mid }),
     enabled: !!mid,
   })
 
-  const { data: certificate } = useQuery({
+  const { data: certificate } = useCustomQuery({
     queryKey: [KEY.CERTIFICATE, movie?.id],
     queryFn: async () => await get.movie.certificate({ id: movie?.id || mid }),
     enabled: !!mid,
   })
 
-  const { data: credits } = useQuery({
+  const { data: credits } = useCustomQuery({
     queryKey: [KEY.CREDITS, movie?.id],
     queryFn: async () => await get.movie.credits({ id: movie?.id || mid }),
     enabled: !!mid,

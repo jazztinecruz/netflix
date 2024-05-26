@@ -2,9 +2,9 @@ import { PlayIcon } from '@heroicons/react/16/solid'
 import { HandThumbUpIcon, PlusIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import { useQuery } from 'react-query'
 
 import { KEY } from '@/core/enums'
+import useCustomQuery from '@/core/hook/custom-query'
 import get from '@/core/libraries'
 import { Image as Logo, Movie } from '@/core/types/data'
 import { IdProp } from '@/core/types/react'
@@ -14,13 +14,13 @@ import Symbol from '../symbol'
 const VideoDetails = ({ id }: IdProp) => {
   if (!id) return null
 
-  const { data: movie } = useQuery<Movie>({
+  const { data: movie } = useCustomQuery<Movie>({
     queryKey: [KEY.MOVIE, id],
     queryFn: async () => await get.movie.details({ id }),
     enabled: !!id,
   })
 
-  const { data: logo } = useQuery<Logo>({
+  const { data: logo } = useCustomQuery<Logo>({
     queryKey: [KEY.LOGO, id],
     queryFn: async () => await get.movie.logo({ id }),
     enabled: !!id,
