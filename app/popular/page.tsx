@@ -10,10 +10,12 @@ import Hero from '../_components/hero'
 import Navbar from '../_components/navbar'
 
 const Popular: Page = () => {
-  const GENRES: { name: GENRE_NAME; id: GENRE_ID }[] = Object.keys(GENRE_NAME).map((key) => ({
-    name: GENRE_NAME[key as keyof typeof GENRE_NAME],
-    id: GENRE_ID[key as keyof typeof GENRE_ID],
-  }))
+  const GENRES: { name: GENRE_NAME; id: GENRE_ID }[] = Object.keys(GENRE_NAME)
+    .map((key) => ({
+      name: GENRE_NAME[key as keyof typeof GENRE_NAME],
+      id: GENRE_ID[key as keyof typeof GENRE_ID],
+    }))
+    .slice(0, 5)
 
   return (
     <div className="grid grid-rows-[auto,1fr]">
