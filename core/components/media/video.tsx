@@ -1,8 +1,7 @@
 'use client'
 
-import { useQuery } from 'react-query'
-
 import { KEY } from '@/core/enums'
+import useCustomQuery from '@/core/hook/custom-query'
 import get from '@/core/libraries'
 import { Video } from '@/core/types/data'
 import { IdProp } from '@/core/types/react'
@@ -10,7 +9,7 @@ import { IdProp } from '@/core/types/react'
 import NotAvailable from './not-available'
 
 const VideoPlayer = ({ id }: IdProp) => {
-  const { data: trailer, isFetching } = useQuery<Video>({
+  const { data: trailer, isFetching } = useCustomQuery<Video>({
     queryKey: [KEY.TRAILER, id],
     queryFn: async () => await get.movie.trailer({ id }),
     enabled: !!id,

@@ -5,35 +5,27 @@ import { InformationCircleIcon, SpeakerXMarkIcon } from '@heroicons/react/24/out
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { useQuery } from 'react-query'
 
 import { KEY } from '@/core/enums'
+import useCustomQuery from '@/core/hook/custom-query'
 import get from '@/core/libraries'
 import { Image as Logo, Movie } from '@/core/types/data'
-import { IdProp } from '@/core/types/react'
+import { MovieProp } from '@/core/types/react'
 
 import Symbol from '../../../../core/components/symbol'
 
-const Details = ({ id }: IdProp) => {
-  const { data: movie } = useQuery<Movie>({
-    queryKey: [KEY.MOVIE, id],
-    queryFn: async () => await get.movie.details({ id }),
-    enabled: !!id,
+const Details = ({ movie }: MovieProp) => {
+  const { data: logo } = useCustomQuery<Logo>({
+    queryKey: [KEY.LOGO, movie.id],
+    queryFn: async () => await get.movie.logo({ id: movie.id }),
+    enabled: !!movie.id,
   })
 
-  const { data: logo } = useQuery<Logo>({
-    queryKey: [KEY.LOGO, id],
-    queryFn: async () => await get.movie.logo({ id }),
-    enabled: !!id,
+  const { data: certificate } = useCustomQuery<String>({
+    queryKey: [KEY.CERTIFICATE, movie.id],
+    queryFn: async () => await get.movie.certificate({ id: movie.id }),
+    enabled: !!movie.id,
   })
-
-  const { data: certificate } = useQuery<String>({
-    queryKey: [KEY.CERTIFICATE, id],
-    queryFn: async () => await get.movie.certificate({ id }),
-    enabled: !!id,
-  })
-
-  if (!movie) return null
 
   return (
     <div className="margin w-full flex justify-between items-end">
