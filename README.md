@@ -19,6 +19,22 @@ This project is built with the following technologies:
 - Headless UI
 - HeroIcons
 
+
+## Output
+
+<img width="1710" alt="Screenshot 2024-05-20 at 6 20 41 PM" src="https://github.com/jazztinecruz/netflix/assets/77049704/534b27b7-f3f0-4650-8083-995147f8553a">
+
+<img width="1710" alt="Screenshot 2024-05-20 at 6 17 19 PM" src="https://github.com/jazztinecruz/netflix/assets/77049704/387cdb94-1c4f-4d63-97fc-d3cbe8bb6197">
+<img width="1710" alt="Screenshot 2024-05-20 at 6 18 30 PM" src="https://github.com/jazztinecruz/netflix/assets/77049704/aeeedef9-85d3-4867-82a9-23257f1a9b6c">
+<img width="1710" alt="Screenshot 2024-05-20 at 6 19 25 PM" src="https://github.com/jazztinecruz/netflix/assets/77049704/5777e693-039e-44ca-ac95-f048db3b401a">
+
+Mobile
+
+<img width="574" alt="Screenshot 2024-05-20 at 6 23 02 PM" src="https://github.com/jazztinecruz/netflix/assets/77049704/3b1b1a38-bb6b-424a-b3c7-62e7759e235d">
+
+<img width="574" alt="Screenshot 2024-05-20 at 6 23 26 PM" src="https://github.com/jazztinecruz/netflix/assets/77049704/c0ba6cf8-fad9-4d48-b09f-bb1fb5f3f14c">
+
+
 ## Getting Started
 
 To get a local copy up and running, follow these steps:
@@ -41,22 +57,5 @@ Ensure you have the following installed on your local machine:
 
 ## Usage
 To use the Netflix Clone Website, simply navigate to the local host server (default is localhost:3000) in your browser after starting the development server.
-
-## Output
-
-<img width="1710" alt="Screenshot 2024-05-20 at 6 20 41 PM" src="https://github.com/jazztinecruz/netflix/assets/77049704/534b27b7-f3f0-4650-8083-995147f8553a">
-
-<img width="1710" alt="Screenshot 2024-05-20 at 6 17 19 PM" src="https://github.com/jazztinecruz/netflix/assets/77049704/387cdb94-1c4f-4d63-97fc-d3cbe8bb6197">
-<img width="1710" alt="Screenshot 2024-05-20 at 6 18 30 PM" src="https://github.com/jazztinecruz/netflix/assets/77049704/aeeedef9-85d3-4867-82a9-23257f1a9b6c">
-<img width="1710" alt="Screenshot 2024-05-20 at 6 19 25 PM" src="https://github.com/jazztinecruz/netflix/assets/77049704/5777e693-039e-44ca-ac95-f048db3b401a">
-
-Mobile
-
-<img width="574" alt="Screenshot 2024-05-20 at 6 23 02 PM" src="https://github.com/jazztinecruz/netflix/assets/77049704/3b1b1a38-bb6b-424a-b3c7-62e7759e235d">
-
-<img width="574" alt="Screenshot 2024-05-20 at 6 23 26 PM" src="https://github.com/jazztinecruz/netflix/assets/77049704/c0ba6cf8-fad9-4d48-b09f-bb1fb5f3f14c">
-
-
-
 
 
