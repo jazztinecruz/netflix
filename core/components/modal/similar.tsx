@@ -41,9 +41,9 @@ const Similar = () => {
       <div className="relative grid">
         <button
           onClick={() => setExpand((prev) => !prev)}
-          className="grid z-10 place-items-center bg-secondary/10 border border-secondary rounded-full p-1.5 mx-auto hover:border-white"
+          className="grid z-10 place-items-center bg-secondary/25 border border-secondary rounded-full p-1.5 mx-auto hover:border-white"
         >
-          <Symbol Icon={expand ? ChevronDownIcon : ChevronUpIcon} />
+          <Symbol Icon={!expand ? ChevronDownIcon : ChevronUpIcon} />
         </button>
         <div className="border w-full absolute inset-y-2/4 translate-y-2/4 border-secondary" />
       </div>
