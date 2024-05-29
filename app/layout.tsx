@@ -9,7 +9,7 @@ import { ChildrenProp } from '@/core/types/react'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const dynamic = 'force-static'
+export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Netflix Clone | @jazztinecruz',
