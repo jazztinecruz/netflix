@@ -28,11 +28,11 @@ This project is built with the following technologies:
 <img width="1710" alt="Screenshot 2024-05-20 at 6 18 30 PM" src="https://github.com/jazztinecruz/netflix/assets/77049704/aeeedef9-85d3-4867-82a9-23257f1a9b6c">
 <img width="1710" alt="Screenshot 2024-05-20 at 6 19 25 PM" src="https://github.com/jazztinecruz/netflix/assets/77049704/5777e693-039e-44ca-ac95-f048db3b401a">
 
-Mobile
+## Mobile
 
-<img width="574" alt="Screenshot 2024-05-20 at 6 23 02 PM" src="https://github.com/jazztinecruz/netflix/assets/77049704/3b1b1a38-bb6b-424a-b3c7-62e7759e235d">
+<img width="267" alt="Screenshot 2024-05-29 at 7 58 27 PM" src="https://github.com/jazztinecruz/netflix/assets/77049704/1ce46710-2446-47c6-a7e5-971b9e9c4ec9">
 
-<img width="574" alt="Screenshot 2024-05-20 at 6 23 26 PM" src="https://github.com/jazztinecruz/netflix/assets/77049704/c0ba6cf8-fad9-4d48-b09f-bb1fb5f3f14c">
+<img width="267" alt="Screenshot 2024-05-29 at 7 57 52 PM" src="https://github.com/jazztinecruz/netflix/assets/77049704/721313fb-bf28-4c48-95aa-cb1fe63f749c">
 
 
 ## Getting Started
