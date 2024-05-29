@@ -1,7 +1,7 @@
 
 # Netflix Clone Website
 
-This project is a fully typed responsive clone of the popular streaming service, Netflix. Users can browse trending, popular, and upcoming movies, play movie trailers, view detailed information about each movie, see similar movies, and check if a movie is in the top 10 trending list. My Netflix clone is not just a simple replication of the original service, but a showcase of modern web development technologies.
+This project is a fully typed responsive clone of the popular streaming service, Netflix. Users can browse trending, popular, and upcoming movies, play movie trailers, view detailed information about each movie, see similar movies, and check if a movie is in the top 10 trending list. My Netflix clone objective is to showcase how I used the modern web development technologies.
 
 
 ## Technologies Used
