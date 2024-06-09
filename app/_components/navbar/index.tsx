@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { useState, useEffect } from 'react'
 
 import NavMenu from './menu'
@@ -31,6 +32,11 @@ const Navbar = () => {
         <Image src="/logo/n-symbol.png" alt="Netflix" fill sizes="w-auto h-auto" className="object-center" />
       </div>
       <NavMenu />
+      <Link href="/signin" className="ml-auto">
+        <button className="bg-red-600 text-white rounded py-2 px-3 font-semibold text-sm hover:scale-105 transition-all duration-300">
+          Sign In
+        </button>
+      </Link>
     </nav>
   )
 }
