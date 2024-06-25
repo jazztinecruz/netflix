@@ -4,6 +4,7 @@ import { Checkbox, Input } from '@headlessui/react'
 import { CheckIcon } from '@heroicons/react/16/solid'
 import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
 import { SignInFields, SignInSchema } from './schema'
@@ -12,11 +13,14 @@ const Form = () => {
   const { register, handleSubmit, formState, setValue, watch } = useForm<SignInFields>({
     resolver: zodResolver(SignInSchema),
   })
-  const { errors, isSubmitting } = formState
+  const { errors, isSubmitting, isValid } = formState
+  const router = useRouter()
 
-  const onSubmit: SubmitHandler<SignInFields> = async (data) => {
+  const onSubmit: SubmitHandler<SignInFields> = async () => {
     await new Promise((resolve) => setTimeout(resolve, 2000))
-    console.log(data)
+    if (isValid) {
+      router.push('/')
+    }
   }
 
   const fieldStyle =
@@ -61,13 +65,6 @@ const Form = () => {
           <CheckIcon className="hidden size-3.5 fill-black group-data-[checked]:block" />
         </Checkbox>
         <span>Remember Me</span>
-      </div>
-      {/* signup */}
-      <div className="flex items-center gap-2 text-sm text-[#FFFFFFB3]">
-        <span>New to Netflix?</span>
-        <Link href="/signup" className="text-white font-medium">
-          Sign Up now
-        </Link>
       </div>
       {/* reCaPTCHA */}
       <span className="text-[#FFFFFFB3] text-xs">
